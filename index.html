@@ -27,6 +27,10 @@ h1{font-size:clamp(28px,4.4vw,42px);line-height:1.12;font-weight:600;letter-spac
 .card a.go{margin-top:16px;display:block;text-align:center;padding:11px 14px;border:1.5px solid var(--acc);color:var(--acc);
   border-radius:8px;text-decoration:none;font-size:14px;font-weight:600}
 .card a.go:hover{background:var(--acc);color:#0E0F0D}
+.card a.dl{margin-top:8px;display:flex;align-items:center;justify-content:center;gap:7px;padding:9px 14px;border:1px solid var(--line);
+  color:var(--fg3);border-radius:8px;text-decoration:none;font-size:12.5px;font-family:var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.card a.dl:hover{color:var(--fg2);border-color:var(--fg3)}
+.card a.dl span{opacity:.6;text-transform:none;letter-spacing:0}
 section{padding:52px 0;border-top:1px solid var(--line)}
 h2{font-size:22px;font-weight:600;letter-spacing:-.01em;margin:12px 0 18px}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
@@ -61,6 +65,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
       <div><span>CTA</span><b>waitlist</b></div>
     </div>
     <a class="go" href="pages/meridian.html">Open page →</a>
+    <a class="dl" href="downloads/meridian.zip" download>↓ Download <span>144 KB</span></a>
   </div>
 
   <div class="card" style="--acc:#B08D57">
@@ -73,6 +78,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
       <div><span>CTA</span><b>invitation</b></div>
     </div>
     <a class="go" href="pages/keeper.html">Open page →</a>
+    <a class="dl" href="downloads/keeper.zip" download>↓ Download <span>143 KB</span></a>
   </div>
 
   <div class="card" style="--acc:#B4553A">
@@ -85,6 +91,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
       <div><span>CTA</span><b>assessment</b></div>
     </div>
     <a class="go" href="pages/reserve.html">Open page →</a>
+    <a class="dl" href="downloads/reserve.zip" download>↓ Download <span>146 KB</span></a>
   </div>
 
   <div class="card" style="--acc:#8CBACB">
@@ -97,6 +104,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
       <div><span>CTA</span><b>intro call</b></div>
     </div>
     <a class="go" href="pages/anchor.html">Open page →</a>
+    <a class="dl" href="downloads/anchor.zip" download>↓ Download <span>144 KB</span></a>
   </div>
 
 </div>
@@ -134,6 +142,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
     <li>Pages are static and self-contained apart from Google Fonts. No build step, no bundler, no framework.</li>
     <li>Paths are relative: pages live in <code>/pages</code> and reach <code>../legal/</code> and <code>../prototypes/</code>. Keeping that layout is the only deployment requirement.</li>
   </ol>
+  <p style="font-size:14.5px;color:var(--fg2);margin-top:18px">Each download holds one brand only — the page, the privacy policy and the prototype it embeds, in the folder layout the page expects. Unzip and open <code>pages/&lt;brand&gt;.html</code>; nothing else is required.</p>
   <div class="links">
     <a href="legal/privacy.html">Privacy policy (EN / UK) →</a>
     <a href="prototypes/meridian-prototype.html">Prototype, standalone →</a>
