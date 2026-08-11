@@ -397,7 +397,7 @@ footer a{color:var(--ink2)}
 
     <div style="margin-top:34px">
       <div class="mono" data-t="wtp_k">If this were a product — which would you take?</div>
-      <p class="sub" style="font-size:15px" data-t="wtp_sub">Nothing is charged. It tells us what to build first.</p>
+      <p class="sub" style="font-size:15px" data-t="wtp_sub">Nothing is charged and answering is optional. It tells us what to build first.</p>
       <div class="tiers">
         <div class="tier"><div class="nm" data-t="t1">Core</div><div class="pr" data-t="p1">$9</div><div class="per" data-t="per">per month</div><ul><li data-t="t1f1">Daily reserve check</li><li data-t="t1f2">One action a day</li><li data-t="t1f3">Weekly summary</li></ul><button data-tier="Core" type="button" data-t="choose">Choose</button></div>
         <div class="tier"><div class="nm" data-t="t2">Plus</div><div class="pr" data-t="p2">$19</div><div class="per" data-t="per">per month</div><ul><li data-t="t2f1">Wearable + Apple Health</li><li data-t="t2f2">Weekly deep review</li><li data-t="t2f3">Month-by-month history</li></ul><button data-tier="Plus" type="button" data-t="choose">Choose</button></div>
@@ -408,7 +408,7 @@ footer a{color:var(--ink2)}
     <div class="step" id="stepCall">
       <div class="callbox">
         <div>
-          <div class="mono" data-t="noted">Noted — nothing charged</div>
+          <div class="mono" data-t="noted">No card, nothing charged</div>
           <div style="font-size:17px;font-weight:500;margin-top:8px" data-t="call_h">Want to shape what we build?</div>
           <div style="font-size:14px;color:var(--ink2);margin-top:4px" data-t="call_p">15 minutes with the team.</div>
         </div>
@@ -527,12 +527,12 @@ var T = {
   res_low:"You're running at a deficit. A weekend no longer restores this level — you need one systemic change, not rest \"at some point\".",
   res_mid:"There's still reserve, but you're spending it faster than you replace it. This is the moment when one change is cheap.",
   res_hi:"Workable level. The thing to protect is what's already working, for when the load goes up.",
-  wtp_k:"If this were a product — which would you take?", wtp_sub:"Nothing is charged. It tells us what to build first.",
+  wtp_k:"If this were a product — which would you take?", wtp_sub:"Nothing is charged and answering is optional. It tells us what to build first.",
   t1:"Core", p1:"$9", t1f1:"Daily reserve check", t1f2:"One action a day", t1f3:"Weekly summary",
   t2:"Plus", p2:"$19", t2f1:"Wearable + Apple Health", t2f2:"Weekly deep review", t2f3:"Month-by-month history",
   t3:"Concierge", p3:"$49", t3f1:"Video reviews", t3f2:"Priority coaching", t3f3:"Quarterly plan",
   per:"per month", choose:"Choose",
-  noted:"Noted — nothing charged", call_h:"Want to shape what we build?", call_p:"15 minutes with the team.", call_cta:"Pick a time",
+  noted:"No card, nothing charged", call_h:"Want to shape what we build?", call_p:"15 minutes with the team.", call_cta:"Pick a time",
   foot1:"Reserve · a HumanistAI concept · early access",
   foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a> · Not a medical device. Not therapy.',
   ph_res:"Reserve", ph_date:"TUE 4 AUG", ph_today:"Today",
@@ -594,12 +594,12 @@ var T = {
   res_low:"Ти працюєш у мінус. За вихідні такий рівень уже не відновлюється — потрібна одна системна зміна, а не відпочинок «колись».",
   res_mid:"Запас ще є, але витрачається швидше, ніж поповнюється. Це той момент, коли одна зміна коштує дешево.",
   res_hi:"Рівень робочий. Головне — не втратити те, що вже працює, коли навантаження зросте.",
-  wtp_k:"Якби це був продукт — що б ти обрав?", wtp_sub:"Нічого не списуємо. Це підкаже нам, що робити першим.",
+  wtp_k:"Якби це був продукт — що б ти обрав?", wtp_sub:"Нічого не списуємо, відповідати не обовʼязково. Це підкаже нам, що робити першим.",
   t1:"Базовий", p1:"299₴", t1f1:"Щоденний чек запасу", t1f2:"Одна дія на день", t1f3:"Тижневий підсумок",
   t2:"Плюс", p2:"599₴", t2f1:"Годинник + Apple Health", t2f2:"Розбір раз на тиждень", t2f3:"Історія по місяцях",
   t3:"Консьєрж", p3:"1490₴", t3f1:"Відео-розбори", t3f2:"Пріоритетний коучинг", t3f3:"План на квартал",
   per:"на місяць", choose:"Обрати",
-  noted:"Записано — нічого не списуємо", call_h:"Хочеш вплинути на те, що ми зробимо?", call_p:"15 хвилин з командою.", call_cta:"Обрати час",
+  noted:"Без картки, нічого не списуємо", call_h:"Хочеш вплинути на те, що ми зробимо?", call_p:"15 хвилин з командою.", call_cta:"Обрати час",
   foot1:"Reserve · концепт HumanistAI · ранній доступ",
   foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Приватність і дані</a> · Не медичний виріб. Не терапія.',
   ph_res:"Запас", ph_date:"ВТ 4 СЕР", ph_today:"Сьогодні",
@@ -699,7 +699,7 @@ var T = {
     for(var i=0;i<20;i++){var pct=(i+1)*5;var cls=pct<=scored?(scored<45?'d':(scored<70?'w':'f')):'';html+='<i class="'+cls+'"></i>';}
     bar.innerHTML=html;
     paintResult();
-    var r=document.getElementById('stepResult'); r.classList.add('on'); r.scrollIntoView({behavior:'smooth'});
+    var r=document.getElementById('stepResult'); r.classList.add('on'); var cc=document.getElementById('stepCall'); if(cc)cc.classList.add('on'); r.scrollIntoView({behavior:'smooth'});
   });
 
   document.querySelectorAll('.tier button').forEach(function(b){b.addEventListener('click',function(){

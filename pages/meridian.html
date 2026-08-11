@@ -365,7 +365,7 @@ footer a{color:var(--fg2)}
   <div class="step" id="stepPrice" style="margin-top:52px">
     <div class="mono"><span data-t="queue">You're on the list · #</span><span id="qpos">248</span></div>
     <h2 style="margin-top:10px" data-t="price_h">Which plan would you take?</h2>
-    <p class="sub" style="margin:12px auto 0" data-t="price_sub">Nothing is charged. This tells us what to build first.</p>
+    <p class="sub" style="margin:12px auto 0" data-t="price_sub">Nothing is charged and answering is optional. It tells us what to build first.</p>
     <div class="tiers" style="text-align:left">
       <div class="tier"><div class="nm" data-t="t1">CORE</div><div class="pr" data-t="p1">$19</div><div class="per" data-t="per">per month</div><ul><li data-t="t1f1">Daily state read</li><li data-t="t1f2">One move a day</li><li data-t="t1f3">Manual check-in</li></ul><button data-tier="Core" data-t="choose1">Choose Core</button></div>
       <div class="tier mid"><div class="nm" data-t="t2">PLUS</div><div class="pr" data-t="p2">$39</div><div class="per" data-t="per">per month</div><ul><li data-t="t2f1">Wearable + Apple Health</li><li data-t="t2f2">Weekly deep review</li><li data-t="t2f3">Trend proof view</li></ul><button data-tier="Plus" data-t="choose2">Choose Plus</button></div>
@@ -375,7 +375,7 @@ footer a{color:var(--fg2)}
 
   <div class="step" id="stepCall">
     <div class="confirm">
-      <div class="mono" data-t="noted">Noted — nothing charged</div>
+      <div class="mono" data-t="noted">No card, nothing charged</div>
       <h3 data-t="call_h">Want to shape it? 15 minutes with the team.</h3>
       <a href="#" id="bookBtn" data-t="call_cta">Book a slot</a>
     </div>
@@ -471,11 +471,11 @@ var T = {
   ph_voice:"VOICE", ph_vlisten:"LISTENING", ph_vsaid:"“You’ve had this exact week before. Let’s not run it the same way.”", ph_vmeta:"TRANSCRIBED TO YOUR LOG", ph_vpause:"PAUSE", ph_vkb:"KEYBOARD", ph_vend:"END",
   join_h:"Get measured before the cohort fills.", join_sub:"First cohort onboards this autumn. Waitlist first, invitations in order.",
   join_fine:"By joining you agree we may email you about the beta. Meridian reads health-adjacent data — you can delete it at any time.",
-  queue:"You're on the list · #", price_h:"Which plan would you take?", price_sub:"Nothing is charged. This tells us what to build first.",
+  queue:"You're on the list · #", price_h:"Which plan would you take?", price_sub:"Nothing is charged and answering is optional. It tells us what to build first.",
   t1:"CORE", p1:"$19", t1f1:"Daily state read", t1f2:"One move a day", t1f3:"Manual check-in", choose1:"Choose Core",
   t2:"PLUS", p2:"$39", t2f1:"Wearable + Apple Health", t2f2:"Weekly deep review", t2f3:"Trend proof view", choose2:"Choose Plus",
   t3:"CONCIERGE", p3:"$99", t3f1:"Video sessions", t3f2:"Priority coaching", t3f3:"Quarterly protocol", choose3:"Choose Concierge",
-  per:"per month", noted:"Noted — nothing charged", call_h:"Want to shape it? 15 minutes with the team.", call_cta:"Book a slot",
+  per:"per month", noted:"No card, nothing charged", call_h:"Want to shape it? 15 minutes with the team.", call_cta:"Book a slot",
   foot1:"Meridian · a HumanistAI concept · early access",
   foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a> · Not a medical device. Not therapy.',
   ph_date1:"TUE 4 AUG", ph_readiness:"Readiness", ph_baseline:"vs 14-day baseline",
@@ -517,11 +517,11 @@ var T = {
   ph_voice:"ГОЛОС", ph_vlisten:"СЛУХАЮ", ph_vsaid:"«У тебе вже був такий тиждень. Давай не проживати його так само.»", ph_vmeta:"ЗБЕРІГАЄТЬСЯ У ТВІЙ ЖУРНАЛ", ph_vpause:"ПАУЗА", ph_vkb:"ТЕКСТ", ph_vend:"ЗАВЕРШИТИ",
   join_h:"Виміряйся, поки група не заповнилась.", join_sub:"Першу групу беремо цієї осені. Спершу список, запрошення — за чергою.",
   join_fine:"Приєднуючись, ти погоджуєшся отримати лист про бету. Meridian працює з даними про здоровʼя — їх можна видалити будь-коли.",
-  queue:"Ти у списку · №", price_h:"Який план ти б обрав?", price_sub:"Нічого не списуємо. Це підкаже нам, що робити першим.",
+  queue:"Ти у списку · №", price_h:"Який план ти б обрав?", price_sub:"Нічого не списуємо, відповідати не обовʼязково. Це підкаже нам, що робити першим.",
   t1:"БАЗОВИЙ", p1:"$19", t1f1:"Щоденний зріз стану", t1f2:"Одна дія на день", t1f3:"Ручний чек-ап", choose1:"Обрати базовий",
   t2:"ПЛЮС", p2:"$39", t2f1:"Годинник + Apple Health", t2f2:"Розбір раз на тиждень", t2f3:"Графік доказів", choose2:"Обрати плюс",
   t3:"КОНСЬЄРЖ", p3:"$99", t3f1:"Відео-сесії", t3f2:"Пріоритетний коучинг", t3f3:"План на квартал", choose3:"Обрати консьєрж",
-  per:"на місяць", noted:"Записано — нічого не списуємо", call_h:"Хочеш вплинути на продукт? 15 хвилин з командою.", call_cta:"Обрати час",
+  per:"на місяць", noted:"Без картки, нічого не списуємо", call_h:"Хочеш вплинути на продукт? 15 хвилин з командою.", call_cta:"Обрати час",
   foot1:"Meridian · концепт HumanistAI · ранній доступ",
   foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Приватність і дані</a> · Не медичний виріб. Не терапія.',
   ph_date1:"ВТ 4 СЕР", ph_readiness:"Готовність", ph_baseline:"проти 14-денної норми",
@@ -591,7 +591,7 @@ var T = {
     e.preventDefault(); email=input.value; track('lead_submit',{submitted:1});
     if(C.FORMSPREE.indexOf('REPLACE')<0){fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(Object.assign({email:email,page:C.PAGE,brand:C.BRAND,cta:C.CTA_TYPE,lang:LANG},utm))}).catch(function(){});}
     document.getElementById('qpos').textContent=200+Math.floor(Math.random()*90);
-    var p=document.getElementById('stepPrice');p.classList.add('on');p.scrollIntoView({behavior:'smooth'});
+    var p=document.getElementById('stepPrice');p.classList.add('on');var cc=document.getElementById('stepCall');if(cc)cc.classList.add('on');p.scrollIntoView({behavior:'smooth'});
   }
   document.getElementById('leadForm').addEventListener('submit',function(e){submitLead(e,document.getElementById('email'))});
   document.getElementById('leadForm2').addEventListener('submit',function(e){submitLead(e,document.getElementById('email2'))});
