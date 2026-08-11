@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserve — how much have you got left?</title>
+<meta name="description" content="Reserve counts your daily resource and shows how much is left before you break. One action a day. Not therapy.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+window.LP_CONFIG = {
+  BRAND:"Reserve", PAGE:"A-A_reserve_burnout", ICP:"achiever", ANGLE:"burnout", CTA_TYPE:"assessment",
+  FORMSPREE:"https://formspree.io/f/REPLACE_ME",
+  CALENDLY:"https://calendly.com/REPLACE_ME/15min",
+  GA_ID:"", FB_PIXEL:""
+};
+</script>
+<style>
+:root{
+  --paper:#F6F5F1; --paper2:#EDEBE4; --card:#FFFFFF;
+  --ink:#23261F; --ink2:#565A50; --ink3:#8D9186;
+  --rule:#23261F; --hair:rgba(35,38,31,.16);
+  --green:#2E5A3E; --ochre:#C08A2E; --clay:#B4553A;
+  --sans:"IBM Plex Sans",-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;font-weight:300}
+.wrap{max-width:1080px;margin:0 auto;padding:0 30px}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3)}
+
+.mast{border-bottom:1px solid var(--rule)}
+.mast .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;height:58px}
+.logo{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-weight:600;font-size:15px;letter-spacing:.2em}
+.idx{display:flex;gap:22px;justify-content:center}
+.idx a{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2);text-decoration:none}
+.mright{display:flex;align-items:center;gap:14px}
+.lang{display:flex;border:1px solid var(--rule)}
+.langbtn{background:transparent;border:none;color:var(--ink2);font-family:var(--mono);font-size:10px;letter-spacing:.12em;padding:6px 9px;cursor:pointer}
+.langbtn.on{background:var(--ink);color:var(--paper)}
+.mast .date{font-family:var(--mono);font-size:10.5px;color:var(--ink3);letter-spacing:.08em}
+
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:0;border-bottom:1px solid var(--rule)}
+.hero .l{padding:52px 40px 46px 0;border-right:1px solid var(--hair)}
+.hero .r{padding:52px 0 46px 40px;display:flex;flex-direction:column;justify-content:space-between}
+h1{font-size:clamp(36px,5vw,58px);line-height:1.0;letter-spacing:-.035em;font-weight:400}
+h1 b{font-weight:600;color:var(--clay)}
+.hero .lede{font-size:16.5px;color:var(--ink2);max-width:42ch;margin-top:22px}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair);margin-top:32px}
+.figs div{padding:16px 14px 0 0}
+.figs .n{font-family:var(--mono);font-size:26px;font-weight:500;letter-spacing:-.02em}
+.figs .k{font-size:12px;color:var(--ink3);margin-top:2px;line-height:1.35}
+
+.gauge{border:1px solid var(--rule);background:var(--card);padding:22px}
+.gauge .hd{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.gauge .val{font-family:var(--mono);font-size:44px;font-weight:500;letter-spacing:-.03em;line-height:1}
+.gauge .val i{font-style:normal;font-size:15px;color:var(--ink3)}
+.bar{height:26px;display:flex;gap:2px;margin-top:18px}
+.bar i{flex:1;display:block;background:var(--paper2)}
+.bar i.f{background:var(--green)}
+.bar i.w{background:var(--ochre)}
+.bar i.d{background:var(--clay)}
+.scale-l{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--ink3);margin-top:7px;letter-spacing:.08em}
+.gauge p{font-size:13px;color:var(--ink2);margin-top:16px;border-top:1px solid var(--hair);padding-top:14px}
+
+section{padding:64px 0;border-bottom:1px solid var(--hair)}
+h2{font-size:clamp(24px,3.2vw,36px);line-height:1.08;letter-spacing:-.028em;font-weight:400}
+h2 b{font-weight:600}
+.sub{color:var(--ink2);margin-top:12px;max-width:56ch;font-size:16px}
+
+table.drain{width:100%;border-collapse:collapse;margin-top:34px;font-size:14.5px}
+table.drain th{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);text-align:left;font-weight:400;padding:0 12px 10px 0;border-bottom:1px solid var(--rule)}
+table.drain td{padding:15px 12px 15px 0;border-bottom:1px solid var(--hair);vertical-align:top}
+table.drain td.n{font-family:var(--mono);color:var(--ink3);width:34px}
+table.drain td.q{font-family:var(--mono);white-space:nowrap;font-size:13.5px}
+table.drain td.q.neg{color:var(--clay)}
+table.drain td.q.pos{color:var(--green)}
+table.drain td.d{color:var(--ink2);font-size:14px}
+
+.strip{display:grid;grid-template-columns:repeat(3,auto);justify-content:center;gap:26px;margin-top:40px}
+.phone{position:relative;width:246px;border-radius:38px;padding:8px;
+  background:linear-gradient(148deg,#8F938C 0 6%,#3A3D36 22%,#14160F 52%,#4A4E45 78%,#191C15);
+  box-shadow:0 40px 74px -34px rgba(35,38,31,.6)}
+.phone .screen{position:relative;border-radius:31px;overflow:hidden;background:var(--card);height:520px;display:flex;flex-direction:column;color:var(--ink)}
+.island{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:72px;height:20px;border-radius:12px;background:#0B0D08;z-index:5}
+.phone::before{content:"";position:absolute;left:-2.5px;top:98px;width:3px;height:88px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,.22),rgba(0,0,0,.42));z-index:2}
+.phone::after{content:"";position:absolute;right:-2.5px;top:124px;width:3px;height:58px;border-radius:2px;background:linear-gradient(270deg,rgba(255,255,255,.22),rgba(0,0,0,.42));z-index:2}
+.screen::before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.30) 0 16%,rgba(255,255,255,.06) 27%,transparent 46%)}
+.screen::after{content:"";position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:37%;height:5px;border-radius:3px;background:currentColor;opacity:.26;z-index:6}
+.sbar{display:flex;justify-content:space-between;align-items:center;height:44px;padding:0 24px 0 28px;font-family:-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;font-size:14px;font-weight:600;letter-spacing:-.01em;flex:none}
+.sbar .ic{display:flex;align-items:center;gap:5px}
+.sbar svg{display:block}
+.app{flex:1;display:flex;flex-direction:column;padding:2px 16px 24px;overflow:hidden}
+.navb{display:flex;align-items:center;justify-content:space-between;padding-bottom:11px;border-bottom:1px solid var(--hair)}
+.navb .ti{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.navb .dt{font-family:var(--mono);font-size:9.5px;color:var(--ink3);letter-spacing:.06em}
+.mini-g{margin-top:14px}
+.mini-g .v{font-family:var(--mono);font-size:38px;font-weight:500;letter-spacing:-.03em;line-height:1}
+.mini-g .v i{font-style:normal;font-size:12px;color:var(--ink3)}
+.mini-g .bar{height:15px;margin-top:11px}
+.rows{margin-top:16px;display:flex;flex-direction:column}
+.rw{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--hair);font-size:11.5px}
+.rw span:first-child{color:var(--ink2)}
+.rw span:last-child{font-family:var(--mono);font-size:11px}
+.rw .neg{color:var(--clay)}
+.act{margin-top:auto;border:1px solid var(--rule);padding:12px 13px}
+.act .k{font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ochre)}
+.act p{font-size:13.5px;font-weight:500;line-height:1.3;margin-top:6px}
+.act .b{margin-top:11px;background:var(--ink);color:var(--paper);text-align:center;font-size:11.5px;font-weight:500;padding:9px}
+.chat{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.bub{max-width:87%;padding:9px 12px;font-size:12px;line-height:1.42;border-radius:2px}
+.bub.a{background:var(--paper2);border-left:2px solid var(--green)}
+.bub.u{background:var(--ink);color:var(--paper);align-self:flex-end}
+.ts{font-family:var(--mono);font-size:8px;color:var(--ink3);letter-spacing:.05em;margin-top:-3px}
+.ts.me{align-self:flex-end}
+.daysep{text-align:center;font-family:var(--mono);font-size:8px;color:var(--ink3);letter-spacing:.16em;margin:2px 0}
+.capl{text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:12px}
+
+.check{border:1px solid var(--rule);background:var(--card);margin-top:34px}
+.check .hd{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;border-bottom:1px solid var(--rule);gap:12px}
+.check .bd{padding:26px 24px}
+.q{border-bottom:1px solid var(--hair);padding:18px 0}
+.q:first-child{padding-top:0}
+.q .t{font-size:15.5px;font-weight:400;display:flex;gap:10px}
+.q .t em{font-family:var(--mono);font-style:normal;color:var(--ink3);font-size:12px;padding-top:3px}
+.opts{display:flex;gap:7px;margin-top:12px;flex-wrap:wrap;padding-left:24px}
+.opt{border:1px solid var(--hair);padding:8px 14px;font-size:13.5px;cursor:pointer;background:transparent;font-family:var(--sans);font-weight:300;color:var(--ink)}
+.opt:hover{border-color:var(--ink2)}
+.opt.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.gate{padding:24px;border-top:1px solid var(--rule);background:var(--paper2);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.gate .lb{font-size:14px;flex:1;min-width:220px;color:var(--ink2)}
+form.mini{display:flex;gap:8px;flex:1;min-width:280px}
+form.mini input{flex:1;border:1px solid var(--rule);background:var(--card);padding:13px 14px;font-size:14.5px;font-family:var(--sans);border-radius:0}
+form.mini input:disabled{opacity:.45}
+form.mini button{background:var(--green);color:#fff;border:1px solid var(--green);padding:13px 20px;font-size:14px;font-weight:500;cursor:pointer;font-family:var(--sans);border-radius:0}
+form.mini button:disabled{background:var(--ink3);border-color:var(--ink3);cursor:not-allowed}
+.fine{font-size:12px;color:var(--ink3);margin-top:12px;max-width:64ch}
+.fine a{color:var(--ink2)}
+
+.step{display:none}.step.on{display:block}
+.result{border:1px solid var(--rule);background:var(--card);margin-top:22px;padding:26px 24px}
+.result .big{font-family:var(--mono);font-size:40px;font-weight:500;letter-spacing:-.03em;line-height:1}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);margin-top:22px}
+.tier{padding:20px 18px;border-right:1px solid var(--hair)}
+.tier:last-child{border-right:none}
+.tier .nm{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.tier .pr{font-family:var(--mono);font-size:28px;font-weight:500;margin-top:8px;letter-spacing:-.02em}
+.tier .per{font-size:11.5px;color:var(--ink3)}
+.tier ul{list-style:none;margin:14px 0 16px;font-size:13px;color:var(--ink2)}
+.tier li{padding:3px 0 3px 14px;position:relative}
+.tier li::before{content:"—";position:absolute;left:0;color:var(--ink3)}
+.tier button{width:100%;border:1px solid var(--rule);background:transparent;padding:10px;font-size:13px;cursor:pointer;font-family:var(--sans);border-radius:0}
+.tier button:hover{background:var(--ink);color:var(--paper)}
+.callbox{border:1px solid var(--rule);padding:24px;margin-top:22px;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.callbox a{background:var(--ink);color:var(--paper);padding:13px 24px;text-decoration:none;font-size:14px;font-weight:500}
+footer{padding:26px 0 52px;font-size:12px;color:var(--ink3)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--ink2)}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero .l{border-right:none;padding:40px 0 32px}
+  .hero .r{padding:0 0 40px}
+  .idx{display:none}
+  .strip{grid-template-columns:1fr;justify-items:center}
+  .tiers{grid-template-columns:1fr}
+  .tier{border-right:none;border-bottom:1px solid var(--hair)}
+}
+
+/* ── live clip of the prototype, inside the hero mockup ─────────────── */
+.live-wrap{position:absolute;inset:0;overflow:hidden;z-index:3;opacity:0;transition:opacity .8s ease;background:transparent}
+.screen.live-on .live-wrap{opacity:1}
+.screen.live-on .sbar{opacity:0;transition:opacity .45s ease}
+.live-wrap iframe{position:absolute;top:0;left:-4.96px;width:430px;height:932px;border:0;
+  transform-origin:top left;transform:scale(0.55794);pointer-events:none;background:transparent}
+.livepill{position:absolute;top:10px;left:12px;z-index:7;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:8.5px;font-weight:600;
+  letter-spacing:.16em;padding:3px 8px;border-radius:999px;background:#2E5A3E;color:#FFFFFF;
+  opacity:0;transition:opacity .8s ease;pointer-events:none}
+.screen.live-on .livepill{opacity:1}
+.livepill i{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;
+  margin-right:5px;vertical-align:1px;animation:livedot 1.6s ease-in-out infinite}
+@keyframes livedot{0%,100%{opacity:1}50%{opacity:.25}}
+.livelink{position:absolute;inset:0;z-index:8;display:block;cursor:pointer}
+@media (prefers-reduced-motion: reduce){.live-wrap{display:none}}
+</style>
+</head>
+<body>
+
+<div class="mast"><div class="wrap">
+  <div class="logo">
+    <svg width="22" height="24" viewBox="0 0 22 24" aria-hidden="true">
+      <rect x=".6" y=".6" width="20.8" height="22.8" fill="none" stroke="#23261F" stroke-width="1.2"/>
+      <rect x="3.4" y="13.2" width="15.2" height="7.4" fill="#2E5A3E"/>
+      <rect x="3.4" y="9" width="15.2" height="3" fill="#C08A2E"/>
+    </svg>
+    Reserve
+  </div>
+  <nav class="idx">
+    <a href="#drain" data-t="nav1">Where it goes</a><a href="#app" data-t="nav2">The app</a><a href="#check" data-t="nav3">Check</a>
+  </nav>
+  <div class="mright">
+    <div class="lang" role="group" aria-label="Language">
+      <button class="langbtn on" data-lang="en" type="button">EN</button>
+      <button class="langbtn" data-lang="uk" type="button">УКР</button>
+    </div>
+    <div class="date" data-t="issue">NO. 01 · AUGUST</div>
+  </div>
+</div></div>
+
+<div class="wrap"><div class="hero">
+  <div class="l">
+    <div class="mono" data-t="kicker">Resource · measured · daily</div>
+    <h1 style="margin-top:20px" data-t="h1" data-thtml>Burnout is<br><b>arithmetic</b>,<br>not character</h1>
+    <p class="lede" data-t="lede">You have a daily reserve. You spend it on work, short nights and other people's deadlines — and you almost never count what's left. Reserve counts. Then it tells you one thing that gives some of it back.</p>
+    <div class="figs">
+      <div><div class="n" data-t="f1n">2 min</div><div class="k" data-t="f1k">a day, and no more than that</div></div>
+      <div><div class="n">1</div><div class="k" data-t="f2k">action instead of a list of tips</div></div>
+      <div><div class="n">9</div><div class="k" data-t="f3k">days before it draws a conclusion</div></div>
+    </div>
+  </div>
+  <div class="r">
+    <div class="gauge">
+      <div class="hd">
+        <div>
+          <div class="mono" data-t="g_today">Your reserve today</div>
+          <div class="val" style="margin-top:6px">41<i>/100</i></div>
+        </div>
+        <div class="mono" style="color:var(--clay)" data-t="g_week">−17 this week</div>
+      </div>
+      <div class="bar">
+        <i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="w"></i><i class="w"></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="scale-l"><span data-t="sc0">0 · EMPTY</span><span>50</span><span data-t="sc100">100 · FULL</span></div>
+      <p data-t="g_note">Below 45 you stop recovering over a weekend. It doesn't feel like anything at first — it only shows up in the numbers.</p>
+    </div>
+    <div class="mono" style="margin-top:18px;line-height:1.7" data-t="g_foot" data-thtml>* The reserve model is built from your own sleep,<br>recovery and load data over nine days.</div>
+  </div>
+</div></div>
+
+<div class="wrap">
+<section id="drain">
+  <h2 data-t="d_h" data-thtml>Where it <b>goes</b></h2>
+  <p class="sub" data-t="d_sub">Every day is a few pluses and a few minuses. The problem isn't one hard week — it's the minuses becoming a habit.</p>
+  <table class="drain">
+    <thead><tr><th></th><th data-t="th1">What happened</th><th data-t="th2">Reserve</th><th data-t="th3">What Reserve does about it</th></tr></thead>
+    <tbody>
+      <tr><td class="n">01</td><td data-t="d1a">Slept 6h 04m, third night running</td><td class="q neg">−11</td><td class="d" data-t="d1b">Makes sleep the week's first target — nothing else matters until it moves</td></tr>
+      <tr><td class="n">02</td><td data-t="d2a">Four meetings back to back</td><td class="q neg">−7</td><td class="d" data-t="d2b">Suggests moving one specific meeting, not "fewer meetings"</td></tr>
+      <tr><td class="n">03</td><td data-t="d3a">Morning training session</td><td class="q pos">+6</td><td class="d" data-t="d3b">Notes that mornings give you a plus and evenings don't</td></tr>
+      <tr><td class="n">04</td><td data-t="d4a">Working past 23:00</td><td class="q neg">−9</td><td class="d" data-t="d4b">Sends one line at 21:40. No lecture</td></tr>
+      <tr><td class="n">05</td><td data-t="d5a">A weekend day with no screens</td><td class="q pos">+12</td><td class="d" data-t="d5b">Shows exactly how much it gave back, in your numbers</td></tr>
+    </tbody>
+  </table>
+  <div class="fine" data-t="d_fine">Values are indicative and calibrated to you over the first nine days. Reserve does not diagnose anything and is not a substitute for a professional.</div>
+</section>
+
+<section id="app">
+  <h2 data-t="a_h" data-thtml>Three screens — <b>that's it</b></h2>
+  <p class="sub" data-t="a_sub">Morning check, one action, weekly summary. Nothing you have to "keep up".</p>
+  <div class="strip">
+    <div>
+      <div class="phone"><div class="island"></div><div class="screen"><a class="livelink" href="../prototypes/reserve-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="live-wrap"><iframe data-src="../prototypes/reserve-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+        <div class="sbar"><span>7:08</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="12.4" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+        </span></div>
+        <div class="app">
+          <div class="navb"><span class="ti" data-t="ph_res">Reserve</span><span class="dt" data-t="ph_date">TUE 4 AUG</span></div>
+          <div class="mini-g">
+            <div class="mono" data-t="ph_today">Today</div>
+            <div class="v" style="margin-top:5px">41<i>/100</i></div>
+            <div class="bar"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="w"></i><i class="w"></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="rows">
+            <div class="rw"><span data-t="ph_r1">Sleep 6:04</span><span class="neg">−11</span></div>
+            <div class="rw"><span data-t="ph_r2">Load</span><span class="neg">−7</span></div>
+            <div class="rw"><span data-t="ph_r3">Training 06:20</span><span>+6</span></div>
+            <div class="rw"><span>HRV 48ms</span><span class="neg">−5</span></div>
+          </div>
+          <div class="act"><div class="k" data-t="ph_act">Today's action</div><p data-t="ph_actv">Phone in another room at 22:30.</p><div class="b" data-t="ph_done">Done</div></div>
+        </div>
+      </div></div>
+      <div class="capl" data-t="cap1">Morning check</div>
+    </div>
+    <div>
+      <div class="phone"><div class="island"></div><div class="screen">
+        <div class="sbar"><span>21:41</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="6.8" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+        </span></div>
+        <div class="app">
+          <div class="navb"><span class="ti" data-t="ph_chat">Chat</span><span class="dt" data-t="ph_online">ONLINE</span></div>
+          <div class="chat">
+            <div class="daysep" data-t="ph_todayu">TODAY</div>
+            <div class="bub a" data-t="ph_c1">You're back at the laptop at 21:40. Last week that cost you 9 points of reserve.</div>
+            <div class="ts">21:38</div>
+            <div class="bub u" data-t="ph_c2">need to finish the deck</div>
+            <div class="bub a" data-t="ph_c3">Then set a 40-minute timer and close it. Not "just a quick look" — a timer.</div>
+            <div class="ts">21:39</div>
+            <div class="bub u" data-t="ph_c4">ok, set</div>
+            <div class="ts me" data-t="ph_read">Read 21:40</div>
+          </div>
+          <div class="act" style="border-color:var(--hair)"><div class="k" data-t="ph_check">I'll check in the morning</div><p style="font-weight:400;font-size:12.5px" data-t="ph_checkv">Whether you were down by 23:10, and what recovery did.</p></div>
+        </div>
+      </div></div>
+      <div class="capl" data-t="cap2">Chat</div>
+    </div>
+    <div>
+      <div class="phone"><div class="island"></div><div class="screen">
+        <div class="sbar"><span>18:22</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="15.9" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+        </span></div>
+        <div class="app">
+          <div class="navb"><span class="ti" data-t="ph_wk">Week 31</span><span class="dt">28.07 — 03.08</span></div>
+          <div style="display:flex;align-items:flex-end;gap:4px;height:96px;margin-top:16px">
+            <div style="flex:1;height:63%;background:var(--ochre)"></div>
+            <div style="flex:1;height:48%;background:var(--clay)"></div>
+            <div style="flex:1;height:71%;background:var(--ochre)"></div>
+            <div style="flex:1;height:39%;background:var(--clay)"></div>
+            <div style="flex:1;height:52%;background:var(--ochre)"></div>
+            <div style="flex:1;height:84%;background:var(--green)"></div>
+            <div style="flex:1;height:76%;background:var(--green)"></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-family:var(--mono);font-size:8.5px;color:var(--ink3);margin-top:6px"><span data-t="dw1">MON</span><span data-t="dw2">TUE</span><span data-t="dw3">WED</span><span data-t="dw4">THU</span><span data-t="dw5">FRI</span><span data-t="dw6">SAT</span><span data-t="dw7">SUN</span></div>
+          <div class="rows" style="margin-top:16px">
+            <div class="rw"><span data-t="ph_avg">Average reserve</span><span>56</span></div>
+            <div class="rw"><span data-t="ph_vs">vs last week</span><span class="neg">−8</span></div>
+            <div class="rw"><span data-t="ph_worst">Most expensive day</span><span data-t="ph_worstv">THU · −19</span></div>
+          </div>
+          <div class="act"><div class="k" data-t="ph_concl">Conclusion</div><p style="font-size:13px" data-t="ph_conclv">Thursday costs you the most, every week. Start there.</p></div>
+        </div>
+      </div></div>
+      <div class="capl" data-t="cap3">Week</div>
+    </div>
+  </div>
+</section>
+
+<section id="check" style="border-bottom:none">
+  <div class="mono" data-t="ch_k">Free · no signup</div>
+  <h2 style="margin-top:14px" data-t="ch_h" data-thtml>Check your <b>reserve</b> in 40 seconds</h2>
+  <p class="sub" data-t="ch_sub">Three questions. We'll work out an indicative level and send you what to do about it in the first week.</p>
+
+  <div class="check">
+    <div class="hd">
+      <span class="mono" data-t="ch_title">Reserve check</span>
+      <span class="mono" id="progress">0 / 3</span>
+    </div>
+    <div class="bd" id="quiz">
+      <div class="q" data-q="sleep">
+        <div class="t"><em>01</em><span data-t="q1">How much did you sleep over the last three nights, on average?</span></div>
+        <div class="opts">
+          <button class="opt" data-v="8" type="button" data-t="q1a">Under 6 hours</button>
+          <button class="opt" data-v="5" type="button" data-t="q1b">6–7 hours</button>
+          <button class="opt" data-v="2" type="button" data-t="q1c">7–8 hours</button>
+          <button class="opt" data-v="0" type="button" data-t="q1d">Over 8 hours</button>
+        </div>
+      </div>
+      <div class="q" data-q="recover">
+        <div class="t"><em>02</em><span data-t="q2">When did a weekend last actually restore you — so Monday felt easy?</span></div>
+        <div class="opts">
+          <button class="opt" data-v="8" type="button" data-t="q2a">Can't remember</button>
+          <button class="opt" data-v="5" type="button" data-t="q2b">A month ago</button>
+          <button class="opt" data-v="2" type="button" data-t="q2c">Last weekend</button>
+          <button class="opt" data-v="0" type="button" data-t="q2d">That's normal for me</button>
+        </div>
+      </div>
+      <div class="q" data-q="edge">
+        <div class="t"><em>03</em><span data-t="q3">How often lately do you catch yourself thinking "a bit more and I'm done"?</span></div>
+        <div class="opts">
+          <button class="opt" data-v="8" type="button" data-t="q3a">Almost daily</button>
+          <button class="opt" data-v="5" type="button" data-t="q3b">A few times a week</button>
+          <button class="opt" data-v="2" type="button" data-t="q3c">Rarely</button>
+          <button class="opt" data-v="0" type="button" data-t="q3d">Never</button>
+        </div>
+      </div>
+    </div>
+    <div class="gate">
+      <div class="lb" id="gateLabel" data-t="gate1">Answer all three and we'll show you the result.</div>
+      <form class="mini" id="quizForm">
+        <input type="email" id="email" required placeholder="your email" data-tp="email_ph" aria-label="Email" disabled>
+        <button type="submit" id="submitBtn" disabled data-t="gate_cta">Show my result</button>
+      </form>
+    </div>
+  </div>
+  <div class="fine" data-t="ch_fine" data-thtml>We send the result and a short plan for week one. One email, no newsletter. Health-adjacent data is stored privately and deleted on request. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy policy</a>.</div>
+
+  <div class="step" id="stepResult">
+    <div class="result">
+      <div class="mono" data-t="res_k">Indicative level</div>
+      <div class="big" id="scoreVal" style="margin-top:8px">—<span style="font-size:15px;color:var(--ink3)">/100</span></div>
+      <div class="bar" style="margin-top:14px" id="scoreBar"></div>
+      <p style="font-size:14.5px;color:var(--ink2);margin-top:16px;border-top:1px solid var(--hair);padding-top:14px" id="scoreText"></p>
+    </div>
+
+    <div style="margin-top:34px">
+      <div class="mono" data-t="wtp_k">If this were a product — which would you take?</div>
+      <p class="sub" style="font-size:15px" data-t="wtp_sub">Nothing is charged. It tells us what to build first.</p>
+      <div class="tiers">
+        <div class="tier"><div class="nm" data-t="t1">Core</div><div class="pr" data-t="p1">$9</div><div class="per" data-t="per">per month</div><ul><li data-t="t1f1">Daily reserve check</li><li data-t="t1f2">One action a day</li><li data-t="t1f3">Weekly summary</li></ul><button data-tier="Core" type="button" data-t="choose">Choose</button></div>
+        <div class="tier"><div class="nm" data-t="t2">Plus</div><div class="pr" data-t="p2">$19</div><div class="per" data-t="per">per month</div><ul><li data-t="t2f1">Wearable + Apple Health</li><li data-t="t2f2">Weekly deep review</li><li data-t="t2f3">Month-by-month history</li></ul><button data-tier="Plus" type="button" data-t="choose">Choose</button></div>
+        <div class="tier"><div class="nm" data-t="t3">Concierge</div><div class="pr" data-t="p3">$49</div><div class="per" data-t="per">per month</div><ul><li data-t="t3f1">Video reviews</li><li data-t="t3f2">Priority coaching</li><li data-t="t3f3">Quarterly plan</li></ul><button data-tier="Concierge" type="button" data-t="choose">Choose</button></div>
+      </div>
+    </div>
+
+    <div class="step" id="stepCall">
+      <div class="callbox">
+        <div>
+          <div class="mono" data-t="noted">Noted — nothing charged</div>
+          <div style="font-size:17px;font-weight:500;margin-top:8px" data-t="call_h">Want to shape what we build?</div>
+          <div style="font-size:14px;color:var(--ink2);margin-top:4px" data-t="call_p">15 minutes with the team.</div>
+        </div>
+        <a href="#" id="bookBtn" data-t="call_cta">Pick a time</a>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+
+<!-- ===== second step: quick screener (revealed after lead submit) ===== -->
+<style>
+#stepScreen{padding:0 28px 56px}
+#stepScreen .sc-in{max-width:560px;margin:0 auto;background:rgba(127,127,127,.08);border:1px solid rgba(127,127,127,.26);border-radius:12px;padding:26px 24px}
+#stepScreen h3{font-size:20px;margin:0 0 8px;font-weight:600}
+#stepScreen .sc-sub{font-size:13.5px;opacity:.72;margin:0 0 18px;line-height:1.5}
+#stepScreen label{display:block;font-size:13px;opacity:.85;margin:14px 0 6px}
+#stepScreen select{width:100%;padding:11px 12px;font-size:14.5px;font-family:inherit;color:inherit;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.30);border-radius:8px}
+#stepScreen button{margin-top:20px;width:100%;padding:13px 20px;font-size:14.5px;font-weight:600;font-family:inherit;cursor:pointer;color:inherit;background:transparent;border:1.5px solid currentColor;border-radius:8px}
+#stepScreen button[disabled]{opacity:.4;cursor:default}
+#stepScreen .sc-ok{display:none;font-size:14.5px;text-align:center;padding:8px 0}
+</style>
+<div class="step" id="stepScreen"><div class="sc-in">
+  <h3 data-t="sc_h">Four quick questions</h3>
+  <p class="sc-sub" data-t="sc_sub">Optional. It helps us decide who to talk to first — your place on the list is already saved.</p>
+  <div id="scForm">
+    <label data-t="sc_q1">Your age</label>
+    <select id="scAge"><option value="" data-t="sc_ph">— select —</option><option>18-26</option><option>27-35</option><option>36-45</option><option>46+</option></select>
+    <label data-t="sc_q2">Where you live</label>
+    <select id="scCity"><option value="" data-t="sc_ph">— select —</option><option value="kyiv" data-t="sc_c1">Kyiv</option><option value="ua_other" data-t="sc_c2">Another city in Ukraine</option><option value="outside" data-t="sc_c3">Outside Ukraine</option></select>
+    <label data-t="sc_q3">Do you wear a fitness tracker or smart watch?</label>
+    <select id="scWear"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_w1">No</option><option value="lt3m" data-t="sc_w2">Yes, less than 3 months</option><option value="ge3m" data-t="sc_w3">Yes, 3 months or more</option></select>
+    <label data-t="sc_q4">Do you check the data regularly?</label>
+    <select id="scData"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_d1">No</option><option value="some" data-t="sc_d2">Sometimes</option><option value="daily" data-t="sc_d3">Yes, most days</option></select>
+    <button id="scSend" type="button" data-t="sc_send">Send</button>
+  </div>
+  <div class="sc-ok" id="scOk" data-t="sc_done">Thank you — that's everything we needed.</div>
+</div></div>
+<script>
+(function(){
+  var step=document.getElementById('stepScreen'); if(!step)return;
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit',function(){ setTimeout(function(){step.classList.add('on');},60); });
+  });
+  var ids=['scAge','scCity','scWear','scData'];
+  document.getElementById('scSend').addEventListener('click',function(){
+    var a={},n=0;
+    ids.forEach(function(id){var v=document.getElementById(id).value; if(v){n++;} a[id.slice(2).toLowerCase()]=v;});
+    if(!n)return;
+    if(window.track)window.track('screen_submit',{answered:n});
+    var C=window.LP_CONFIG||{};
+    if(C.FORMSPREE&&C.FORMSPREE.indexOf('REPLACE')<0){
+      var em=''; var i=document.querySelector('input[type=email]'); 
+      document.querySelectorAll('input[type=email]').forEach(function(x){if(x.value)em=x.value;});
+      fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({_subject:'screener',email:em,page:C.PAGE,brand:C.BRAND,
+          age:a.age,city:a.city,wearable:a.wear,reads_data:a.data})}).catch(function(){});
+    }
+    document.getElementById('scForm').style.display='none';
+    document.getElementById('scOk').style.display='block';
+  });
+})();
+</script>
+
+<footer><div class="wrap">
+  <div data-t="foot1">Reserve · a HumanistAI concept · early access</div>
+  <div data-t="foot2" data-thtml><a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a> · Not a medical device. Not therapy.</div>
+</div></footer>
+
+<script>
+var T = {
+ en:{
+  sc_h:"Four quick questions", sc_sub:"Optional. It helps us decide who to talk to first — your place on the list is already saved.",
+  sc_q1:"Your age", sc_q2:"Where you live", sc_q3:"Do you wear a fitness tracker or smart watch?", sc_q4:"Do you check the data regularly?",
+  sc_ph:"— select —", sc_c1:"Kyiv", sc_c2:"Another city in Ukraine", sc_c3:"Outside Ukraine",
+  sc_w1:"No", sc_w2:"Yes, less than 3 months", sc_w3:"Yes, 3 months or more",
+  sc_d1:"No", sc_d2:"Sometimes", sc_d3:"Yes, most days",
+  sc_send:"Send", sc_done:"Thank you — that's everything we needed.",
+  __title:"Reserve — how much have you got left?",
+  __desc:"Reserve counts your daily resource and shows how much is left before you break.",
+  livepill:"LIVE",
+  nav1:"Where it goes", nav2:"The app", nav3:"Check", issue:"NO. 01 · AUGUST",
+  kicker:"Resource · measured · daily",
+  h1:"Burnout is<br><b>arithmetic</b>,<br>not character",
+  lede:"You have a daily reserve. You spend it on work, short nights and other people's deadlines — and you almost never count what's left. Reserve counts. Then it tells you one thing that gives some of it back.",
+  f1n:"2 min", f1k:"a day, and no more than that", f2k:"action instead of a list of tips", f3k:"days before it draws a conclusion",
+  g_today:"Your reserve today", g_week:"−17 this week", sc0:"0 · EMPTY", sc100:"100 · FULL",
+  g_note:"Below 45 you stop recovering over a weekend. It doesn't feel like anything at first — it only shows up in the numbers.",
+  g_foot:"* The reserve model is built from your own sleep,<br>recovery and load data over nine days.",
+  d_h:"Where it <b>goes</b>",
+  d_sub:"Every day is a few pluses and a few minuses. The problem isn't one hard week — it's the minuses becoming a habit.",
+  th1:"What happened", th2:"Reserve", th3:"What Reserve does about it",
+  d1a:"Slept 6h 04m, third night running", d1b:"Makes sleep the week's first target — nothing else matters until it moves",
+  d2a:"Four meetings back to back", d2b:"Suggests moving one specific meeting, not \"fewer meetings\"",
+  d3a:"Morning training session", d3b:"Notes that mornings give you a plus and evenings don't",
+  d4a:"Working past 23:00", d4b:"Sends one line at 21:40. No lecture",
+  d5a:"A weekend day with no screens", d5b:"Shows exactly how much it gave back, in your numbers",
+  d_fine:"Values are indicative and calibrated to you over the first nine days. Reserve does not diagnose anything and is not a substitute for a professional.",
+  a_h:"Three screens — <b>that's it</b>", a_sub:"Morning check, one action, weekly summary. Nothing you have to \"keep up\".",
+  cap1:"Morning check", cap2:"Chat", cap3:"Week",
+  ch_k:"Free · no signup", ch_h:"Check your <b>reserve</b> in 40 seconds",
+  ch_sub:"Three questions. We'll work out an indicative level and send you what to do about it in the first week.",
+  ch_title:"Reserve check",
+  q1:"How much did you sleep over the last three nights, on average?",
+  q1a:"Under 6 hours", q1b:"6–7 hours", q1c:"7–8 hours", q1d:"Over 8 hours",
+  q2:"When did a weekend last actually restore you — so Monday felt easy?",
+  q2a:"Can't remember", q2b:"A month ago", q2c:"Last weekend", q2d:"That's normal for me",
+  q3:"How often lately do you catch yourself thinking \"a bit more and I'm done\"?",
+  q3a:"Almost daily", q3b:"A few times a week", q3c:"Rarely", q3d:"Never",
+  gate1:"Answer all three and we'll show you the result.",
+  gate2:"Done. Where should we send the result and your week-one plan?",
+  email_ph:"your email", gate_cta:"Show my result",
+  ch_fine:'We send the result and a short plan for week one. One email, no newsletter. Health-adjacent data is stored privately and deleted on request. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy policy</a>.',
+  res_k:"Indicative level",
+  res_low:"You're running at a deficit. A weekend no longer restores this level — you need one systemic change, not rest \"at some point\".",
+  res_mid:"There's still reserve, but you're spending it faster than you replace it. This is the moment when one change is cheap.",
+  res_hi:"Workable level. The thing to protect is what's already working, for when the load goes up.",
+  wtp_k:"If this were a product — which would you take?", wtp_sub:"Nothing is charged. It tells us what to build first.",
+  t1:"Core", p1:"$9", t1f1:"Daily reserve check", t1f2:"One action a day", t1f3:"Weekly summary",
+  t2:"Plus", p2:"$19", t2f1:"Wearable + Apple Health", t2f2:"Weekly deep review", t2f3:"Month-by-month history",
+  t3:"Concierge", p3:"$49", t3f1:"Video reviews", t3f2:"Priority coaching", t3f3:"Quarterly plan",
+  per:"per month", choose:"Choose",
+  noted:"Noted — nothing charged", call_h:"Want to shape what we build?", call_p:"15 minutes with the team.", call_cta:"Pick a time",
+  foot1:"Reserve · a HumanistAI concept · early access",
+  foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a> · Not a medical device. Not therapy.',
+  ph_res:"Reserve", ph_date:"TUE 4 AUG", ph_today:"Today",
+  ph_r1:"Sleep 6:04", ph_r2:"Load", ph_r3:"Training 06:20",
+  ph_act:"Today's action", ph_actv:"Phone in another room at 22:30.", ph_done:"Done",
+  ph_chat:"Chat", ph_online:"ONLINE", ph_todayu:"TODAY",
+  ph_c1:"You're back at the laptop at 21:40. Last week that cost you 9 points of reserve.",
+  ph_c2:"need to finish the deck",
+  ph_c3:"Then set a 40-minute timer and close it. Not \"just a quick look\" — a timer.",
+  ph_c4:"ok, set", ph_read:"Read 21:40",
+  ph_check:"I'll check in the morning", ph_checkv:"Whether you were down by 23:10, and what recovery did.",
+  ph_wk:"Week 31", dw1:"MON", dw2:"TUE", dw3:"WED", dw4:"THU", dw5:"FRI", dw6:"SAT", dw7:"SUN",
+  ph_avg:"Average reserve", ph_vs:"vs last week", ph_worst:"Most expensive day", ph_worstv:"THU · −19",
+  ph_concl:"Conclusion", ph_conclv:"Thursday costs you the most, every week. Start there."
+ },
+ uk:{
+  sc_h:"Чотири швидкі питання", sc_sub:"Необов'язково. Це допомагає визначити, з ким поговорити першими — ваше місце в списку вже збережено.",
+  sc_q1:"Ваш вік", sc_q2:"Де ви живете", sc_q3:"Ви носите фітнес-трекер або смартгодинник?", sc_q4:"Ви регулярно дивитеся дані?",
+  sc_ph:"— оберіть —", sc_c1:"Київ", sc_c2:"Інше місто в Україні", sc_c3:"За межами України",
+  sc_w1:"Ні", sc_w2:"Так, менше 3 місяців", sc_w3:"Так, 3 місяці й більше",
+  sc_d1:"Ні", sc_d2:"Інколи", sc_d3:"Так, майже щодня",
+  sc_send:"Надіслати", sc_done:"Дякуємо — це все, що потрібно.",
+  __title:"Reserve — скільки в тебе лишилось?",
+  __desc:"Reserve рахує твій ресурс щодня і показує, скільки лишилось до зриву.",
+  livepill:"НАЖИВО",
+  nav1:"Куди дівається", nav2:"Застосунок", nav3:"Перевірка", issue:"ВИП. 01 · СЕРПЕНЬ",
+  kicker:"Ресурс · вимірювання · щодня",
+  h1:"Вигорання —<br>це <b>арифметика</b>,<br>а не характер",
+  lede:"У тебе є денний запас. Ти витрачаєш його на роботу, недосип і чужі дедлайни — і майже ніколи не рахуєш, скільки лишилось. Reserve рахує. І щодня каже одну річ, яка повертає частину ресурсу.",
+  f1n:"2 хв", f1k:"на день, більше не треба", f2k:"дія замість списку порад", f3k:"днів до першого висновку",
+  g_today:"Твій запас сьогодні", g_week:"−17 за тиждень", sc0:"0 · ЗРИВ", sc100:"100 · ПОВНИЙ",
+  g_note:"Нижче 45 ти перестаєш відновлюватись за вихідні. Це не відчувається одразу — видно лише в цифрах.",
+  g_foot:"* Модель ресурсу будується на твоїх даних сну,<br>відновлення й навантаження за девʼять днів.",
+  d_h:"Куди він <b>дівається</b>",
+  d_sub:"Кожен день — це кілька плюсів і кілька мінусів. Проблема не в одному важкому тижні, а в тому, що мінуси стають звичкою.",
+  th1:"Що сталось", th2:"Запас", th3:"Що з цим робить Reserve",
+  d1a:"Сон 6 год 04 хв, третя ніч поспіль", d1b:"Ставить сон першою мішенню тижня — решта не має сенсу, поки він не зрушить",
+  d2a:"Чотири зустрічі без паузи", d2b:"Пропонує зсунути одну конкретну, а не «менше зустрічей»",
+  d3a:"Тренування зранку", d3b:"Фіксує, що ранкові дають плюс, а вечірні — ні",
+  d4a:"Робота після 23:00", d4b:"О 21:40 надсилає один рядок. Без нотацій",
+  d5a:"Вихідний без екранів", d5b:"Показує, скільки він реально повернув — у твоїх цифрах",
+  d_fine:"Значення умовні й підбираються під тебе за перші девʼять днів. Reserve не ставить діагнозів і не замінює спеціаліста.",
+  a_h:"Три екрани — <b>і все</b>", a_sub:"Ранковий чек, одна дія, тижневий підсумок. Нічого, що треба «вести».",
+  cap1:"Ранковий чек", cap2:"Розмова", cap3:"Тиждень",
+  ch_k:"Безкоштовно · без реєстрації", ch_h:"Перевір свій <b>запас</b> за 40 секунд",
+  ch_sub:"Три питання. Порахуємо орієнтовний рівень і надішлемо, що з ним робити першого тижня.",
+  ch_title:"Перевірка запасу",
+  q1:"Скільки ти спав за останні три ночі — у середньому?",
+  q1a:"Менше 6 год", q1b:"6–7 год", q1c:"7–8 год", q1d:"Більше 8 год",
+  q2:"Коли ти востаннє відновлювався за вихідні — так, щоб у понеділок було легко?",
+  q2a:"Не памʼятаю", q2b:"Місяць тому", q2c:"Минулі вихідні", q2d:"Це в мене стабільно",
+  q3:"Як часто останнім часом ти ловиш себе на думці «ще трохи і все»?",
+  q3a:"Майже щодня", q3b:"Кілька разів на тиждень", q3c:"Рідко", q3d:"Ніколи",
+  gate1:"Дай відповідь на всі три — і ми покажемо результат.",
+  gate2:"Готово. Куди надіслати результат і план на тиждень?",
+  email_ph:"твоя пошта", gate_cta:"Показати результат",
+  ch_fine:'Надсилаємо результат і короткий план на перший тиждень. Один лист, без розсилки. Дані про самопочуття зберігаються приватно й видаляються на запит. <a href="../legal/privacy.html" target="_blank" rel="noopener">Політика приватності</a>.',
+  res_k:"Орієнтовний рівень",
+  res_low:"Ти працюєш у мінус. За вихідні такий рівень уже не відновлюється — потрібна одна системна зміна, а не відпочинок «колись».",
+  res_mid:"Запас ще є, але витрачається швидше, ніж поповнюється. Це той момент, коли одна зміна коштує дешево.",
+  res_hi:"Рівень робочий. Головне — не втратити те, що вже працює, коли навантаження зросте.",
+  wtp_k:"Якби це був продукт — що б ти обрав?", wtp_sub:"Нічого не списуємо. Це підкаже нам, що робити першим.",
+  t1:"Базовий", p1:"299₴", t1f1:"Щоденний чек запасу", t1f2:"Одна дія на день", t1f3:"Тижневий підсумок",
+  t2:"Плюс", p2:"599₴", t2f1:"Годинник + Apple Health", t2f2:"Розбір раз на тиждень", t2f3:"Історія по місяцях",
+  t3:"Консьєрж", p3:"1490₴", t3f1:"Відео-розбори", t3f2:"Пріоритетний коучинг", t3f3:"План на квартал",
+  per:"на місяць", choose:"Обрати",
+  noted:"Записано — нічого не списуємо", call_h:"Хочеш вплинути на те, що ми зробимо?", call_p:"15 хвилин з командою.", call_cta:"Обрати час",
+  foot1:"Reserve · концепт HumanistAI · ранній доступ",
+  foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Приватність і дані</a> · Не медичний виріб. Не терапія.',
+  ph_res:"Запас", ph_date:"ВТ 4 СЕР", ph_today:"Сьогодні",
+  ph_r1:"Сон 6:04", ph_r2:"Навантаження", ph_r3:"Тренування 06:20",
+  ph_act:"Дія на сьогодні", ph_actv:"О 22:30 телефон — в іншу кімнату.", ph_done:"Зробив",
+  ph_chat:"Розмова", ph_online:"ОНЛАЙН", ph_todayu:"СЬОГОДНІ",
+  ph_c1:"Ти знову за ноутом о 21:40. Минулого тижня це коштувало тобі 9 пунктів запасу.",
+  ph_c2:"треба доробити презентацію",
+  ph_c3:"Тоді постав таймер на 40 хвилин і закрий. Не «швидко гляну» — таймер.",
+  ph_c4:"ок, поставив", ph_read:"Прочитано 21:40",
+  ph_check:"Перевірю зранку", ph_checkv:"Чи ліг до 23:10 і що з відновленням.",
+  ph_wk:"Тиждень 31", dw1:"ПН", dw2:"ВТ", dw3:"СР", dw4:"ЧТ", dw5:"ПТ", dw6:"СБ", dw7:"НД",
+  ph_avg:"Середній запас", ph_vs:"проти минулого", ph_worst:"Найдорожчий день", ph_worstv:"ЧТ · −19",
+  ph_concl:"Висновок", ph_conclv:"Четвер щотижня забирає найбільше. Почнемо з нього."
+ }
+};
+
+(function(){
+  var C=window.LP_CONFIG;
+  window.__lpQ=[]; window.__lpLoaded=false;
+  window.__lpLoadTrackers=function(){
+    if(window.__lpLoaded)return; window.__lpLoaded=true;
+    if(C.GA_ID){var s=document.createElement('script');s.src="https://www.googletagmanager.com/gtag/js?id="+C.GA_ID;s.async=1;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',C.GA_ID);}
+    if(C.FB_PIXEL){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',C.FB_PIXEL);fbq('track','PageView');}
+    var q=window.__lpQ||[]; window.__lpQ=[];
+    q.forEach(function(a){ if(window.gtag)gtag('event',a[0],a[1]); if(window.fbq)fbq('trackCustom',a[0],a[1]); });
+  };
+  window.__lpDropQueue=function(){ window.__lpQ=[]; };
+  var qs=new URLSearchParams(location.search),utm={};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){utm[k]=qs.get(k)||''});
+  var LANG='en', answers={}, email="", scored=null;
+  window.track=function(ev,d){d=d||{};d.page=C.PAGE;d.brand=C.BRAND;d.icp=C.ICP;d.angle=C.ANGLE;d.cta_type=C.CTA_TYPE;d.lang=LANG;Object.assign(d,utm);
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:ev},d));
+    if(window.__lpLoaded){ if(window.gtag)gtag('event',ev,d); if(window.fbq)fbq('trackCustom',ev,d); }
+    else { window.__lpQ.push([ev,d]); }
+    console.log('[track]',ev,d);};
+  function pickLang(){
+    var q=qs.get('lang'); if(q==='uk'||q==='en')return q;
+    try{var s=localStorage.getItem('lp_lang'); if(s==='uk'||s==='en')return s;}catch(e){}
+    var n=(navigator.language||'').toLowerCase();
+    return (n.indexOf('uk')===0||n.indexOf('ru')===0)?'uk':'en';
+  }
+  function paintResult(){
+    if(scored==null)return;
+    var d=T[LANG];
+    document.getElementById('scoreVal').innerHTML=scored+'<span style="font-size:15px;color:var(--ink3)">/100</span>';
+    document.getElementById('scoreText').textContent = scored<45?d.res_low:(scored<70?d.res_mid:d.res_hi);
+  }
+  function setLang(l,manual){
+    if(!T[l])l='en'; LANG=l;
+    document.documentElement.lang=(l==='uk')?'uk':'en';
+    var d=T[l];
+    document.querySelectorAll('[data-t]').forEach(function(el){
+      var v=d[el.getAttribute('data-t')]; if(v==null)return;
+      if(el.hasAttribute('data-thtml'))el.innerHTML=v; else el.textContent=v;});
+    document.querySelectorAll('[data-tp]').forEach(function(el){
+      var v=d[el.getAttribute('data-tp')]; if(v!=null)el.placeholder=v;});
+    if(d.__title)document.title=d.__title;
+    var m=document.querySelector('meta[name="description"]'); if(m&&d.__desc)m.setAttribute('content',d.__desc);
+    document.querySelectorAll('.langbtn').forEach(function(b){
+      var on=b.getAttribute('data-lang')===l; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');});
+    if(Object.keys(answers).length===3) document.getElementById('gateLabel').textContent=d.gate2;
+    paintResult();
+    try{localStorage.setItem('lp_lang',l)}catch(e){}
+    if(manual)track('lang_switch',{to:l});
+  }
+  document.querySelectorAll('.langbtn').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'),true)});});
+  setLang(pickLang(),false);
+
+  track('page_view');
+
+  var email_i=document.getElementById('email'),btn=document.getElementById('submitBtn');
+  document.querySelectorAll('.q').forEach(function(q){
+    q.querySelectorAll('.opt').forEach(function(o){
+      o.addEventListener('click',function(){
+        q.querySelectorAll('.opt').forEach(function(x){x.classList.remove('on')});
+        o.classList.add('on'); answers[q.dataset.q]=parseInt(o.dataset.v,10);
+        var n=Object.keys(answers).length;
+        document.getElementById('progress').textContent=n+' / 3';
+        track('quiz_answer',{answered:n});
+        if(n===3){email_i.disabled=false;btn.disabled=false;
+          document.getElementById('gateLabel').textContent=T[LANG].gate2;}
+      });
+    });
+  });
+
+  document.getElementById('quizForm').addEventListener('submit',function(e){
+    e.preventDefault(); email=email_i.value;
+    var drain=(answers.sleep||0)+(answers.recover||0)+(answers.edge||0);
+    scored=Math.max(8,Math.min(96,Math.round(96-drain*3.6)));
+    var payload={email:email,score:scored,sleep:answers.sleep,recover:answers.recover,edge:answers.edge,page:C.PAGE,brand:C.BRAND,cta:C.CTA_TYPE,lang:LANG};
+    var adSafe={submitted:1};
+    track('lead_submit',adSafe); track('assessment_complete',adSafe);
+    if(C.FORMSPREE.indexOf('REPLACE')<0){fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(Object.assign(payload,utm))}).catch(function(){});}
+    var bar=document.getElementById('scoreBar'),html='';
+    for(var i=0;i<20;i++){var pct=(i+1)*5;var cls=pct<=scored?(scored<45?'d':(scored<70?'w':'f')):'';html+='<i class="'+cls+'"></i>';}
+    bar.innerHTML=html;
+    paintResult();
+    var r=document.getElementById('stepResult'); r.classList.add('on'); r.scrollIntoView({behavior:'smooth'});
+  });
+
+  document.querySelectorAll('.tier button').forEach(function(b){b.addEventListener('click',function(){
+    track('plan_click',{tier:b.dataset.tier});
+    var c=document.getElementById('stepCall');c.classList.add('on');c.scrollIntoView({behavior:'smooth'});});});
+  document.getElementById('bookBtn').addEventListener('click',function(e){
+    e.preventDefault();track('call_click');
+    var u=C.CALENDLY,sep=u.indexOf('?')<0?'?':'&',x=Object.keys(utm).map(function(k){return k+'='+encodeURIComponent(utm[k])}).join('&');
+    if(email)x+='&email='+encodeURIComponent(email);
+    window.open(u+sep+x,'_blank');});
+})();
+</script>
+
+<script>
+/* mount the live clip once it scrolls near, reveal it only when the
+   prototype reports that it has booted — otherwise the static screen stays */
+(function(){
+  var wrap=document.querySelector('.live-wrap'); if(!wrap) return;
+  var frame=wrap.querySelector('iframe'), screen=wrap.parentNode;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  window.addEventListener('message',function(e){
+    if(e.data && e.data.hai==='clip-ready'){
+      screen.classList.add('live-on');
+      if(window.track) track('clip_visible',{});
+    }
+  });
+  function mount(){ if(!frame.src) frame.src=frame.getAttribute('data-src'); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){ mount(); io.disconnect(); } });
+    },{rootMargin:'300px'});
+    io.observe(wrap);
+  } else mount();
+  var link=document.querySelector('.livelink');
+  if(link) link.addEventListener('click',function(){ if(window.track) track('prototype_open',{}); });
+})();
+</script>
+
+<!-- consent banner + footer legal links -->
+<style>
+#lpCb{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:none;
+  background:#14161A;color:#EDEEEA;box-shadow:0 -8px 30px rgba(0,0,0,.28);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif}
+#lpCb.on{display:block}
+#lpCb .in{max-width:960px;margin:0 auto;padding:18px 22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+#lpCb p{margin:0;font-size:13.5px;line-height:1.5;color:#C3C7CC;flex:1 1 340px;font-weight:400}
+#lpCb a{color:#EDEEEA;text-decoration:underline;text-underline-offset:2px}
+#lpCb .btns{display:flex;gap:9px;flex:0 0 auto}
+#lpCb button{font-family:inherit;font-size:13px;font-weight:600;border-radius:7px;padding:10px 17px;cursor:pointer;
+  border:1px solid transparent;transition:opacity .15s}
+#lpCb button:hover{opacity:.85}
+#lpCb .no{background:transparent;border-color:#4A4F57;color:#C3C7CC}
+#lpCb .yes{background:#EDEEEA;color:#14161A}
+.lp-legal{font-size:inherit;opacity:.85}
+.lp-legal a{cursor:pointer}
+@media(max-width:620px){#lpCb .in{padding:15px 16px}#lpCb .btns{width:100%}#lpCb button{flex:1}}
+</style>
+<div id="lpCb" role="dialog" aria-live="polite" aria-label="Cookies">
+  <div class="in">
+    <p id="lpCbTxt"></p>
+    <div class="btns">
+      <button type="button" class="no" id="lpCbNo"></button>
+      <button type="button" class="yes" id="lpCbYes"></button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='lp_consent', PRIV='../legal/privacy.html', CRISIS='../legal/privacy.html#crisis';
+  var S={
+    en:{txt:'We use analytics and advertising cookies to see which advertisement brought you here. Nothing runs until you agree.',
+        yes:'Accept', no:'Only necessary', priv:'Privacy policy', cook:'Cookies', crisis:'Need help right now?'},
+    uk:{txt:'Ми використовуємо аналітичні та рекламні cookie, щоб бачити, яке оголошення вас привело. Нічого не вмикається до вашої згоди.',
+        yes:'Погоджуюсь', no:'Лише необхідні', priv:'Політика конфіденційності', cook:'Cookie', crisis:'Потрібна допомога зараз?'}
+  };
+  function L(){var l=(window.LANG||'en');return S[l]?l:'en'}
+  var box=document.getElementById('lpCb');
+  function read(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function write(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+
+  function paint(){
+    var s=S[L()];
+    document.getElementById('lpCbTxt').innerHTML=s.txt+' <a href="'+PRIV+'" target="_blank" rel="noopener">'+s.priv+'</a>.';
+    document.getElementById('lpCbYes').textContent=s.yes;
+    document.getElementById('lpCbNo').textContent=s.no;
+    var f=document.querySelector('footer'); if(!f)return;
+    var old=f.querySelector('.lp-legal'); if(old)old.parentNode.removeChild(old);
+    var sp=document.createElement('span'); sp.className='lp-legal';
+    sp.innerHTML=' · <a href="'+CRISIS+'" target="_blank" rel="noopener">'+s.crisis+'</a> · <a role="button" tabindex="0" id="lpCbOpen">'+s.cook+'</a>';
+    (f.querySelector('.wrap')||f).appendChild(sp);
+    var o=document.getElementById('lpCbOpen');
+    if(o)o.addEventListener('click',function(){box.classList.add('on')});
+  }
+  function decide(v){
+    write(v); box.classList.remove('on');
+    if(v==='all'){ if(window.__lpLoadTrackers)window.__lpLoadTrackers(); }
+    else { if(window.__lpDropQueue)window.__lpDropQueue(); }
+  }
+  document.getElementById('lpCbYes').addEventListener('click',function(){decide('all')});
+  document.getElementById('lpCbNo').addEventListener('click',function(){decide('necessary')});
+
+  var _sl=window.setLang;
+  if(typeof _sl==='function'){ window.setLang=function(l,m){ _sl(l,m); paint(); }; }
+
+  paint();
+  var c=read();
+  if(c==='all'){ if(window.__lpLoadTrackers)window.__lpLoadTrackers(); }
+  else if(c!=='necessary'){ box.classList.add('on'); }
+})();
+</script>
+
+</body>
+</html>

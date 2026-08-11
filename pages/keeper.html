@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Keeper — A coach who actually remembers you.</title>
+<meta name="description" content="Keeper is a private coach with perfect memory. It reads your sleep, recovery and mood, keeps every pattern you've shown it, and gives you one action a day. By invitation.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>
+window.LP_CONFIG = {
+  BRAND:"Keeper", PAGE:"O-B_keeper_memory", ICP:"optimizer", ANGLE:"memory", CTA_TYPE:"invitation",
+  FORMSPREE:"https://formspree.io/f/REPLACE_ME",
+  CALENDLY:"https://calendly.com/REPLACE_ME/15min",
+  GA_ID:"", FB_PIXEL:""
+};
+</script>
+<style>
+:root{
+  --ivory:#F8F5EF; --ivory2:#EFEAE0; --mist:#E4DCD0;
+  --ink:#1B1820; --ink2:#4A4450; --ink3:#877F8C;
+  --plum:#4C2E50; --plum2:#6B4670; --gold:#B08D57; --line:rgba(27,24,32,.13);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"Karla",-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 26px}
+.wide{max-width:1040px}
+.label{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
+
+header.mast{text-align:center;padding:20px 0 0;position:relative}
+.lang{position:absolute;right:26px;top:18px;display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
+.langbtn{background:transparent;border:none;color:var(--ink3);font-size:10.5px;letter-spacing:.14em;padding:6px 10px;cursor:pointer;font-family:var(--sans);font-weight:600}
+.langbtn.on{background:var(--plum);color:#F4EEF4}
+.mark{display:inline-flex;flex-direction:column;align-items:center;gap:9px;margin-top:14px}
+.mark .nm{font-family:var(--serif);font-size:23px;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
+.rule{width:52px;height:1px;background:var(--line);margin:22px auto 0}
+
+.hero{text-align:center;padding:46px 0 0}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(40px,7vw,68px);line-height:1.04;letter-spacing:-.012em}
+.hero h1 i{color:var(--plum)}
+.hero .deck{font-size:17px;font-weight:300;color:var(--ink2);max-width:44ch;margin:24px auto 0}
+.hero .invite{margin-top:26px;font-size:13px;color:var(--ink3);letter-spacing:.04em}
+
+.stage{margin-top:52px;background:linear-gradient(180deg,transparent 0 88px,var(--plum) 88px 100%);padding-bottom:66px}
+.stage .inner{display:flex;justify-content:center}
+.phone{position:relative;width:296px;border-radius:46px;background:linear-gradient(148deg,#F3EDE2 0 6%,#C4BAAC 22%,#8E8579 52%,#DCD3C4 78%,#A79E92);padding:9px;box-shadow:0 46px 90px -34px rgba(27,24,32,.5)}
+.phone .screen{border-radius:38px;overflow:hidden;background:var(--ivory);height:602px;display:flex;flex-direction:column;position:relative}
+.notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:96px;height:22px;border-radius:13px;background:#141118;z-index:5}
+.phone::before{content:"";position:absolute;left:-2.5px;top:104px;width:3px;height:96px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,.5),rgba(0,0,0,.28));z-index:2}
+.phone::after{content:"";position:absolute;right:-2.5px;top:132px;width:3px;height:62px;border-radius:2px;background:linear-gradient(270deg,rgba(255,255,255,.5),rgba(0,0,0,.28));z-index:2}
+.screen::before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.34) 0 16%,rgba(255,255,255,.08) 27%,transparent 46%)}
+.screen::after{content:"";position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:37%;height:5px;border-radius:3px;background:currentColor;opacity:.26;z-index:6}
+.sbar{display:flex;justify-content:space-between;align-items:center;height:44px;padding:0 26px 0 30px;font-family:-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;font-size:14.5px;font-weight:600;letter-spacing:-.01em;flex:none}
+.sbar .ic{display:flex;align-items:center;gap:5px}
+.sbar svg{display:block}
+.app{flex:1;display:flex;flex-direction:column;padding:6px 18px 26px;overflow:hidden}
+.app-head{display:flex;align-items:center;gap:9px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.orb{width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 36% 30%,#F3E7D2,var(--gold) 44%,var(--plum2) 88%);box-shadow:0 0 14px rgba(176,141,87,.5);flex:none}
+.orb.big{width:82px;height:82px;box-shadow:0 0 40px rgba(176,141,87,.45)}
+.app-head .t{font-family:var(--serif);font-size:15px;letter-spacing:.06em}
+.memo{margin-top:13px;background:var(--ivory2);border-left:2px solid var(--gold);padding:9px 11px;border-radius:0 8px 8px 0}
+.memo .k{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.memo p{font-size:11.5px;color:var(--ink2);margin-top:3px;line-height:1.36}
+.chat{display:flex;flex-direction:column;gap:9px;margin-top:14px;overflow:hidden}
+.bub{max-width:86%;padding:10px 13px;font-size:12.5px;line-height:1.45}
+.bub.a{background:var(--ivory2);border-radius:14px 14px 14px 4px;font-family:var(--serif);font-size:14.5px;font-style:italic;color:var(--ink)}
+.bub.u{background:var(--plum);color:#F4EEF4;align-self:flex-end;border-radius:14px 14px 4px 14px}
+.ts{font-size:8.5px;color:var(--ink3);letter-spacing:.06em;margin-top:-4px}
+.ts.me{align-self:flex-end}
+.daysep{text-align:center;font-size:8.5px;color:var(--ink3);letter-spacing:.16em;text-transform:uppercase;margin:4px 0 2px}
+.composer{margin-top:auto;display:flex;align-items:center;gap:9px;border:1px solid var(--line);border-radius:999px;padding:9px 9px 9px 15px}
+.composer span{font-size:11.5px;color:var(--ink3);flex:1}
+.composer .mic{width:26px;height:26px;border-radius:50%;background:var(--plum);flex:none}
+
+section{padding:74px 0}
+.letter{font-family:var(--serif);font-size:clamp(21px,2.7vw,27px);line-height:1.5;font-weight:300;text-align:center;color:var(--ink)}
+.letter em{color:var(--plum);font-style:italic}
+.sig{margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+
+.row{display:grid;grid-template-columns:1fr 246px;gap:52px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
+.row:nth-child(even){grid-template-columns:246px 1fr}
+.row:nth-child(even) .txt{order:2}
+.row h3{font-family:var(--serif);font-size:29px;font-weight:400;line-height:1.16}
+.row p{color:var(--ink2);font-weight:300;margin-top:12px;font-size:15.5px}
+.phone.sm{width:246px;border-radius:36px;padding:7px}
+.phone.sm .screen{border-radius:30px;height:502px}
+.phone.sm .notch{width:74px;height:17px;top:9px}
+.phone.sm .app{padding:4px 14px 22px}
+.voice{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center}
+.wave{display:flex;gap:3px;align-items:center;height:26px}
+.wave i{display:block;width:2.5px;background:var(--gold);border-radius:2px}
+.voice .cap{font-family:var(--serif);font-style:italic;font-size:14.5px;line-height:1.4;color:var(--ink);padding:0 6px}
+.voice .st{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
+.tl{display:flex;flex-direction:column;gap:11px;margin-top:12px}
+.tl .it{display:flex;gap:10px;align-items:flex-start}
+.tl .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);margin-top:5px;flex:none}
+.tl .d{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink3)}
+.tl p{font-size:11.5px;color:var(--ink2);line-height:1.4;margin-top:1px}
+
+.invitation{background:var(--plum);color:#F5EFF3;border-radius:4px;padding:56px 40px;text-align:center}
+.invitation .label{color:var(--gold)}
+.invitation h2{font-family:var(--serif);font-weight:300;font-size:clamp(30px,4.4vw,44px);line-height:1.1;margin:16px 0 12px}
+.invitation p.d{font-weight:300;color:#D9CEDA;max-width:42ch;margin:0 auto;font-size:15.5px}
+form.app-form{max-width:420px;margin:32px auto 0;display:flex;flex-direction:column;gap:11px}
+form.app-form input,form.app-form select{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.22);color:#F5EFF3;border-radius:3px;padding:14px 15px;font-size:14.5px;font-family:var(--sans)}
+form.app-form select option{color:#1B1820}
+form.app-form button{background:var(--gold);color:#241B10;border:none;border-radius:3px;padding:15px;font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:var(--sans)}
+.fine{font-size:11.5px;color:#BEB0BF;max-width:40ch;margin:16px auto 0;line-height:1.5}
+.fine a{color:#E4D6C0}
+.step{display:none}.step.on{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+.accepted{max-width:460px;margin:0 auto;text-align:center}
+.accepted .seal{width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:var(--serif);font-size:22px;color:var(--gold)}
+.accepted a.book{display:inline-block;margin-top:20px;background:var(--gold);color:#241B10;padding:14px 28px;border-radius:3px;text-decoration:none;font-weight:600;font-size:13.5px;letter-spacing:.08em;text-transform:uppercase}
+footer{text-align:center;padding:40px 0 60px;color:var(--ink3);font-size:12px;letter-spacing:.03em}
+footer a{color:var(--ink2)}
+@media(max-width:820px){
+  .row,.row:nth-child(even){grid-template-columns:1fr;gap:28px;justify-items:center;text-align:center}
+  .row:nth-child(even) .txt{order:0}
+  .invitation{padding:44px 22px}
+}
+
+/* ── live clip of the prototype, inside the hero mockup ─────────────── */
+.live-wrap{position:absolute;inset:0;overflow:hidden;z-index:3;opacity:0;transition:opacity .8s ease;background:transparent}
+.screen.live-on .live-wrap{opacity:1}
+.screen.live-on .sbar{opacity:0;transition:opacity .45s ease}
+.live-wrap iframe{position:absolute;top:0;left:0.00px;width:430px;height:932px;border:0;
+  transform-origin:top left;transform:scale(0.64651);pointer-events:none;background:transparent}
+.livepill{position:absolute;top:10px;left:12px;z-index:7;font-family:"Karla",sans-serif;font-size:8.5px;font-weight:600;
+  letter-spacing:.16em;padding:3px 8px;border-radius:999px;background:#4C2E50;color:#F5EFF3;
+  opacity:0;transition:opacity .8s ease;pointer-events:none}
+.screen.live-on .livepill{opacity:1}
+.livepill i{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;
+  margin-right:5px;vertical-align:1px;animation:livedot 1.6s ease-in-out infinite}
+@keyframes livedot{0%,100%{opacity:1}50%{opacity:.25}}
+.livelink{position:absolute;inset:0;z-index:8;display:block;cursor:pointer}
+@media (prefers-reduced-motion: reduce){.live-wrap{display:none}}
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="lang" role="group" aria-label="Language">
+    <button class="langbtn on" data-lang="en" type="button">EN</button>
+    <button class="langbtn" data-lang="uk" type="button">УКР</button>
+  </div>
+  <div class="mark">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+      <path d="M5.5 4.5v21M5.5 15.4l9.6-10.9M5.5 15.4l10.4 10.1" stroke="#4C2E50" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="22.8" cy="21.6" r="2.6" fill="#B08D57"/>
+    </svg>
+    <div class="nm">Keeper</div>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="label" data-t="tag">By invitation · autumn cohort</div>
+    <h1 style="margin-top:18px" data-t="h1" data-thtml>A coach who <i>actually</i> remembers you.</h1>
+    <p class="deck" data-t="deck">Most coaching forgets you between sessions. Keeper reads your sleep, recovery and mood, holds on to every pattern you've ever shown it, and gives you one action a day — in a voice that already knows your context.</p>
+    <div class="invite" data-t="invite">Private, not therapy · 40 places in the first cohort</div>
+  </div>
+</div>
+
+<div class="stage"><div class="inner">
+  <div class="phone">
+    <div class="notch"></div>
+    <div class="screen"><a class="livelink" href="../prototypes/keeper-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="live-wrap"><iframe data-src="../prototypes/keeper-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="sbar"><span>7:14</span><span class="ic">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+        <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="15.3" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+      </span></div>
+      <div class="app">
+        <div class="app-head"><div class="orb"></div><div class="t">Keeper</div><div style="margin-left:auto;font-size:10px;color:var(--ink3);letter-spacing:.06em" data-t="ph_day">Thu 7 Aug</div></div>
+        <div class="memo"><div class="k" data-t="ph_remembered">Remembered</div><p data-t="ph_memo1">14 Mar — you said the 06:00 gym slot is the only one that survives a bad week.</p></div>
+        <div class="chat">
+          <div class="daysep" data-t="ph_today">Today</div>
+          <div class="bub a" data-t="ph_c1">You slept 6h04 and your Thursday call is at 08:00 again. Last time this pattern ran three weeks, you stopped training entirely.</div>
+          <div class="ts">07:14</div>
+          <div class="bub u" data-t="ph_c2">i remember. don't want that again</div>
+          <div class="bub a" data-t="ph_c3">Then keep the 06:00 slot tomorrow and move the call to 09:30. One change, not five.</div>
+          <div class="ts">07:16</div>
+          <div class="bub u" data-t="ph_c4">moving it now</div>
+          <div class="ts me" data-t="ph_read">Read 07:18</div>
+        </div>
+        <div class="composer"><span data-t="ph_say">Say something…</span><div class="mic"></div></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <p class="letter" data-t="letter" data-thtml>Everything useful a coach does depends on <em>remembering</em> — the injury you mentioned in March, the week you always fall apart, the one intervention that actually held. Software forgets. People are expensive. Keeper is the third option.</p>
+  <div class="sig" data-t="sig">— the founding team</div>
+</div></section>
+
+<div class="wrap wide">
+  <div class="row">
+    <div class="txt">
+      <div class="label" data-t="r1_l">Continuity</div>
+      <h3 data-t="r1_h">It picks up where you left off.</h3>
+      <p data-t="r1_p">No re-explaining yourself. Every conversation starts inside the context of the last one — and inside twelve months of your own data. It knows what it already asked you.</p>
+    </div>
+    <div class="phone sm"><div class="notch"></div><div class="screen">
+      <div class="sbar"><span>8:47</span><span class="ic">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+        <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="9.7" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+      </span></div>
+      <div class="app">
+        <div class="app-head"><div class="orb"></div><div class="t" data-t="ph_week">This week</div></div>
+        <div class="tl">
+          <div class="it"><div class="dot"></div><div><div class="d" data-t="d_mon">Mon</div><p data-t="tl1">Moved the Thursday call. Recovery watch started.</p></div></div>
+          <div class="it"><div class="dot"></div><div><div class="d" data-t="d_tue">Tue</div><p data-t="tl2">06:00 session kept. Sleep 7h21 — first time in nine days.</p></div></div>
+          <div class="it"><div class="dot" style="background:var(--plum2)"></div><div><div class="d" data-t="d_wed">Wed</div><p data-t="tl3">Late night flagged. One-line nudge sent at 21:40.</p></div></div>
+          <div class="it"><div class="dot" style="background:var(--mist)"></div><div><div class="d" data-t="d_thu">Thu</div><p data-t="tl4">Check whether recovery followed the change.</p></div></div>
+        </div>
+        <div class="memo" style="margin-top:auto"><div class="k" data-t="ph_pattern">Pattern</div><p data-t="ph_pattern_v">Your good weeks all start with a kept Tuesday.</p></div>
+      </div>
+    </div></div>
+  </div>
+
+  <div class="row">
+    <div class="phone sm"><div class="notch"></div><div class="screen">
+      <div class="sbar"><span>13:19</span><span class="ic">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+        <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="6.9" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+      </span></div>
+      <div class="app">
+        <div class="app-head"><div class="orb"></div><div class="t" data-t="ph_voice">Voice</div></div>
+        <div class="voice">
+          <div class="orb big"></div>
+          <div class="st" data-t="ph_listening">● Now listening</div>
+          <div class="wave">
+            <i style="height:8px"></i><i style="height:16px"></i><i style="height:24px"></i><i style="height:13px"></i><i style="height:20px"></i><i style="height:9px"></i><i style="height:17px"></i><i style="height:25px"></i><i style="height:12px"></i><i style="height:7px"></i>
+          </div>
+          <div class="cap" data-t="ph_said">"You've had this exact week before. Let's not run it the same way."</div>
+        </div>
+        <div class="composer" style="justify-content:center"><span style="flex:none" data-t="ph_pause">Pause</span><span style="flex:none" data-t="ph_kb">Keyboard</span><span style="flex:none;color:#8B4A4A" data-t="ph_end">End</span></div>
+      </div>
+    </div></div>
+    <div class="txt">
+      <div class="label" data-t="r2_l">Presence</div>
+      <h3 data-t="r2_h">Talk to it. It's better out loud.</h3>
+      <p data-t="r2_p">Chat when you're at a desk, voice when you're walking, video for the weekly review. Same coach, same memory, no repetition — the interface changes, the relationship doesn't.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="txt">
+      <div class="label" data-t="r3_l">Restraint</div>
+      <h3 data-t="r3_h">One action a day. Never a feed.</h3>
+      <p data-t="r3_p">It won't send you seven tips or a streak to protect. It says one thing, and it checks tomorrow whether you did it. That's the whole discipline.</p>
+    </div>
+    <div class="phone sm"><div class="notch"></div><div class="screen">
+      <div class="sbar"><span>18:02</span><span class="ic">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+        <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="12.2" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+      </span></div>
+      <div class="app">
+        <div class="app-head"><div class="orb"></div><div class="t" data-t="ph_todayt">Today</div></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:16px;padding:0 4px">
+          <div class="label" style="letter-spacing:.22em" data-t="ph_onething">Today's one thing</div>
+          <div style="font-family:var(--serif);font-size:23px;line-height:1.28;font-style:italic" data-t="ph_action">Lights out by 22:30. Non‑negotiable.</div>
+          <div style="font-size:11.5px;color:var(--ink3);line-height:1.5" data-t="ph_because">Because two short nights precede every dip you've logged since January.</div>
+        </div>
+        <div style="background:var(--plum);color:#F5EFF3;text-align:center;padding:13px;border-radius:999px;font-size:12.5px;font-weight:600" data-t="ph_hold">Hold me to it</div>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<section id="apply"><div class="wrap">
+  <div class="invitation">
+    <div class="label" data-t="inv_l">Request an invitation</div>
+    <h2 data-t="inv_h">Forty places. Then we close it.</h2>
+    <p class="d" data-t="inv_p">We onboard slowly because the first cohort shapes the coach. Two questions, then we'll be in touch in order.</p>
+
+    <form class="app-form" id="applyForm">
+      <input type="email" id="email" required placeholder="Email address" data-tp="email_ph" aria-label="Email">
+      <select id="q1" required aria-label="What do you already track?">
+        <option value="" data-t="q1_0">What do you already track?</option>
+        <option data-t="q1_1">Oura / Whoop / Garmin</option>
+        <option data-t="q1_2">Apple Watch or Apple Health</option>
+        <option data-t="q1_3">Bloodwork &amp; labs</option>
+        <option data-t="q1_4">Nothing yet — I want to start</option>
+      </select>
+      <select id="q2" required aria-label="What are you trying to fix?">
+        <option value="" data-t="q2_0">What are you trying to fix?</option>
+        <option data-t="q2_1">Consistency — I start and stop</option>
+        <option data-t="q2_2">Sleep and recovery</option>
+        <option data-t="q2_3">Focus under heavy load</option>
+        <option data-t="q2_4">Knowing whether any of it works</option>
+      </select>
+      <button type="submit" data-t="inv_cta">Request an invitation</button>
+    </form>
+    <div class="fine" data-t="inv_fine" data-thtml>We'll email you once, when your place opens. Keeper reads health-adjacent data — stored privately, deletable at any time. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy note</a>.</div>
+
+    <div class="step" id="stepAccepted" style="margin-top:40px">
+      <div class="accepted">
+        <div class="seal">K</div>
+        <div class="label" data-t="acc_l">Request received</div>
+        <h2 style="font-size:28px;margin:12px 0 8px" data-t="acc_h">You're on the list.</h2>
+        <p class="d" data-t="acc_p">If you'd like to shape what we build, the founders take fifteen minutes with early applicants.</p>
+        <a class="book" href="#" id="bookBtn" data-t="acc_cta">Book fifteen minutes</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+
+<!-- ===== second step: quick screener (revealed after lead submit) ===== -->
+<style>
+#stepScreen{padding:0 28px 56px}
+#stepScreen .sc-in{max-width:560px;margin:0 auto;background:rgba(127,127,127,.08);border:1px solid rgba(127,127,127,.26);border-radius:12px;padding:26px 24px}
+#stepScreen h3{font-size:20px;margin:0 0 8px;font-weight:600}
+#stepScreen .sc-sub{font-size:13.5px;opacity:.72;margin:0 0 18px;line-height:1.5}
+#stepScreen label{display:block;font-size:13px;opacity:.85;margin:14px 0 6px}
+#stepScreen select{width:100%;padding:11px 12px;font-size:14.5px;font-family:inherit;color:inherit;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.30);border-radius:8px}
+#stepScreen button{margin-top:20px;width:100%;padding:13px 20px;font-size:14.5px;font-weight:600;font-family:inherit;cursor:pointer;color:inherit;background:transparent;border:1.5px solid currentColor;border-radius:8px}
+#stepScreen button[disabled]{opacity:.4;cursor:default}
+#stepScreen .sc-ok{display:none;font-size:14.5px;text-align:center;padding:8px 0}
+</style>
+<div class="step" id="stepScreen"><div class="sc-in">
+  <h3 data-t="sc_h">Four quick questions</h3>
+  <p class="sc-sub" data-t="sc_sub">Optional. It helps us decide who to talk to first — your place on the list is already saved.</p>
+  <div id="scForm">
+    <label data-t="sc_q1">Your age</label>
+    <select id="scAge"><option value="" data-t="sc_ph">— select —</option><option>18-26</option><option>27-35</option><option>36-45</option><option>46+</option></select>
+    <label data-t="sc_q2">Where you live</label>
+    <select id="scCity"><option value="" data-t="sc_ph">— select —</option><option value="kyiv" data-t="sc_c1">Kyiv</option><option value="ua_other" data-t="sc_c2">Another city in Ukraine</option><option value="outside" data-t="sc_c3">Outside Ukraine</option></select>
+    <label data-t="sc_q3">Do you wear a fitness tracker or smart watch?</label>
+    <select id="scWear"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_w1">No</option><option value="lt3m" data-t="sc_w2">Yes, less than 3 months</option><option value="ge3m" data-t="sc_w3">Yes, 3 months or more</option></select>
+    <label data-t="sc_q4">Do you check the data regularly?</label>
+    <select id="scData"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_d1">No</option><option value="some" data-t="sc_d2">Sometimes</option><option value="daily" data-t="sc_d3">Yes, most days</option></select>
+    <button id="scSend" type="button" data-t="sc_send">Send</button>
+  </div>
+  <div class="sc-ok" id="scOk" data-t="sc_done">Thank you — that's everything we needed.</div>
+</div></div>
+<script>
+(function(){
+  var step=document.getElementById('stepScreen'); if(!step)return;
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit',function(){ setTimeout(function(){step.classList.add('on');},60); });
+  });
+  var ids=['scAge','scCity','scWear','scData'];
+  document.getElementById('scSend').addEventListener('click',function(){
+    var a={},n=0;
+    ids.forEach(function(id){var v=document.getElementById(id).value; if(v){n++;} a[id.slice(2).toLowerCase()]=v;});
+    if(!n)return;
+    if(window.track)window.track('screen_submit',{answered:n});
+    var C=window.LP_CONFIG||{};
+    if(C.FORMSPREE&&C.FORMSPREE.indexOf('REPLACE')<0){
+      var em=''; var i=document.querySelector('input[type=email]'); 
+      document.querySelectorAll('input[type=email]').forEach(function(x){if(x.value)em=x.value;});
+      fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({_subject:'screener',email:em,page:C.PAGE,brand:C.BRAND,
+          age:a.age,city:a.city,wearable:a.wear,reads_data:a.data})}).catch(function(){});
+    }
+    document.getElementById('scForm').style.display='none';
+    document.getElementById('scOk').style.display='block';
+  });
+})();
+</script>
+
+<footer data-t="foot" data-thtml>Keeper · a HumanistAI concept · <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy</a> · Not a medical device. Not therapy.</footer>
+
+<script>
+var T = {
+ en:{
+  sc_h:"Four quick questions", sc_sub:"Optional. It helps us decide who to talk to first — your place on the list is already saved.",
+  sc_q1:"Your age", sc_q2:"Where you live", sc_q3:"Do you wear a fitness tracker or smart watch?", sc_q4:"Do you check the data regularly?",
+  sc_ph:"— select —", sc_c1:"Kyiv", sc_c2:"Another city in Ukraine", sc_c3:"Outside Ukraine",
+  sc_w1:"No", sc_w2:"Yes, less than 3 months", sc_w3:"Yes, 3 months or more",
+  sc_d1:"No", sc_d2:"Sometimes", sc_d3:"Yes, most days",
+  sc_send:"Send", sc_done:"Thank you — that's everything we needed.",
+  __title:"Keeper — A coach who actually remembers you.",
+  __desc:"Keeper is a private coach with perfect memory. One action a day. By invitation.",
+  livepill:"LIVE",
+  tag:"By invitation · autumn cohort",
+  h1:"A coach who <i>actually</i> remembers you.",
+  deck:"Most coaching forgets you between sessions. Keeper reads your sleep, recovery and mood, holds on to every pattern you've ever shown it, and gives you one action a day — in a voice that already knows your context.",
+  invite:"Private, not therapy · 40 places in the first cohort",
+  letter:"Everything useful a coach does depends on <em>remembering</em> — the injury you mentioned in March, the week you always fall apart, the one intervention that actually held. Software forgets. People are expensive. Keeper is the third option.",
+  sig:"— the founding team",
+  r1_l:"Continuity", r1_h:"It picks up where you left off.",
+  r1_p:"No re-explaining yourself. Every conversation starts inside the context of the last one — and inside twelve months of your own data. It knows what it already asked you.",
+  r2_l:"Presence", r2_h:"Talk to it. It's better out loud.",
+  r2_p:"Chat when you're at a desk, voice when you're walking, video for the weekly review. Same coach, same memory, no repetition — the interface changes, the relationship doesn't.",
+  r3_l:"Restraint", r3_h:"One action a day. Never a feed.",
+  r3_p:"It won't send you seven tips or a streak to protect. It says one thing, and it checks tomorrow whether you did it. That's the whole discipline.",
+  inv_l:"Request an invitation", inv_h:"Forty places. Then we close it.",
+  inv_p:"We onboard slowly because the first cohort shapes the coach. Two questions, then we'll be in touch in order.",
+  email_ph:"Email address", inv_cta:"Request an invitation",
+  inv_fine:'We\'ll email you once, when your place opens. Keeper reads health-adjacent data — stored privately, deletable at any time. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy note</a>.',
+  q1_0:"What do you already track?", q1_1:"Oura / Whoop / Garmin", q1_2:"Apple Watch or Apple Health", q1_3:"Bloodwork & labs", q1_4:"Nothing yet — I want to start",
+  q2_0:"What are you trying to fix?", q2_1:"Consistency — I start and stop", q2_2:"Sleep and recovery", q2_3:"Focus under heavy load", q2_4:"Knowing whether any of it works",
+  acc_l:"Request received", acc_h:"You're on the list.",
+  acc_p:"If you'd like to shape what we build, the founders take fifteen minutes with early applicants.",
+  acc_cta:"Book fifteen minutes",
+  foot:'Keeper · a HumanistAI concept · <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy</a> · Not a medical device. Not therapy.',
+  ph_day:"Thu 7 Aug", ph_remembered:"Remembered",
+  ph_memo1:"14 Mar — you said the 06:00 gym slot is the only one that survives a bad week.",
+  ph_today:"Today",
+  ph_c1:"You slept 6h04 and your Thursday call is at 08:00 again. Last time this pattern ran three weeks, you stopped training entirely.",
+  ph_c2:"i remember. don't want that again",
+  ph_c3:"Then keep the 06:00 slot tomorrow and move the call to 09:30. One change, not five.",
+  ph_c4:"moving it now", ph_read:"Read 07:18", ph_say:"Say something…",
+  ph_week:"This week", d_mon:"Mon", d_tue:"Tue", d_wed:"Wed", d_thu:"Thu",
+  tl1:"Moved the Thursday call. Recovery watch started.",
+  tl2:"06:00 session kept. Sleep 7h21 — first time in nine days.",
+  tl3:"Late night flagged. One-line nudge sent at 21:40.",
+  tl4:"Check whether recovery followed the change.",
+  ph_pattern:"Pattern", ph_pattern_v:"Your good weeks all start with a kept Tuesday.",
+  ph_voice:"Voice", ph_listening:"● Now listening",
+  ph_said:"“You've had this exact week before. Let's not run it the same way.”",
+  ph_pause:"Pause", ph_kb:"Keyboard", ph_end:"End",
+  ph_todayt:"Today", ph_onething:"Today's one thing",
+  ph_action:"Lights out by 22:30. Non‑negotiable.",
+  ph_because:"Because two short nights precede every dip you've logged since January.",
+  ph_hold:"Hold me to it"
+ },
+ uk:{
+  sc_h:"Чотири швидкі питання", sc_sub:"Необов'язково. Це допомагає визначити, з ким поговорити першими — ваше місце в списку вже збережено.",
+  sc_q1:"Ваш вік", sc_q2:"Де ви живете", sc_q3:"Ви носите фітнес-трекер або смартгодинник?", sc_q4:"Ви регулярно дивитеся дані?",
+  sc_ph:"— оберіть —", sc_c1:"Київ", sc_c2:"Інше місто в Україні", sc_c3:"За межами України",
+  sc_w1:"Ні", sc_w2:"Так, менше 3 місяців", sc_w3:"Так, 3 місяці й більше",
+  sc_d1:"Ні", sc_d2:"Інколи", sc_d3:"Так, майже щодня",
+  sc_send:"Надіслати", sc_done:"Дякуємо — це все, що потрібно.",
+  __title:"Keeper — Коуч, який справді памʼятає тебе",
+  __desc:"Keeper — приватний коуч із памʼяттю. Одна дія на день. За запрошенням.",
+  livepill:"НАЖИВО",
+  tag:"За запрошенням · осіння група",
+  h1:"Коуч, який <i>справді</i> памʼятає тебе.",
+  deck:"Більшість коучингу забуває тебе між сесіями. Keeper читає твій сон, відновлення й настрій, тримає кожен патерн, який ти йому показав, і щодня дає одну дію — голосом, який уже знає твій контекст.",
+  invite:"Приватно, не терапія · 40 місць у першій групі",
+  letter:"Усе корисне, що робить коуч, тримається на <em>памʼяті</em> — травма, про яку ти згадав у березні, тиждень, коли тебе завжди зносить, та єдина річ, яка справді спрацювала. Софт забуває. Люди дорого коштують. Keeper — третій варіант.",
+  sig:"— команда засновників",
+  r1_l:"Безперервність", r1_h:"Продовжує з того місця, де ви спинились.",
+  r1_p:"Не треба пояснювати себе заново. Кожна розмова починається в контексті попередньої — і в контексті твоїх даних за рік. Він памʼятає, що вже питав.",
+  r2_l:"Присутність", r2_h:"Говори з ним. Вголос — краще.",
+  r2_p:"Текст, коли ти за столом. Голос, коли йдеш. Відео — для тижневого розбору. Той самий коуч, та сама памʼять, без повторів: змінюється інтерфейс, а не стосунки.",
+  r3_l:"Стриманість", r3_h:"Одна дія на день. Ніякої стрічки.",
+  r3_p:"Він не надішле сім порад і не дасть стрік, який страшно втратити. Каже одну річ — і завтра перевіряє, чи ти її зробив. У цьому вся дисципліна.",
+  inv_l:"Запросити доступ", inv_h:"Сорок місць. Далі закриваємо.",
+  inv_p:"Ми беремо повільно, бо перша група формує коуча. Два питання — і звʼяжемось за чергою.",
+  email_ph:"Твоя пошта", inv_cta:"Надіслати запит",
+  inv_fine:'Напишемо один раз, коли звільниться місце. Keeper працює з даними про здоровʼя — зберігаються приватно, видаляються будь-коли. <a href="../legal/privacy.html" target="_blank" rel="noopener">Політика приватності</a>.',
+  q1_0:"Що ти вже відстежуєш?", q1_1:"Oura / Whoop / Garmin", q1_2:"Apple Watch або Apple Health", q1_3:"Аналізи крові", q1_4:"Поки нічого — хочу почати",
+  q2_0:"Що хочеш налагодити?", q2_1:"Стабільність — починаю і кидаю", q2_2:"Сон і відновлення", q2_3:"Фокус під навантаженням", q2_4:"Зрозуміти, чи це взагалі працює",
+  acc_l:"Запит отримано", acc_h:"Ти у списку.",
+  acc_p:"Якщо хочеш вплинути на те, що ми будуємо — засновники беруть 15 хвилин з першими охочими.",
+  acc_cta:"Обрати 15 хвилин",
+  foot:'Keeper · концепт HumanistAI · <a href="../legal/privacy.html" target="_blank" rel="noopener">Приватність</a> · Не медичний виріб. Не терапія.',
+  ph_day:"Чт 7 сер", ph_remembered:"Памʼятаю",
+  ph_memo1:"14 бер — ти казав, що зал о 06:00 — єдине, що виживає у важкий тиждень.",
+  ph_today:"Сьогодні",
+  ph_c1:"Ти спав 6 год 04 хв, а дзвінок у четвер знову о 08:00. Минулого разу цей патерн тривав три тижні — і ти зовсім перестав тренуватись.",
+  ph_c2:"памʼятаю. не хочу знову",
+  ph_c3:"Тоді завтра залишаємо 06:00, а дзвінок — на 09:30. Одна зміна, не пʼять.",
+  ph_c4:"переношу", ph_read:"Прочитано 07:18", ph_say:"Скажи щось…",
+  ph_week:"Цей тиждень", d_mon:"Пн", d_tue:"Вт", d_wed:"Ср", d_thu:"Чт",
+  tl1:"Дзвінок у четвер перенесено. Стежимо за відновленням.",
+  tl2:"Тренування о 06:00 відбулось. Сон 7:21 — вперше за девʼять днів.",
+  tl3:"Пізній вечір помічено. Нагадування о 21:40, один рядок.",
+  tl4:"Перевірити, чи відновлення підтягнулось після зміни.",
+  ph_pattern:"Патерн", ph_pattern_v:"Усі твої добрі тижні починаються з утриманого вівторка.",
+  ph_voice:"Голос", ph_listening:"● Слухаю",
+  ph_said:"«У тебе вже був такий тиждень. Давай не проживати його так само.»",
+  ph_pause:"Пауза", ph_kb:"Текст", ph_end:"Завершити",
+  ph_todayt:"Сьогодні", ph_onething:"Одна річ на сьогодні",
+  ph_action:"Світло вимкнене о 22:30. Без винятків.",
+  ph_because:"Бо кожному твоєму спаду з січня передували дві короткі ночі.",
+  ph_hold:"Нагадай мені"
+ }
+};
+
+(function(){
+  var C=window.LP_CONFIG;
+  window.__lpQ=[]; window.__lpLoaded=false;
+  window.__lpLoadTrackers=function(){
+    if(window.__lpLoaded)return; window.__lpLoaded=true;
+    if(C.GA_ID){var s=document.createElement('script');s.src="https://www.googletagmanager.com/gtag/js?id="+C.GA_ID;s.async=1;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',C.GA_ID);}
+    if(C.FB_PIXEL){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',C.FB_PIXEL);fbq('track','PageView');}
+    var q=window.__lpQ||[]; window.__lpQ=[];
+    q.forEach(function(a){ if(window.gtag)gtag('event',a[0],a[1]); if(window.fbq)fbq('trackCustom',a[0],a[1]); });
+  };
+  window.__lpDropQueue=function(){ window.__lpQ=[]; };
+  var qs=new URLSearchParams(location.search),utm={};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){utm[k]=qs.get(k)||''});
+  var LANG='en';
+  window.track=function(ev,d){d=d||{};d.page=C.PAGE;d.brand=C.BRAND;d.icp=C.ICP;d.angle=C.ANGLE;d.cta_type=C.CTA_TYPE;d.lang=LANG;Object.assign(d,utm);
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:ev},d));
+    if(window.__lpLoaded){ if(window.gtag)gtag('event',ev,d); if(window.fbq)fbq('trackCustom',ev,d); }
+    else { window.__lpQ.push([ev,d]); }
+    console.log('[track]',ev,d);};
+  function pickLang(){
+    var q=qs.get('lang'); if(q==='uk'||q==='en')return q;
+    try{var s=localStorage.getItem('lp_lang'); if(s==='uk'||s==='en')return s;}catch(e){}
+    var n=(navigator.language||'').toLowerCase();
+    return (n.indexOf('uk')===0||n.indexOf('ru')===0)?'uk':'en';
+  }
+  function setLang(l,manual){
+    if(!T[l])l='en'; LANG=l;
+    document.documentElement.lang=(l==='uk')?'uk':'en';
+    var d=T[l];
+    document.querySelectorAll('[data-t]').forEach(function(el){
+      var v=d[el.getAttribute('data-t')]; if(v==null)return;
+      if(el.hasAttribute('data-thtml'))el.innerHTML=v; else el.textContent=v;});
+    document.querySelectorAll('[data-tp]').forEach(function(el){
+      var v=d[el.getAttribute('data-tp')]; if(v!=null)el.placeholder=v;});
+    if(d.__title)document.title=d.__title;
+    var m=document.querySelector('meta[name="description"]'); if(m&&d.__desc)m.setAttribute('content',d.__desc);
+    document.querySelectorAll('.langbtn').forEach(function(b){
+      var on=b.getAttribute('data-lang')===l; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');});
+    try{localStorage.setItem('lp_lang',l)}catch(e){}
+    if(manual)track('lang_switch',{to:l});
+  }
+  document.querySelectorAll('.langbtn').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'),true)});});
+  setLang(pickLang(),false);
+
+  track('page_view');
+  var email="";
+  document.getElementById('applyForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    email=document.getElementById('email').value;
+    var payload={email:email,tracks:document.getElementById('q1').value,goal:document.getElementById('q2').value,page:C.PAGE,brand:C.BRAND,cta:C.CTA_TYPE,lang:LANG};
+    var adSafe={submitted:1};
+    track('lead_submit',adSafe); track('apply_submit',adSafe);
+    if(C.FORMSPREE.indexOf('REPLACE')<0){fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(Object.assign(payload,utm))}).catch(function(){});}
+    var a=document.getElementById('stepAccepted');a.classList.add('on');a.scrollIntoView({behavior:'smooth'});
+  });
+  document.getElementById('bookBtn').addEventListener('click',function(e){
+    e.preventDefault();track('call_click');
+    var u=C.CALENDLY,sep=u.indexOf('?')<0?'?':'&',x=Object.keys(utm).map(function(k){return k+'='+encodeURIComponent(utm[k])}).join('&');
+    if(email)x+='&email='+encodeURIComponent(email);
+    window.open(u+sep+x,'_blank');});
+})();
+</script>
+
+<script>
+/* mount the live clip once it scrolls near, reveal it only when the
+   prototype reports that it has booted — otherwise the static screen stays */
+(function(){
+  var wrap=document.querySelector('.live-wrap'); if(!wrap) return;
+  var frame=wrap.querySelector('iframe'), screen=wrap.parentNode;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  window.addEventListener('message',function(e){
+    if(e.data && e.data.hai==='clip-ready'){
+      screen.classList.add('live-on');
+      if(window.track) track('clip_visible',{});
+    }
+  });
+  function mount(){ if(!frame.src) frame.src=frame.getAttribute('data-src'); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){ mount(); io.disconnect(); } });
+    },{rootMargin:'300px'});
+    io.observe(wrap);
+  } else mount();
+  var link=document.querySelector('.livelink');
+  if(link) link.addEventListener('click',function(){ if(window.track) track('prototype_open',{}); });
+})();
+</script>
+
+<!-- consent banner + footer legal links -->
+<style>
+#lpCb{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:none;
+  background:#14161A;color:#EDEEEA;box-shadow:0 -8px 30px rgba(0,0,0,.28);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif}
+#lpCb.on{display:block}
+#lpCb .in{max-width:960px;margin:0 auto;padding:18px 22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+#lpCb p{margin:0;font-size:13.5px;line-height:1.5;color:#C3C7CC;flex:1 1 340px;font-weight:400}
+#lpCb a{color:#EDEEEA;text-decoration:underline;text-underline-offset:2px}
+#lpCb .btns{display:flex;gap:9px;flex:0 0 auto}
+#lpCb button{font-family:inherit;font-size:13px;font-weight:600;border-radius:7px;padding:10px 17px;cursor:pointer;
+  border:1px solid transparent;transition:opacity .15s}
+#lpCb button:hover{opacity:.85}
+#lpCb .no{background:transparent;border-color:#4A4F57;color:#C3C7CC}
+#lpCb .yes{background:#EDEEEA;color:#14161A}
+.lp-legal{font-size:inherit;opacity:.85}
+.lp-legal a{cursor:pointer}
+@media(max-width:620px){#lpCb .in{padding:15px 16px}#lpCb .btns{width:100%}#lpCb button{flex:1}}
+</style>
+<div id="lpCb" role="dialog" aria-live="polite" aria-label="Cookies">
+  <div class="in">
+    <p id="lpCbTxt"></p>
+    <div class="btns">
+      <button type="button" class="no" id="lpCbNo"></button>
+      <button type="button" class="yes" id="lpCbYes"></button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='lp_consent', PRIV='../legal/privacy.html', CRISIS='../legal/privacy.html#crisis';
+  var S={
+    en:{txt:'We use analytics and advertising cookies to see which advertisement brought you here. Nothing runs until you agree.',
+        yes:'Accept', no:'Only necessary', priv:'Privacy policy', cook:'Cookies', crisis:'Need help right now?'},
+    uk:{txt:'Ми використовуємо аналітичні та рекламні cookie, щоб бачити, яке оголошення вас привело. Нічого не вмикається до вашої згоди.',
+        yes:'Погоджуюсь', no:'Лише необхідні', priv:'Політика конфіденційності', cook:'Cookie', crisis:'Потрібна допомога зараз?'}
+  };
+  function L(){var l=(window.LANG||'en');return S[l]?l:'en'}
+  var box=document.getElementById('lpCb');
+  function read(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function write(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+
+  function paint(){
+    var s=S[L()];
+    document.getElementById('lpCbTxt').innerHTML=s.txt+' <a href="'+PRIV+'" target="_blank" rel="noopener">'+s.priv+'</a>.';
+    document.getElementById('lpCbYes').textContent=s.yes;
+    document.getElementById('lpCbNo').textContent=s.no;
+    var f=document.querySelector('footer'); if(!f)return;
+    var old=f.querySelector('.lp-legal'); if(old)old.parentNode.removeChild(old);
+    var sp=document.createElement('span'); sp.className='lp-legal';
+    sp.innerHTML=' · <a href="'+CRISIS+'" target="_blank" rel="noopener">'+s.crisis+'</a> · <a role="button" tabindex="0" id="lpCbOpen">'+s.cook+'</a>';
+    (f.querySelector('.wrap')||f).appendChild(sp);
+    var o=document.getElementById('lpCbOpen');
+    if(o)o.addEventListener('click',function(){box.classList.add('on')});
+  }
+  function decide(v){
+    write(v); box.classList.remove('on');
+    if(v==='all'){ if(window.__lpLoadTrackers)window.__lpLoadTrackers(); }
+    else { if(window.__lpDropQueue)window.__lpDropQueue(); }
+  }
+  document.getElementById('lpCbYes').addEventListener('click',function(){decide('all')});
+  document.getElementById('lpCbNo').addEventListener('click',function(){decide('necessary')});
+
+  var _sl=window.setLang;
+  if(typeof _sl==='function'){ window.setLang=function(l,m){ _sl(l,m); paint(); }; }
+
+  paint();
+  var c=read();
+  if(c==='all'){ if(window.__lpLoadTrackers)window.__lpLoadTrackers(); }
+  else if(c!=='necessary'){ box.classList.add('on'); }
+})();
+</script>
+
+</body>
+</html>

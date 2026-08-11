@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anchor — a coach who remembers who you actually are</title>
+<meta name="description" content="Anchor reads your sleep, recovery and mood, remembers your patterns, and gives you one action a day. Private. Not therapy.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<script>
+window.LP_CONFIG = {
+  BRAND:"Anchor", PAGE:"A-B_anchor_memory", ICP:"achiever", ANGLE:"memory", CTA_TYPE:"intro_call",
+  FORMSPREE:"https://formspree.io/f/REPLACE_ME",
+  CALENDLY:"https://calendly.com/REPLACE_ME/15min",
+  GA_ID:"", FB_PIXEL:""
+};
+</script>
+<style>
+:root{
+  --night:#0F1F2A; --deep:#16303D; --deep2:#1D3F4F;
+  --sand:#F3EEE5; --cream:#FFFDF9; --sand2:#E6DED0;
+  --ink:#11191F; --ink2:#4A575F; --ink3:#8A959C;
+  --sky:#8CBACB; --amber:#E0A458; --leaf:#6E9C7E;
+  --line:rgba(17,25,31,.12); --lined:rgba(255,255,255,.14);
+  --sans:"Manrope",-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  --serif:"Lora",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--sand);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 26px}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+
+nav{background:var(--night)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.brand{display:flex;align-items:center;gap:11px;color:var(--cream);font-weight:700;font-size:19px;letter-spacing:.14em}
+.navr{display:flex;align-items:center;gap:14px}
+.lang{display:flex;border:1px solid var(--lined);border-radius:999px;overflow:hidden}
+.langbtn{background:transparent;border:none;color:#A9BAC2;font-size:11px;font-weight:700;letter-spacing:.12em;padding:7px 12px;cursor:pointer;font-family:var(--sans)}
+.langbtn.on{background:var(--cream);color:var(--night)}
+nav a.cta{font-size:13.5px;font-weight:700;background:var(--amber);color:#2A1B08;padding:11px 20px;border-radius:999px;text-decoration:none;white-space:nowrap}
+
+.hero{background:var(--night);color:var(--cream);padding:12px 0 88px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(224,164,88,.16),transparent 66%);top:-220px;right:-160px}
+.hero .grid{display:grid;grid-template-columns:308px 1fr;gap:60px;align-items:center;position:relative}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:1.06;letter-spacing:-.03em;font-weight:700}
+.hero h1 span{color:var(--amber)}
+.hero .lead{color:#C3D2D9;font-size:17.5px;font-weight:300;max-width:44ch;margin-top:20px}
+.pillrow{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+.pillrow span{font-size:12.5px;color:#CBD8DE;border:1px solid var(--lined);border-radius:999px;padding:7px 14px}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;align-items:center}
+.btn-a{background:var(--amber);color:#2A1B08;border:none;border-radius:999px;padding:16px 28px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--sans);text-decoration:none;display:inline-block}
+.btn-b{background:transparent;color:var(--cream);border:1px solid var(--lined);border-radius:999px;padding:15px 24px;font-size:14.5px;font-weight:600;cursor:pointer;font-family:var(--sans)}
+.hero .micro{margin-top:16px;font-size:12.5px;color:#8FA3AC;max-width:50ch}
+
+.phone{position:relative;width:308px;border-radius:46px;background:linear-gradient(148deg,#7E8B93 0 6%,#2C3941 22%,#0A1219 52%,#3E4B53 78%,#111A21);padding:9px;box-shadow:0 46px 90px -34px rgba(0,0,0,.75)}
+.phone .screen{border-radius:38px;overflow:hidden;background:var(--night);height:628px;display:flex;flex-direction:column;position:relative;color:#C3D2D9}
+.notch{position:absolute;top:11px;left:50%;transform:translateX(-50%);width:94px;height:23px;border-radius:14px;background:#060C11;z-index:5}
+.phone::before{content:"";position:absolute;left:-2.5px;top:104px;width:3px;height:96px;border-radius:2px;background:linear-gradient(90deg,rgba(255,255,255,.22),rgba(0,0,0,.4));z-index:2}
+.phone::after{content:"";position:absolute;right:-2.5px;top:132px;width:3px;height:62px;border-radius:2px;background:linear-gradient(270deg,rgba(255,255,255,.22),rgba(0,0,0,.4));z-index:2}
+.screen::before{content:"";position:absolute;inset:0;z-index:4;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,.09) 0 16%,rgba(255,255,255,.02) 27%,transparent 46%)}
+.screen::after{content:"";position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:37%;height:5px;border-radius:3px;background:currentColor;opacity:.26;z-index:6}
+.sbar{display:flex;justify-content:space-between;align-items:center;height:44px;padding:0 26px 0 30px;font-family:-apple-system,"SF Pro Text","Helvetica Neue",Arial,sans-serif;font-size:14.5px;font-weight:600;letter-spacing:-.01em;flex:none}
+.sbar .ic{display:flex;align-items:center;gap:5px}
+.sbar svg{display:block}
+.app{flex:1;display:flex;flex-direction:column;padding:6px 19px 26px;overflow:hidden}
+.app-head{display:flex;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--lined)}
+.orb{width:30px;height:30px;border-radius:50%;flex:none;background:radial-gradient(circle at 34% 30%,#FBEBD2,var(--amber) 46%,var(--leaf) 92%);box-shadow:0 0 16px rgba(224,164,88,.5)}
+.orb.big{width:104px;height:104px;box-shadow:0 0 52px rgba(224,164,88,.42)}
+.app-head .t{font-size:14px;font-weight:700;letter-spacing:.1em;color:var(--cream)}
+.app-head .s{margin-left:auto;font-size:10px;color:#8FA3AC}
+.voice{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}
+.state{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);display:flex;align-items:center;gap:7px}
+.state i{width:6px;height:6px;border-radius:50%;background:var(--sky);display:block}
+.wave{display:flex;gap:3px;align-items:center;height:30px}
+.wave i{display:block;width:3px;border-radius:2px;background:var(--amber);opacity:.9}
+.said{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.45;color:var(--cream);padding:0 6px}
+.recall{background:rgba(255,255,255,.06);border:1px solid var(--lined);border-radius:14px;padding:11px 13px;margin-top:14px}
+.recall .k{font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:700}
+.recall p{font-size:11.5px;color:#C3D2D9;margin-top:4px;line-height:1.4}
+.ctrls{display:flex;justify-content:space-between;gap:8px;margin-top:16px}
+.ctrls div{flex:1;text-align:center;font-size:11px;color:#A9BAC2;border:1px solid var(--lined);border-radius:999px;padding:10px 0}
+.ctrls div.end{color:#E58C7A;border-color:rgba(229,140,122,.4)}
+
+section{padding:78px 0}
+h2{font-size:clamp(26px,3.6vw,40px);line-height:1.1;letter-spacing:-.028em;font-weight:700}
+.sub{color:var(--ink2);font-weight:300;margin-top:14px;max-width:56ch;font-size:16.5px}
+
+.day{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.mo{background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:24px 22px}
+.mo .h{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--amber);text-transform:uppercase}
+.mo h3{font-size:17.5px;font-weight:700;margin:12px 0 8px;line-height:1.25}
+.mo p{font-size:14.5px;color:var(--ink2);font-weight:300}
+.mo .tm{margin-top:16px;font-size:12px;color:var(--ink3);border-top:1px solid var(--line);padding-top:12px}
+
+.quote{background:var(--deep);color:var(--cream);border-radius:28px;padding:56px 46px;text-align:center;margin-top:20px}
+.quote p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.7vw,28px);line-height:1.45;max-width:30ch;margin:0 auto}
+.quote .who{margin-top:22px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--sky)}
+
+.screens{display:grid;grid-template-columns:repeat(3,auto);justify-content:center;gap:26px;margin-top:44px}
+.phone.sm{width:230px;border-radius:36px;padding:7px}
+.phone.sm .screen{border-radius:29px;height:467px}
+.phone.sm .notch{width:70px;height:17px;top:9px}
+.phone.sm .app{padding:4px 14px 22px}
+.capl{text-align:center;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-top:13px}
+.chat{display:flex;flex-direction:column;gap:9px;margin-top:13px}
+.bub{max-width:88%;padding:10px 13px;font-size:12px;line-height:1.42}
+.bub.a{background:rgba(255,255,255,.08);color:#DCE6EA;border-radius:15px 15px 15px 5px}
+.bub.u{background:var(--amber);color:#2A1B08;align-self:flex-end;border-radius:15px 15px 5px 15px;font-weight:600}
+.ts{font-size:8.5px;color:#7C8B93;letter-spacing:.05em;margin-top:-4px}
+.ts.me{align-self:flex-end}
+.daysep{text-align:center;font-size:8.5px;color:#7C8B93;letter-spacing:.14em;text-transform:uppercase;margin:4px 0 2px}
+.scale{display:flex;gap:5px;margin-top:12px}
+.scale i{flex:1;height:34px;border-radius:9px;border:1px solid var(--lined);display:block}
+.scale i.on{background:var(--amber);border-color:var(--amber)}
+.softbtn{background:var(--amber);color:#2A1B08;text-align:center;font-size:12.5px;font-weight:700;padding:12px;border-radius:999px;margin-top:auto}
+
+.booking{background:var(--cream);border:1px solid var(--line);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;margin-top:16px}
+.booking .l{padding:46px 42px}
+.booking .r{background:var(--night);color:var(--cream);padding:42px 38px}
+.booking h2{font-size:clamp(24px,3vw,32px)}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
+.slot{border:1px solid var(--lined);border-radius:12px;padding:12px;text-align:center;font-size:13px;color:#CBD8DE}
+.slot b{display:block;font-size:11px;color:var(--sky);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;font-weight:700}
+.booking .r .note{font-size:12.5px;color:#8FA3AC;margin-top:18px;line-height:1.5}
+.orlist{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:9px}
+.orlist li{font-size:14.5px;color:var(--ink2);font-weight:300;padding-left:24px;position:relative}
+.orlist li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--leaf)}
+form.mini{display:flex;gap:8px;margin-top:24px;flex-wrap:wrap}
+form.mini input{flex:1;min-width:190px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:14px 18px;font-size:14.5px;font-family:var(--sans)}
+form.mini button{background:var(--ink);color:var(--cream);border:none;border-radius:999px;padding:14px 22px;font-weight:700;font-size:14px;cursor:pointer;font-family:var(--sans)}
+.fine{font-size:12px;color:var(--ink3);margin-top:12px;max-width:48ch;line-height:1.5}
+.fine a{color:var(--ink2)}
+.step{display:none}.step.on{display:block;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1}}
+.thanks{background:var(--deep2);border-radius:18px;padding:24px;margin-top:20px;color:var(--cream)}
+.thanks p{font-size:14px;color:#C3D2D9;font-weight:300;margin-top:6px}
+.thanks a{display:inline-block;margin-top:14px;background:var(--amber);color:#2A1B08;padding:12px 22px;border-radius:999px;font-weight:700;font-size:13.5px;text-decoration:none}
+footer{background:var(--night);color:#8FA3AC;font-size:12.5px;padding:32px 0 52px}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+footer a{color:#C3D2D9}
+@media(max-width:940px){
+  .hero .grid{grid-template-columns:1fr;gap:38px}
+  .hero .art{display:flex;justify-content:center;order:2}
+  .day{grid-template-columns:1fr 1fr}
+  .screens{grid-template-columns:1fr;justify-items:center}
+  .booking{grid-template-columns:1fr}
+  nav a.cta{display:none}
+}
+@media(max-width:560px){.day{grid-template-columns:1fr}.booking .l,.booking .r{padding:32px 24px}.quote{padding:38px 24px}}
+
+/* ── live clip of the prototype, inside the hero mockup ─────────────── */
+.live-wrap{position:absolute;inset:0;overflow:hidden;z-index:3;opacity:0;transition:opacity .8s ease;background:transparent}
+.screen.live-on .live-wrap{opacity:1}
+.screen.live-on .sbar{opacity:0;transition:opacity .45s ease}
+.live-wrap iframe{position:absolute;top:0;left:0.00px;width:430px;height:932px;border:0;
+  transform-origin:top left;transform:scale(0.67442);pointer-events:none;background:transparent}
+.livepill{position:absolute;top:10px;left:12px;z-index:7;font-family:"Manrope",sans-serif;font-size:8.5px;font-weight:600;
+  letter-spacing:.16em;padding:3px 8px;border-radius:999px;background:#E0A458;color:#2A1B08;
+  opacity:0;transition:opacity .8s ease;pointer-events:none}
+.screen.live-on .livepill{opacity:1}
+.livepill i{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;
+  margin-right:5px;vertical-align:1px;animation:livedot 1.6s ease-in-out infinite}
+@keyframes livedot{0%,100%{opacity:1}50%{opacity:.25}}
+.livelink{position:absolute;inset:0;z-index:8;display:block;cursor:pointer}
+@media (prefers-reduced-motion: reduce){.live-wrap{display:none}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+      <circle cx="13" cy="4.4" r="2.6" stroke="#E0A458" stroke-width="1.6"/>
+      <path d="M13 7v16.4" stroke="#E0A458" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M7.4 10.2h11.2" stroke="#8CBACB" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M4.4 16.2c0 4.3 3.9 7.3 8.6 7.3s8.6-3 8.6-7.3" stroke="#E0A458" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    Anchor
+  </div>
+  <div class="navr">
+    <div class="lang" role="group" aria-label="Language">
+      <button class="langbtn on" data-lang="en" type="button">EN</button>
+      <button class="langbtn" data-lang="uk" type="button">УКР</button>
+    </div>
+    <a class="cta" href="#call" data-t="nav_cta">Book an intro</a>
+  </div>
+</div></nav>
+
+<div class="hero"><div class="wrap"><div class="grid">
+  <div class="art">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen"><a class="livelink" href="../prototypes/anchor-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="live-wrap"><iframe data-src="../prototypes/anchor-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+        <div class="sbar"><span>7:12</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="14.0" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+        </span></div>
+        <div class="app">
+          <div class="app-head"><div class="orb"></div><div class="t">ANCHOR</div><div class="s" data-t="ph_sess">04:12 · session</div></div>
+          <div class="voice">
+            <div class="orb big"></div>
+            <div class="state"><i></i><span data-t="ph_listening">LISTENING</span></div>
+            <div class="wave">
+              <i style="height:9px"></i><i style="height:18px"></i><i style="height:27px"></i><i style="height:14px"></i><i style="height:22px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:28px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:17px"></i>
+            </div>
+            <div class="said" data-t="ph_said">“You've had this exact week before. Let's not run it the same way.”</div>
+          </div>
+          <div class="recall"><div class="k" data-t="ph_remember">I remember</div><p data-t="ph_rememberv">In March you said morning training is the only thing that survives a hard week.</p></div>
+          <div class="ctrls"><div data-t="ph_pause">Pause</div><div data-t="ph_text">Text</div><div class="end" data-t="ph_end">End</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow" data-t="tag">Private · not therapy</div>
+    <h1 style="margin-top:16px" data-t="h1" data-thtml>A coach who remembers <span>who you actually are</span></h1>
+    <p class="lead" data-t="lead">Anchor reads your sleep, recovery and mood, remembers your patterns — and gives you one action a day. No explaining yourself from scratch every time. No lecturing.</p>
+    <div class="pillrow"><span data-t="p1">Voice or text</span><span data-t="p2">2 minutes each morning</span><span data-t="p3">Keeps your context</span><span data-t="p4">Your data, deletable</span></div>
+    <div class="acts">
+      <a class="btn-a" href="#call" id="heroCall" data-t="hero_cta">Book a 15-minute intro</a>
+      <button class="btn-b" id="heroScroll" data-t="hero_cta2">See how it works first</button>
+    </div>
+    <div class="micro" data-t="hero_micro">Free and no commitment. We'll show you how it works and whether it actually fits you.</div>
+  </div>
+</div></div></div>
+
+<section><div class="wrap" id="how">
+  <div class="eyebrow" data-t="day_k">One day</div>
+  <h2 style="margin-top:12px" data-t="day_h">It's there at the moments you usually slip</h2>
+  <p class="sub" data-t="day_sub">Not a session once a week. Four short moments that keep you in your rhythm.</p>
+  <div class="day">
+    <div class="mo"><div class="h" data-t="m1k">Morning</div><h3 data-t="m1h">A 2-minute check</h3><p data-t="m1p">How you slept, how loaded you are. It already sees the watch data — it only asks what it doesn't know.</p><div class="tm" data-t="m1t">07:10 · 20 seconds</div></div>
+    <div class="mo"><div class="h" data-t="m2k">Daytime</div><h3 data-t="m2h">One action</h3><p data-t="m2p">Specific, matched to today's state. Not a list of tips — one thing you can actually do.</p><div class="tm" data-t="m2t">09:00 · one message</div></div>
+    <div class="mo"><div class="h" data-t="m3k">Evening</div><h3 data-t="m3h">A quiet nudge</h3><p data-t="m3p">If you're heading into the same script as last time, it says so before it's too late.</p><div class="tm" data-t="m3t">21:40 · one line</div></div>
+    <div class="mo"><div class="h" data-t="m4k">Weekly</div><h3 data-t="m4h">A review, out loud</h3><p data-t="m4p">Ten minutes: what worked, what didn't, what changes. It remembers every previous one.</p><div class="tm" data-t="m4t">Sun · 10 minutes</div></div>
+  </div>
+</div></section>
+
+<div class="wrap"><div class="quote">
+  <p data-t="quote">Everything useful a coach does rests on memory. Software forgets. People are expensive.</p>
+  <div class="who" data-t="quote_who">Why we're building Anchor</div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="eyebrow" data-t="in_k">Inside</div>
+  <h2 style="margin-top:12px" data-t="in_h">Three screens — and that's the whole app</h2>
+  <div class="screens">
+    <div>
+      <div class="phone sm"><div class="notch"></div><div class="screen">
+        <div class="sbar"><span>7:16</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="13.6" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+        </span></div>
+        <div class="app">
+          <div class="app-head"><div class="orb"></div><div class="t" data-t="sc_chat">CHAT</div></div>
+          <div class="chat">
+            <div class="daysep" data-t="ph_today">Today</div>
+            <div class="bub a" data-t="ph_c1">You slept 6h 04m, and Thursday's call is at 08:00 again. Last time a month like this ended with you stopping altogether.</div>
+            <div class="ts">07:14</div>
+            <div class="bub u" data-t="ph_c2">yeah, i remember</div>
+            <div class="bub a" data-t="ph_c3">Then we keep the morning session and move the call to 09:30. One change.</div>
+            <div class="ts">07:16</div>
+            <div class="bub u" data-t="ph_c4">ok, moved it</div>
+            <div class="ts me" data-t="ph_read">Read 07:19</div>
+          </div>
+          <div class="recall" style="margin-top:auto"><div class="k" data-t="ph_pattern">Pattern</div><p data-t="ph_patternv">Your good weeks all start with a Tuesday you kept.</p></div>
+        </div>
+      </div></div>
+      <div class="capl" data-t="cap1">Chat</div>
+    </div>
+    <div>
+      <div class="phone sm"><div class="notch"></div><div class="screen">
+        <div class="sbar"><span>6:58</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="16.1" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+        </span></div>
+        <div class="app">
+          <div class="app-head"><div class="orb"></div><div class="t" data-t="sc_check">CHECK-IN</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:12px;color:var(--cream)">
+            <div style="font-size:16px;font-weight:600;line-height:1.3" data-t="ph_q">How hard is it to hold your pace today?</div>
+            <div class="scale"><i></i><i></i><i class="on"></i><i></i><i></i></div>
+            <div style="display:flex;justify-content:space-between;font-size:10px;color:#8FA3AC"><span data-t="ph_easy">Easy</span><span data-t="ph_edge">At the edge</span></div>
+            <div class="recall" style="margin-top:8px"><div class="k" data-t="ph_knows">It already knows</div><p>Sleep 6:04 · HRV 48ms · 4 meetings back to back</p></div>
+          </div>
+          <div class="softbtn" data-t="ph_next">Next</div>
+        </div>
+      </div></div>
+      <div class="capl" data-t="cap2">Check-in</div>
+    </div>
+    <div>
+      <div class="phone sm"><div class="notch"></div><div class="screen">
+        <div class="sbar"><span>20:11</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
+          <svg width="26" height="12" viewBox="0 0 26 12" aria-hidden="true"><rect x=".6" y=".6" width="20.6" height="10.8" rx="3.3" fill="none" stroke="currentColor" opacity=".38"/><rect x="2.1" y="2.1" width="7.4" height="7.8" rx="2" fill="currentColor"/><path d="M23.1 4.3c1.15.35 1.15 3.05 0 3.4z" fill="currentColor" opacity=".38"/></svg>
+        </span></div>
+        <div class="app">
+          <div class="app-head"><div class="orb"></div><div class="t" data-t="sc_today">TODAY</div></div>
+          <div style="flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:14px;color:var(--cream);padding:0 4px">
+            <div style="font-size:10px;letter-spacing:.2em;color:var(--amber);font-weight:700" data-t="ph_actk">TODAY'S ACTION</div>
+            <div style="font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.35" data-t="ph_actv">Phone in another room at 22:30.</div>
+            <div style="font-size:11.5px;color:#8FA3AC;line-height:1.5" data-t="ph_because">Because two short nights precede every dip you've logged since January.</div>
+          </div>
+          <div class="softbtn" data-t="ph_did">Did it</div>
+        </div>
+      </div></div>
+      <div class="capl" data-t="cap3">Action</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="call" style="padding-bottom:88px"><div class="wrap">
+  <div class="booking">
+    <div class="l">
+      <div class="eyebrow" data-t="bk_k">Intro call</div>
+      <h2 style="margin-top:12px" data-t="bk_h">Fifteen minutes and you'll know if it's for you</h2>
+      <p class="sub" style="font-size:15.5px" data-t="bk_sub">We're picking the first group by hand. A short conversation instead of a twenty-field form.</p>
+      <ul class="orlist">
+        <li data-t="bk_l1">We'll show you how it works on your data</li>
+        <li data-t="bk_l2">We'll ask where exactly you slip</li>
+        <li data-t="bk_l3">We'll tell you honestly if you don't need this</li>
+      </ul>
+      <a class="btn-a" href="#" id="bookBtn" style="margin-top:26px" data-t="bk_cta">Pick a time</a>
+      <div class="fine" data-t="bk_fine">Free, no sales pitch. The call commits you to nothing.</div>
+
+      <div style="margin-top:30px;border-top:1px solid var(--line);padding-top:24px">
+        <div style="font-weight:700;font-size:15px" data-t="bk_alt">Not ready to talk yet?</div>
+        <form class="mini" id="leadForm">
+          <input type="email" id="email" required placeholder="your email" data-tp="email_ph" aria-label="Email">
+          <button type="submit" data-t="bk_alt_cta">Keep me posted</button>
+        </form>
+        <div class="fine" data-t="bk_alt_fine" data-thtml>One email when we open the group. Health-adjacent data is stored privately and deleted on request. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy policy</a>.</div>
+        <div class="step" id="stepThanks">
+          <div class="thanks">
+            <div style="font-weight:700;font-size:15.5px" data-t="th_h">Got it.</div>
+            <p data-t="th_p">If you'd rather not wait for the email, we can talk for fifteen minutes this week.</p>
+            <a href="#" id="bookBtn2" data-t="bk_cta">Pick a time</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="r">
+      <div class="eyebrow" style="color:var(--sky)" data-t="sl_k">Next available</div>
+      <div style="font-size:19px;font-weight:700;margin-top:10px;color:var(--cream)" data-t="sl_h">This week</div>
+      <div class="slots">
+        <div class="slot"><b data-t="sl_wed">Wed</b>10:00</div>
+        <div class="slot"><b data-t="sl_wed">Wed</b>18:30</div>
+        <div class="slot"><b data-t="sl_thu">Thu</b>09:30</div>
+        <div class="slot"><b data-t="sl_thu">Thu</b>19:00</div>
+        <div class="slot"><b data-t="sl_fri">Fri</b>11:00</div>
+        <div class="slot"><b data-t="sl_fri">Fri</b>17:00</div>
+      </div>
+      <div class="note" data-t="sl_note">Exact slots are in the calendar. Online, fifteen minutes, camera optional.</div>
+      <div class="recall" style="margin-top:22px"><div class="k" data-t="sl_next">What happens next</div><p data-t="sl_nextv">After the call you either get access to the first group, or we tell you honestly that now isn't the time.</p></div>
+    </div>
+  </div>
+</div></section>
+
+
+<!-- ===== second step: quick screener (revealed after lead submit) ===== -->
+<style>
+#stepScreen{padding:0 28px 56px}
+#stepScreen .sc-in{max-width:560px;margin:0 auto;background:rgba(127,127,127,.08);border:1px solid rgba(127,127,127,.26);border-radius:12px;padding:26px 24px}
+#stepScreen h3{font-size:20px;margin:0 0 8px;font-weight:600}
+#stepScreen .sc-sub{font-size:13.5px;opacity:.72;margin:0 0 18px;line-height:1.5}
+#stepScreen label{display:block;font-size:13px;opacity:.85;margin:14px 0 6px}
+#stepScreen select{width:100%;padding:11px 12px;font-size:14.5px;font-family:inherit;color:inherit;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.30);border-radius:8px}
+#stepScreen button{margin-top:20px;width:100%;padding:13px 20px;font-size:14.5px;font-weight:600;font-family:inherit;cursor:pointer;color:inherit;background:transparent;border:1.5px solid currentColor;border-radius:8px}
+#stepScreen button[disabled]{opacity:.4;cursor:default}
+#stepScreen .sc-ok{display:none;font-size:14.5px;text-align:center;padding:8px 0}
+</style>
+<div class="step" id="stepScreen"><div class="sc-in">
+  <h3 data-t="sc_h">Four quick questions</h3>
+  <p class="sc-sub" data-t="sc_sub">Optional. It helps us decide who to talk to first — your place on the list is already saved.</p>
+  <div id="scForm">
+    <label data-t="sc_q1">Your age</label>
+    <select id="scAge"><option value="" data-t="sc_ph">— select —</option><option>18-26</option><option>27-35</option><option>36-45</option><option>46+</option></select>
+    <label data-t="sc_q2">Where you live</label>
+    <select id="scCity"><option value="" data-t="sc_ph">— select —</option><option value="kyiv" data-t="sc_c1">Kyiv</option><option value="ua_other" data-t="sc_c2">Another city in Ukraine</option><option value="outside" data-t="sc_c3">Outside Ukraine</option></select>
+    <label data-t="sc_q3">Do you wear a fitness tracker or smart watch?</label>
+    <select id="scWear"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_w1">No</option><option value="lt3m" data-t="sc_w2">Yes, less than 3 months</option><option value="ge3m" data-t="sc_w3">Yes, 3 months or more</option></select>
+    <label data-t="sc_q4">Do you check the data regularly?</label>
+    <select id="scData"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_d1">No</option><option value="some" data-t="sc_d2">Sometimes</option><option value="daily" data-t="sc_d3">Yes, most days</option></select>
+    <button id="scSend" type="button" data-t="sc_send">Send</button>
+  </div>
+  <div class="sc-ok" id="scOk" data-t="sc_done">Thank you — that's everything we needed.</div>
+</div></div>
+<script>
+(function(){
+  var step=document.getElementById('stepScreen'); if(!step)return;
+  document.querySelectorAll('form').forEach(function(f){
+    f.addEventListener('submit',function(){ setTimeout(function(){step.classList.add('on');},60); });
+  });
+  var ids=['scAge','scCity','scWear','scData'];
+  document.getElementById('scSend').addEventListener('click',function(){
+    var a={},n=0;
+    ids.forEach(function(id){var v=document.getElementById(id).value; if(v){n++;} a[id.slice(2).toLowerCase()]=v;});
+    if(!n)return;
+    if(window.track)window.track('screen_submit',{answered:n});
+    var C=window.LP_CONFIG||{};
+    if(C.FORMSPREE&&C.FORMSPREE.indexOf('REPLACE')<0){
+      var em=''; var i=document.querySelector('input[type=email]'); 
+      document.querySelectorAll('input[type=email]').forEach(function(x){if(x.value)em=x.value;});
+      fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
+        body:JSON.stringify({_subject:'screener',email:em,page:C.PAGE,brand:C.BRAND,
+          age:a.age,city:a.city,wearable:a.wear,reads_data:a.data})}).catch(function(){});
+    }
+    document.getElementById('scForm').style.display='none';
+    document.getElementById('scOk').style.display='block';
+  });
+})();
+</script>
+
+<footer><div class="wrap">
+  <div data-t="foot1">Anchor · a HumanistAI concept · early access</div>
+  <div data-t="foot2" data-thtml><a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a> · Not a medical device. Not therapy.</div>
+</div></footer>
+
+<script>
+var T = {
+ en:{
+  sc_h:"Four quick questions", sc_sub:"Optional. It helps us decide who to talk to first — your place on the list is already saved.",
+  sc_q1:"Your age", sc_q2:"Where you live", sc_q3:"Do you wear a fitness tracker or smart watch?", sc_q4:"Do you check the data regularly?",
+  sc_ph:"— select —", sc_c1:"Kyiv", sc_c2:"Another city in Ukraine", sc_c3:"Outside Ukraine",
+  sc_w1:"No", sc_w2:"Yes, less than 3 months", sc_w3:"Yes, 3 months or more",
+  sc_d1:"No", sc_d2:"Sometimes", sc_d3:"Yes, most days",
+  sc_send:"Send", sc_done:"Thank you — that's everything we needed.",
+  __title:"Anchor — a coach who remembers who you actually are",
+  __desc:"Anchor reads your sleep, recovery and mood, remembers your patterns, and gives you one action a day.",
+  livepill:"LIVE",
+  nav_cta:"Book an intro", tag:"Private · not therapy",
+  h1:"A coach who remembers <span>who you actually are</span>",
+  lead:"Anchor reads your sleep, recovery and mood, remembers your patterns — and gives you one action a day. No explaining yourself from scratch every time. No lecturing.",
+  p1:"Voice or text", p2:"2 minutes each morning", p3:"Keeps your context", p4:"Your data, deletable",
+  hero_cta:"Book a 15-minute intro", hero_cta2:"See how it works first",
+  hero_micro:"Free and no commitment. We'll show you how it works and whether it actually fits you.",
+  day_k:"One day", day_h:"It's there at the moments you usually slip",
+  day_sub:"Not a session once a week. Four short moments that keep you in your rhythm.",
+  m1k:"Morning", m1h:"A 2-minute check", m1p:"How you slept, how loaded you are. It already sees the watch data — it only asks what it doesn't know.", m1t:"07:10 · 20 seconds",
+  m2k:"Daytime", m2h:"One action", m2p:"Specific, matched to today's state. Not a list of tips — one thing you can actually do.", m2t:"09:00 · one message",
+  m3k:"Evening", m3h:"A quiet nudge", m3p:"If you're heading into the same script as last time, it says so before it's too late.", m3t:"21:40 · one line",
+  m4k:"Weekly", m4h:"A review, out loud", m4p:"Ten minutes: what worked, what didn't, what changes. It remembers every previous one.", m4t:"Sun · 10 minutes",
+  quote:"Everything useful a coach does rests on memory. Software forgets. People are expensive.",
+  quote_who:"Why we're building Anchor",
+  in_k:"Inside", in_h:"Three screens — and that's the whole app",
+  cap1:"Chat", cap2:"Check-in", cap3:"Action",
+  bk_k:"Intro call", bk_h:"Fifteen minutes and you'll know if it's for you",
+  bk_sub:"We're picking the first group by hand. A short conversation instead of a twenty-field form.",
+  bk_l1:"We'll show you how it works on your data", bk_l2:"We'll ask where exactly you slip", bk_l3:"We'll tell you honestly if you don't need this",
+  bk_cta:"Pick a time", bk_fine:"Free, no sales pitch. The call commits you to nothing.",
+  bk_alt:"Not ready to talk yet?", email_ph:"your email", bk_alt_cta:"Keep me posted",
+  bk_alt_fine:'One email when we open the group. Health-adjacent data is stored privately and deleted on request. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy policy</a>.',
+  th_h:"Got it.", th_p:"If you'd rather not wait for the email, we can talk for fifteen minutes this week.",
+  sl_k:"Next available", sl_h:"This week", sl_wed:"Wed", sl_thu:"Thu", sl_fri:"Fri",
+  sl_note:"Exact slots are in the calendar. Online, fifteen minutes, camera optional.",
+  sl_next:"What happens next", sl_nextv:"After the call you either get access to the first group, or we tell you honestly that now isn't the time.",
+  foot1:"Anchor · a HumanistAI concept · early access",
+  foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a> · Not a medical device. Not therapy.',
+  ph_sess:"04:12 · session", ph_listening:"LISTENING",
+  ph_said:"“You've had this exact week before. Let's not run it the same way.”",
+  ph_remember:"I remember", ph_rememberv:"In March you said morning training is the only thing that survives a hard week.",
+  ph_pause:"Pause", ph_text:"Text", ph_end:"End",
+  sc_chat:"CHAT", ph_today:"Today",
+  ph_c1:"You slept 6h 04m, and Thursday's call is at 08:00 again. Last time a month like this ended with you stopping altogether.",
+  ph_c2:"yeah, i remember", ph_c3:"Then we keep the morning session and move the call to 09:30. One change.",
+  ph_c4:"ok, moved it", ph_read:"Read 07:19",
+  ph_pattern:"Pattern", ph_patternv:"Your good weeks all start with a Tuesday you kept.",
+  sc_check:"CHECK-IN", ph_q:"How hard is it to hold your pace today?", ph_easy:"Easy", ph_edge:"At the edge",
+  ph_knows:"It already knows", ph_next:"Next",
+  sc_today:"TODAY", ph_actk:"TODAY'S ACTION", ph_actv:"Phone in another room at 22:30.",
+  ph_because:"Because two short nights precede every dip you've logged since January.", ph_did:"Did it"
+ },
+ uk:{
+  sc_h:"Чотири швидкі питання", sc_sub:"Необов'язково. Це допомагає визначити, з ким поговорити першими — ваше місце в списку вже збережено.",
+  sc_q1:"Ваш вік", sc_q2:"Де ви живете", sc_q3:"Ви носите фітнес-трекер або смартгодинник?", sc_q4:"Ви регулярно дивитеся дані?",
+  sc_ph:"— оберіть —", sc_c1:"Київ", sc_c2:"Інше місто в Україні", sc_c3:"За межами України",
+  sc_w1:"Ні", sc_w2:"Так, менше 3 місяців", sc_w3:"Так, 3 місяці й більше",
+  sc_d1:"Ні", sc_d2:"Інколи", sc_d3:"Так, майже щодня",
+  sc_send:"Надіслати", sc_done:"Дякуємо — це все, що потрібно.",
+  __title:"Anchor — коуч, який памʼятає, який ти насправді",
+  __desc:"Anchor читає твій сон, відновлення й настрій, памʼятає твої патерни і щодня дає одну дію.",
+  livepill:"НАЖИВО",
+  nav_cta:"Записатись", tag:"Приватно · не терапія",
+  h1:"Коуч, який памʼятає, <span>який ти насправді</span>",
+  lead:"Anchor читає твій сон, відновлення й настрій, памʼятає твої патерни — і щодня дає одну дію. Без пояснень з нуля щоразу. Без нотацій.",
+  p1:"Голос або текст", p2:"2 хвилини зранку", p3:"Памʼятає контекст", p4:"Дані твої, видаляються",
+  hero_cta:"Записатись на 15-хв знайомство", hero_cta2:"Спочатку подивитись",
+  hero_micro:"Безкоштовно й ні до чого не зобовʼязує. Покажемо, як це працює, і чи підходить тобі.",
+  day_k:"Один день", day_h:"Він поруч там, де ти зазвичай зриваєшся",
+  day_sub:"Не сесія раз на тиждень. Чотири короткі моменти, які тримають тебе в темпі.",
+  m1k:"Ранок", m1h:"Чек-ап за 2 хвилини", m1p:"Як спав, яке навантаження. Дані з годинника він уже бачить — питає лише те, чого не знає.", m1t:"07:10 · 20 секунд",
+  m2k:"День", m2h:"Одна дія", m2p:"Конкретна, під сьогоднішній стан. Не список порад — одна річ, яку реально зробити.", m2t:"09:00 · одне повідомлення",
+  m3k:"Вечір", m3h:"Тихе нагадування", m3p:"Якщо ти йдеш у той самий сценарій, що й минулого разу — він скаже про це, поки не пізно.", m3t:"21:40 · один рядок",
+  m4k:"Тиждень", m4h:"Розбір голосом", m4p:"Десять хвилин: що спрацювало, що ні, що змінюємо. Він памʼятає всі попередні.", m4t:"Нд · 10 хвилин",
+  quote:"Усе корисне, що робить коуч, тримається на памʼяті. Софт забуває. Люди дорого коштують.",
+  quote_who:"Чому ми будуємо Anchor",
+  in_k:"Всередині", in_h:"Три екрани — і це весь застосунок",
+  cap1:"Розмова", cap2:"Чек-ап", cap3:"Дія",
+  bk_k:"Знайомство", bk_h:"15 хвилин — і ти зрозумієш, чи це твоє",
+  bk_sub:"Ми набираємо першу групу вручну. Коротка розмова замість форми на 20 полів.",
+  bk_l1:"Покажемо, як це працює на твоїх даних", bk_l2:"Спитаємо, де саме ти зриваєшся", bk_l3:"Скажемо чесно, якщо тобі це не потрібно",
+  bk_cta:"Обрати час", bk_fine:"Безкоштовно, без продажу. Розмова ні до чого не зобовʼязує.",
+  bk_alt:"Поки не готовий говорити?", email_ph:"твоя пошта", bk_alt_cta:"Тримати в курсі",
+  bk_alt_fine:'Один лист, коли відкриємо набір. Дані про самопочуття зберігаються приватно й видаляються на запит. <a href="../legal/privacy.html" target="_blank" rel="noopener">Політика приватності</a>.',
+  th_h:"Записали.", th_p:"Якщо не хочеш чекати листа — можна поговорити 15 хвилин уже цього тижня.",
+  sl_k:"Найближчі слоти", sl_h:"Цього тижня", sl_wed:"Ср", sl_thu:"Чт", sl_fri:"Пт",
+  sl_note:"Точні слоти — у календарі. Онлайн, 15 хвилин, камера за бажанням.",
+  sl_next:"Що буде далі", sl_nextv:"Після розмови ти або отримуєш доступ до першої групи, або ми чесно кажемо, що зараз не час.",
+  foot1:"Anchor · концепт HumanistAI · ранній доступ",
+  foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Приватність і дані</a> · Не медичний виріб. Не терапія.',
+  ph_sess:"04:12 · сесія", ph_listening:"СЛУХАЮ",
+  ph_said:"«У тебе вже був такий тиждень. Давай не проживати його так само.»",
+  ph_remember:"Памʼятаю", ph_rememberv:"У березні ти казав: ранкові тренування — єдине, що виживає у важкий тиждень.",
+  ph_pause:"Пауза", ph_text:"Текст", ph_end:"Завершити",
+  sc_chat:"РОЗМОВА", ph_today:"Сьогодні",
+  ph_c1:"Ти спав 6 год 04 хв, а в четвер знову дзвінок о 8:00. Минулого разу такий місяць закінчився тим, що ти зупинився.",
+  ph_c2:"так, памʼятаю", ph_c3:"Тоді залишаємо ранкове тренування, а дзвінок — на 9:30. Одна зміна.",
+  ph_c4:"ок, переніс", ph_read:"Прочитано 07:19",
+  ph_pattern:"Патерн", ph_patternv:"Усі твої добрі тижні починаються з утриманого вівторка.",
+  sc_check:"ЧЕК-АП", ph_q:"Як тобі сьогодні тримати темп?", ph_easy:"Легко", ph_edge:"На межі",
+  ph_knows:"Він уже знає", ph_next:"Далі",
+  sc_today:"СЬОГОДНІ", ph_actk:"ДІЯ НА СЬОГОДНІ", ph_actv:"О 22:30 телефон — в іншу кімнату.",
+  ph_because:"Бо кожному твоєму спаду з січня передували дві короткі ночі.", ph_did:"Зробив"
+ }
+};
+
+(function(){
+  var C=window.LP_CONFIG;
+  window.__lpQ=[]; window.__lpLoaded=false;
+  window.__lpLoadTrackers=function(){
+    if(window.__lpLoaded)return; window.__lpLoaded=true;
+    if(C.GA_ID){var s=document.createElement('script');s.src="https://www.googletagmanager.com/gtag/js?id="+C.GA_ID;s.async=1;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',C.GA_ID);}
+    if(C.FB_PIXEL){!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',C.FB_PIXEL);fbq('track','PageView');}
+    var q=window.__lpQ||[]; window.__lpQ=[];
+    q.forEach(function(a){ if(window.gtag)gtag('event',a[0],a[1]); if(window.fbq)fbq('trackCustom',a[0],a[1]); });
+  };
+  window.__lpDropQueue=function(){ window.__lpQ=[]; };
+  var qs=new URLSearchParams(location.search),utm={};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){utm[k]=qs.get(k)||''});
+  var LANG='en', email="";
+  window.track=function(ev,d){d=d||{};d.page=C.PAGE;d.brand=C.BRAND;d.icp=C.ICP;d.angle=C.ANGLE;d.cta_type=C.CTA_TYPE;d.lang=LANG;Object.assign(d,utm);
+    window.dataLayer=window.dataLayer||[];window.dataLayer.push(Object.assign({event:ev},d));
+    if(window.__lpLoaded){ if(window.gtag)gtag('event',ev,d); if(window.fbq)fbq('trackCustom',ev,d); }
+    else { window.__lpQ.push([ev,d]); }
+    console.log('[track]',ev,d);};
+  function pickLang(){
+    var q=qs.get('lang'); if(q==='uk'||q==='en')return q;
+    try{var s=localStorage.getItem('lp_lang'); if(s==='uk'||s==='en')return s;}catch(e){}
+    var n=(navigator.language||'').toLowerCase();
+    return (n.indexOf('uk')===0||n.indexOf('ru')===0)?'uk':'en';
+  }
+  function setLang(l,manual){
+    if(!T[l])l='en'; LANG=l;
+    document.documentElement.lang=(l==='uk')?'uk':'en';
+    var d=T[l];
+    document.querySelectorAll('[data-t]').forEach(function(el){
+      var v=d[el.getAttribute('data-t')]; if(v==null)return;
+      if(el.hasAttribute('data-thtml'))el.innerHTML=v; else el.textContent=v;});
+    document.querySelectorAll('[data-tp]').forEach(function(el){
+      var v=d[el.getAttribute('data-tp')]; if(v!=null)el.placeholder=v;});
+    if(d.__title)document.title=d.__title;
+    var m=document.querySelector('meta[name="description"]'); if(m&&d.__desc)m.setAttribute('content',d.__desc);
+    document.querySelectorAll('.langbtn').forEach(function(b){
+      var on=b.getAttribute('data-lang')===l; b.classList.toggle('on',on); b.setAttribute('aria-pressed',on?'true':'false');});
+    try{localStorage.setItem('lp_lang',l)}catch(e){}
+    if(manual)track('lang_switch',{to:l});
+  }
+  document.querySelectorAll('.langbtn').forEach(function(b){
+    b.addEventListener('click',function(){setLang(b.getAttribute('data-lang'),true)});});
+  setLang(pickLang(),false);
+
+  track('page_view');
+  function openCal(){
+    var u=C.CALENDLY,sep=u.indexOf('?')<0?'?':'&',x=Object.keys(utm).map(function(k){return k+'='+encodeURIComponent(utm[k])}).join('&');
+    if(email)x+='&email='+encodeURIComponent(email);
+    window.open(u+sep+x,'_blank');
+  }
+  ['bookBtn','bookBtn2'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('click',function(e){e.preventDefault();track('call_click',{from:id});openCal();});});
+  document.getElementById('heroCall').addEventListener('click',function(){track('cta_click',{from:'hero'});});
+  document.getElementById('heroScroll').addEventListener('click',function(){track('cta_click',{from:'hero_secondary'});document.getElementById('how').scrollIntoView({behavior:'smooth'});});
+  document.getElementById('leadForm').addEventListener('submit',function(e){
+    e.preventDefault(); email=document.getElementById('email').value;
+    track('lead_submit',{submitted:1});
+    if(C.FORMSPREE.indexOf('REPLACE')<0){fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(Object.assign({email:email,page:C.PAGE,brand:C.BRAND,cta:C.CTA_TYPE,lang:LANG},utm))}).catch(function(){});}
+    var t=document.getElementById('stepThanks');t.classList.add('on');t.scrollIntoView({behavior:'smooth'});
+  });
+})();
+</script>
+
+<script>
+/* mount the live clip once it scrolls near, reveal it only when the
+   prototype reports that it has booted — otherwise the static screen stays */
+(function(){
+  var wrap=document.querySelector('.live-wrap'); if(!wrap) return;
+  var frame=wrap.querySelector('iframe'), screen=wrap.parentNode;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  window.addEventListener('message',function(e){
+    if(e.data && e.data.hai==='clip-ready'){
+      screen.classList.add('live-on');
+      if(window.track) track('clip_visible',{});
+    }
+  });
+  function mount(){ if(!frame.src) frame.src=frame.getAttribute('data-src'); }
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){ mount(); io.disconnect(); } });
+    },{rootMargin:'300px'});
+    io.observe(wrap);
+  } else mount();
+  var link=document.querySelector('.livelink');
+  if(link) link.addEventListener('click',function(){ if(window.track) track('prototype_open',{}); });
+})();
+</script>
+
+<!-- consent banner + footer legal links -->
+<style>
+#lpCb{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:none;
+  background:#14161A;color:#EDEEEA;box-shadow:0 -8px 30px rgba(0,0,0,.28);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Arial,sans-serif}
+#lpCb.on{display:block}
+#lpCb .in{max-width:960px;margin:0 auto;padding:18px 22px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+#lpCb p{margin:0;font-size:13.5px;line-height:1.5;color:#C3C7CC;flex:1 1 340px;font-weight:400}
+#lpCb a{color:#EDEEEA;text-decoration:underline;text-underline-offset:2px}
+#lpCb .btns{display:flex;gap:9px;flex:0 0 auto}
+#lpCb button{font-family:inherit;font-size:13px;font-weight:600;border-radius:7px;padding:10px 17px;cursor:pointer;
+  border:1px solid transparent;transition:opacity .15s}
+#lpCb button:hover{opacity:.85}
+#lpCb .no{background:transparent;border-color:#4A4F57;color:#C3C7CC}
+#lpCb .yes{background:#EDEEEA;color:#14161A}
+.lp-legal{font-size:inherit;opacity:.85}
+.lp-legal a{cursor:pointer}
+@media(max-width:620px){#lpCb .in{padding:15px 16px}#lpCb .btns{width:100%}#lpCb button{flex:1}}
+</style>
+<div id="lpCb" role="dialog" aria-live="polite" aria-label="Cookies">
+  <div class="in">
+    <p id="lpCbTxt"></p>
+    <div class="btns">
+      <button type="button" class="no" id="lpCbNo"></button>
+      <button type="button" class="yes" id="lpCbYes"></button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var KEY='lp_consent', PRIV='../legal/privacy.html', CRISIS='../legal/privacy.html#crisis';
+  var S={
+    en:{txt:'We use analytics and advertising cookies to see which advertisement brought you here. Nothing runs until you agree.',
+        yes:'Accept', no:'Only necessary', priv:'Privacy policy', cook:'Cookies', crisis:'Need help right now?'},
+    uk:{txt:'Ми використовуємо аналітичні та рекламні cookie, щоб бачити, яке оголошення вас привело. Нічого не вмикається до вашої згоди.',
+        yes:'Погоджуюсь', no:'Лише необхідні', priv:'Політика конфіденційності', cook:'Cookie', crisis:'Потрібна допомога зараз?'}
+  };
+  function L(){var l=(window.LANG||'en');return S[l]?l:'en'}
+  var box=document.getElementById('lpCb');
+  function read(){try{return localStorage.getItem(KEY)}catch(e){return null}}
+  function write(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+
+  function paint(){
+    var s=S[L()];
+    document.getElementById('lpCbTxt').innerHTML=s.txt+' <a href="'+PRIV+'" target="_blank" rel="noopener">'+s.priv+'</a>.';
+    document.getElementById('lpCbYes').textContent=s.yes;
+    document.getElementById('lpCbNo').textContent=s.no;
+    var f=document.querySelector('footer'); if(!f)return;
+    var old=f.querySelector('.lp-legal'); if(old)old.parentNode.removeChild(old);
+    var sp=document.createElement('span'); sp.className='lp-legal';
+    sp.innerHTML=' · <a href="'+CRISIS+'" target="_blank" rel="noopener">'+s.crisis+'</a> · <a role="button" tabindex="0" id="lpCbOpen">'+s.cook+'</a>';
+    (f.querySelector('.wrap')||f).appendChild(sp);
+    var o=document.getElementById('lpCbOpen');
+    if(o)o.addEventListener('click',function(){box.classList.add('on')});
+  }
+  function decide(v){
+    write(v); box.classList.remove('on');
+    if(v==='all'){ if(window.__lpLoadTrackers)window.__lpLoadTrackers(); }
+    else { if(window.__lpDropQueue)window.__lpDropQueue(); }
+  }
+  document.getElementById('lpCbYes').addEventListener('click',function(){decide('all')});
+  document.getElementById('lpCbNo').addEventListener('click',function(){decide('necessary')});
+
+  var _sl=window.setLang;
+  if(typeof _sl==='function'){ window.setLang=function(l,m){ _sl(l,m); paint(); }; }
+
+  paint();
+  var c=read();
+  if(c==='all'){ if(window.__lpLoadTrackers)window.__lpLoadTrackers(); }
+  else if(c!=='necessary'){ box.classList.add('on'); }
+})();
+</script>
+
+</body>
+</html>

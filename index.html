@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HumanistAI — demand test, four landing pages</title>
+<meta name="description" content="Four branded landing pages testing the same product against two ICPs and two angles. Demo build.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0E0F0D;--bg2:#161814;--line:rgba(255,255,255,.11);--fg:#F2F3EF;--fg2:#A7ADA2;--fg3:#6E756B;
+--sans:"Inter",-apple-system,Segoe UI,Roboto,Arial,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1060px;margin:0 auto;padding:0 26px}
+.mono{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--fg3)}
+header{padding:64px 0 40px;border-bottom:1px solid var(--line)}
+h1{font-size:clamp(28px,4.4vw,42px);line-height:1.12;font-weight:600;letter-spacing:-.02em;margin:14px 0 16px;max-width:19ch}
+.lead{font-size:16.5px;color:var(--fg2);max-width:62ch}
+.matrix{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:44px 0 8px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:22px 20px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--acc)}
+.card .nm{font-size:19px;font-weight:600;letter-spacing:-.01em;margin:6px 0 4px}
+.card .cl{font-size:14px;color:var(--fg2);margin-bottom:16px;min-height:63px}
+.meta{border-top:1px solid var(--line);padding-top:12px;margin-top:auto;display:grid;gap:5px}
+.meta div{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--fg3)}
+.meta b{color:var(--fg2);font-weight:500;font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.card a.go{margin-top:16px;display:block;text-align:center;padding:11px 14px;border:1.5px solid var(--acc);color:var(--acc);
+  border-radius:8px;text-decoration:none;font-size:14px;font-weight:600}
+.card a.go:hover{background:var(--acc);color:#0E0F0D}
+section{padding:52px 0;border-top:1px solid var(--line)}
+h2{font-size:22px;font-weight:600;letter-spacing:-.01em;margin:12px 0 18px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px}
+.grid2 h3{font-size:15px;font-weight:600;margin-bottom:7px}
+.grid2 p{font-size:14.5px;color:var(--fg2)}
+ol{margin:10px 0 0 18px;font-size:14.5px;color:var(--fg2)}ol li{margin-bottom:7px}
+code{font-family:var(--mono);font-size:12.5px;background:rgba(127,127,127,.14);padding:2px 6px;border-radius:4px;color:var(--fg)}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.links a{font-size:13.5px;color:var(--fg2);text-decoration:none;border:1px solid var(--line);border-radius:7px;padding:8px 13px}
+.links a:hover{color:var(--fg);border-color:var(--fg3)}
+footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="mono">HumanistAI · demand test · demo build</div>
+  <h1>One product, four ways of selling it.</h1>
+  <p class="lead">Each page carries a separate brand, palette and voice, and runs the same intent ladder: email, then plan choice, then a call. The point is not which page is prettiest — it is which combination of audience and angle turns traffic into intent.</p>
+</div></header>
+
+<div class="wrap">
+<div class="matrix">
+
+  <div class="card" style="--acc:#C6F24E">
+    <div class="mono">O-A · optimizer × proof</div>
+    <div class="nm">Meridian</div>
+    <div class="cl">Finally, a coach that proves it's working. Speaks in deltas to people who already track HRV and glucose.</div>
+    <div class="meta">
+      <div><span>ICP</span><b>optimizer</b></div>
+      <div><span>Angle</span><b>proof</b></div>
+      <div><span>CTA</span><b>waitlist</b></div>
+    </div>
+    <a class="go" href="pages/meridian.html">Open page →</a>
+  </div>
+
+  <div class="card" style="--acc:#B08D57">
+    <div class="mono">O-B · optimizer × memory</div>
+    <div class="nm">Keeper</div>
+    <div class="cl">A coach who actually remembers you. Continuity as the product, framed as membership rather than a tool.</div>
+    <div class="meta">
+      <div><span>ICP</span><b>optimizer</b></div>
+      <div><span>Angle</span><b>memory</b></div>
+      <div><span>CTA</span><b>invitation</b></div>
+    </div>
+    <a class="go" href="pages/keeper.html">Open page →</a>
+  </div>
+
+  <div class="card" style="--acc:#B4553A">
+    <div class="mono">A-A · achiever × burnout</div>
+    <div class="nm">Reserve</div>
+    <div class="cl">Burnout is arithmetic, not character. Leads with a self-assessment instead of a signup field.</div>
+    <div class="meta">
+      <div><span>ICP</span><b>achiever</b></div>
+      <div><span>Angle</span><b>burnout</b></div>
+      <div><span>CTA</span><b>assessment</b></div>
+    </div>
+    <a class="go" href="pages/reserve.html">Open page →</a>
+  </div>
+
+  <div class="card" style="--acc:#8CBACB">
+    <div class="mono">A-B · achiever × memory</div>
+    <div class="nm">Anchor</div>
+    <div class="cl">A coach who remembers who you actually are. Quietest of the four, ends in a conversation rather than a plan.</div>
+    <div class="meta">
+      <div><span>ICP</span><b>achiever</b></div>
+      <div><span>Angle</span><b>memory</b></div>
+      <div><span>CTA</span><b>intro call</b></div>
+    </div>
+    <a class="go" href="pages/anchor.html">Open page →</a>
+  </div>
+
+</div>
+</div>
+
+<section><div class="wrap">
+  <div class="mono">What to look at</div>
+  <h2>Four things worth clicking through</h2>
+  <div class="grid2">
+    <div>
+      <h3>The intent ladder</h3>
+      <p>Submitting an email reveals a pricing step; choosing a plan reveals a call step. Nothing is charged. Each rung fires its own event, so intent is measured in stages rather than as a single conversion.</p>
+    </div>
+    <div>
+      <h3>The second step</h3>
+      <p>After the email is submitted, four optional questions appear at the foot of the page — age, city, wearable, how often the data gets checked. Dropdowns only. No free text and no questions about state.</p>
+    </div>
+    <div>
+      <h3>Consent-gated tracking</h3>
+      <p>Analytics and pixel scripts do not load until the banner is accepted. Events raised before that are queued in memory and replayed on acceptance, or dropped on refusal. Ad payloads carry counters, never answers.</p>
+    </div>
+    <div>
+      <h3>Two languages</h3>
+      <p>Every page ships EN and UK from one file, switched by <code>?lang=</code>, then stored preference, then browser locale. The privacy policy carries both languages the same way.</p>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="mono">Before going live</div>
+  <h2>What the demo does not have</h2>
+  <ol>
+    <li>Config keys sit at the top of every page in <code>window.LP_CONFIG</code>. <code>FORMSPREE</code>, <code>GA_ID</code>, <code>FB_PIXEL</code> and <code>CALENDLY</code> are placeholders — forms and analytics stay silent until they are filled.</li>
+    <li>The prototypes embedded in the phone frames are the full interactive builds and sit in <code>/prototypes</code>. They are the heaviest asset in the repo.</li>
+    <li>Pages are static and self-contained apart from Google Fonts. No build step, no bundler, no framework.</li>
+    <li>Paths are relative: pages live in <code>/pages</code> and reach <code>../legal/</code> and <code>../prototypes/</code>. Keeping that layout is the only deployment requirement.</li>
+  </ol>
+  <div class="links">
+    <a href="legal/privacy.html">Privacy policy (EN / UK) →</a>
+    <a href="prototypes/meridian-prototype.html">Prototype, standalone →</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  HumanistAI concept · demo build, not a production deployment · not a medical device, not therapy
+</div></footer>
+
+</body>
+</html>

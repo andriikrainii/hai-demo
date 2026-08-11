@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy policy · Політика конфіденційності</title>
+<meta name="description" content="How we handle your data on the HumanistAI concept pages.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBFAF8; --card:#FFFFFF; --ink:#16181C; --ink2:#464C55; --ink3:#8A9099;
+  --line:#E4E2DD; --line2:#CFCCC5; --accent:#2D4A66; --warn:#B4483A;
+  --ph-bg:#FDF3E3; --ph-br:#E6CFA4; --ph-tx:#8A5A18;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+
+header{position:sticky;top:0;z-index:20;background:rgba(251,250,248,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px}
+header .brand{font-size:14px;font-weight:600;letter-spacing:-.01em}
+header .brand span{color:var(--ink3);font-weight:400}
+.lang{margin-left:auto;display:flex;border:1px solid var(--line2);border-radius:7px;overflow:hidden}
+.lang button{background:transparent;border:none;color:var(--ink2);font-family:inherit;font-size:12px;font-weight:600;
+  letter-spacing:.06em;padding:7px 13px;cursor:pointer;transition:background .15s}
+.lang button:hover{background:#EFEDE8}
+.lang button.on{background:var(--ink);color:#fff}
+
+main{padding:40px 0 90px}
+h1{font-size:30px;font-weight:700;letter-spacing:-.025em;line-height:1.2}
+.meta{color:var(--ink3);font-size:13.5px;margin-top:10px}
+.lede{margin-top:22px;font-size:17px;color:var(--ink2);font-weight:300}
+
+.tldr{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px 26px;margin:30px 0 8px}
+.tldr h2{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
+.tldr ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tldr li{position:relative;padding-left:20px;font-size:15px;color:var(--ink2)}
+.tldr li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+h2.sec{font-size:20px;font-weight:600;letter-spacing:-.015em;margin:42px 0 12px;padding-top:8px}
+h2.sec .n{color:var(--ink3);font-weight:400;margin-right:9px}
+h3{font-size:15.5px;font-weight:600;margin:22px 0 8px}
+p{margin:12px 0;color:var(--ink2)}
+ul.plain{list-style:none;margin:12px 0}
+ul.plain li{position:relative;padding-left:19px;margin:7px 0;color:var(--ink2)}
+ul.plain li::before{content:"—";position:absolute;left:0;color:var(--ink3)}
+strong{color:var(--ink);font-weight:600}
+a{color:var(--accent)}
+
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:14px;background:var(--card)}
+th{text-align:left;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:600;
+   padding:11px 13px;border-bottom:2px solid var(--line2);background:#F4F2EE}
+td{padding:12px 13px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink2)}
+td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+
+.ph{display:inline-block;background:var(--ph-bg);border:1px dashed var(--ph-br);color:var(--ph-tx);
+  border-radius:5px;padding:1px 7px;font-size:.93em;font-weight:600;white-space:nowrap}
+
+.crisis{background:#FDF1EF;border:1px solid #EFC8C1;border-left:4px solid var(--warn);border-radius:0 12px 12px 0;
+  padding:22px 26px;margin:26px 0}
+.crisis h3{color:var(--warn);margin-top:0}
+.crisis p{color:#7A3A30}
+.crisis .num{font-size:19px;font-weight:700;color:var(--warn)}
+
+.note{background:#F4F2EE;border:1px solid var(--line);border-radius:10px;padding:18px 22px;margin:24px 0;font-size:14.5px;color:var(--ink2)}
+
+footer{border-top:1px solid var(--line);padding:26px 0 60px;color:var(--ink3);font-size:13px}
+.hidden{display:none}
+@media(max-width:600px){
+  h1{font-size:25px} body{font-size:15.5px}
+  table{font-size:13px} td,th{padding:9px 10px}
+  td:first-child{white-space:normal}
+}
+@media print{
+  header{position:static} .lang{display:none} body{background:#fff}
+  .hidden{display:block !important}
+}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <div class="brand">HumanistAI <span>· concept pages</span></div>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-l="en" class="on">EN</button>
+    <button type="button" data-l="uk">УКР</button>
+  </div>
+</div></header>
+
+<main><div class="wrap">
+
+<!-- ==================================================== ENGLISH ==== -->
+<section id="en">
+
+  <h1>Privacy policy</h1>
+  <div class="meta">Version 1.0 · <span class="ph">[ effective date ]</span> · Applies to the Meridian, Keeper, Reserve and Anchor pages</div>
+
+  <p class="lede">These four pages are a concept test. We are checking whether a product like this is worth building, and we need a small amount of information from you to find out. This page explains exactly what we take, why, who else sees it, and how to make us delete it.</p>
+
+  <div class="tldr">
+    <h2>In short</h2>
+    <ul>
+      <li>We ask for your email, and on one page for three answers about how you have been sleeping and coping.</li>
+      <li>Those answers stay with us. <strong>They are never sent to Meta or Google.</strong></li>
+      <li>Advertising and analytics cookies do not run until you agree to them.</li>
+      <li>Write to <span class="ph">[ privacy@domain ]</span> and we will delete everything about you. No reason needed.</li>
+      <li>This is not therapy, not a diagnosis, and not a medical device.</li>
+    </ul>
+  </div>
+
+  <h2 class="sec"><span class="n">1</span>Who is responsible</h2>
+  <p>The controller of your data is <span class="ph">[ legal entity name ]</span>, <span class="ph">[ registered address ]</span>, registration number <span class="ph">[ number ]</span>.</p>
+  <p>For anything in this document, write to <span class="ph">[ privacy@domain ]</span>. A person reads that inbox, and you will get an answer within 30 days — usually much sooner.</p>
+
+  <h2 class="sec"><span class="n">2</span>What we collect</h2>
+
+  <h3>What you type in yourself</h3>
+  <ul class="plain">
+    <li>Your <strong>email address</strong>, on every page, when you join the waitlist or apply.</li>
+    <li>On the <strong>Reserve</strong> page, three answers about your sleep, your recovery and your tension, and the score calculated from them.</li>
+    <li>On the <strong>Anchor</strong> page, your name and contact details if you book an introductory call.</li>
+    <li>Anything else you choose to write in a form or send us by email.</li>
+  </ul>
+
+  <h3>What is collected automatically</h3>
+  <ul class="plain">
+    <li>Your IP address, browser and device type, and the pages you opened.</li>
+    <li>Where you arrived from, including the campaign tags in the link (utm_source, utm_medium, utm_campaign, utm_content, utm_term).</li>
+    <li>Which brand page you saw, which language you chose, and which buttons you pressed.</li>
+    <li>Your language preference, saved in your own browser so the page opens correctly next time.</li>
+  </ul>
+
+  <h3>What we never collect</h3>
+  <p>Payment details, identity document numbers, precise location, your contacts, or anything from your device beyond the browsing information listed above. There is nothing to pay for on these pages.</p>
+
+  <h2 class="sec"><span class="n">3</span>Why, and on what legal basis</h2>
+  <table>
+    <tr><th>What for</th><th>Basis</th></tr>
+    <tr><td>Emailing you once when the group opens</td><td>Your consent</td></tr>
+    <tr><td>Understanding how you have been feeling, to see whether the product would fit</td><td>Your separate, explicit consent</td></tr>
+    <tr><td>Seeing which of the four propositions people respond to</td><td>Your consent to analytics cookies</td></tr>
+    <tr><td>Keeping the site running and protected from abuse</td><td>Our legitimate interest</td></tr>
+    <tr><td>Answering you when you write to us</td><td>Your consent, or steps taken at your request</td></tr>
+  </table>
+  <p>Where the basis is consent, you can withdraw it at any time and we stop. Withdrawing does not undo processing that was lawful before you withdrew.</p>
+
+  <h2 class="sec"><span class="n">4</span>Answers about how you feel</h2>
+  <p>The three questions on the Reserve page are about your wellbeing, which makes your answers a <strong>special category of personal data</strong>. We treat them differently from your email address.</p>
+  <ul class="plain">
+    <li>We ask for a <strong>separate, explicit consent</strong> before you send them. Agreeing to this policy in general is not enough.</li>
+    <li>They are stored at <span class="ph">[ storage location / provider ]</span> and are visible to <span class="ph">[ number ]</span> people on the team, no one else.</li>
+    <li><strong>They are not sent to Meta or Google.</strong> The advertising and analytics tools record only that a form was submitted — never the answers, never the score.</li>
+    <li>We delete them on request, and in any case <span class="ph">[ 6 ]</span> months after the test ends.</li>
+    <li>They are not used to diagnose anything, and they are not shared with any clinician unless you ask us to.</li>
+  </ul>
+
+  <h2 class="sec"><span class="n">5</span>Cookies and tracking</h2>
+  <p>Nothing except the strictly necessary item below runs before you agree. You can change your answer at any time through the <strong>Cookies</strong> link in the footer of any page.</p>
+  <table>
+    <tr><th>What</th><th>What it does</th><th>Kept for</th><th>Needs consent</th></tr>
+    <tr><td>Language preference</td><td>Remembers whether you read the page in English or Ukrainian</td><td>12 months</td><td>No — the site cannot work correctly without it</td></tr>
+    <tr><td>Google Analytics 4</td><td>Counts visits and shows which sections people read</td><td>14 months</td><td>Yes</td></tr>
+    <tr><td>Meta Pixel</td><td>Tells us which advertisement brought you here, so we can stop paying for the ones that do not work</td><td>Up to 180 days at Meta</td><td>Yes</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="n">6</span>Who else sees your data</h2>
+  <p>We do not sell anything to anyone. These are the companies that process data on our behalf, and what each one gets:</p>
+  <table>
+    <tr><th>Who</th><th>What they receive</th></tr>
+    <tr><td>Formspree</td><td>Delivers your form submission to us. Sees your email and, on the Reserve page, your answers</td></tr>
+    <tr><td>Meta Platforms Ireland</td><td>The fact that a page was opened or a form submitted, plus the campaign tags. Not your answers, not your score</td></tr>
+    <tr><td>Google Ireland</td><td>Anonymous usage statistics. Not your answers, not your score</td></tr>
+    <tr><td><span class="ph">[ hosting provider ]</span></td><td>Serves the pages. Sees your IP address in server logs</td></tr>
+    <tr><td><span class="ph">[ email tool ]</span></td><td>Sends you the one email you asked for</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="n">7</span>Where your data goes</h2>
+  <p>Some of these companies keep data outside Ukraine and the European Economic Area, mainly in the United States. Those transfers rely on the European Commission's Standard Contractual Clauses, and where it applies, on the EU–US Data Privacy Framework. You can ask us for a copy of the safeguards.</p>
+
+  <h2 class="sec"><span class="n">8</span>How long we keep things</h2>
+  <table>
+    <tr><th>What</th><th>How long</th></tr>
+    <tr><td>Your email address</td><td>Until you ask us to delete it, or <span class="ph">[ 12 ]</span> months after the test ends</td></tr>
+    <tr><td>Answers about how you feel</td><td><span class="ph">[ 6 ]</span> months, or immediately on request</td></tr>
+    <tr><td>Analytics records</td><td>14 months</td></tr>
+    <tr><td>Server logs</td><td>30 days</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="n">9</span>Your rights</h2>
+  <p>You can ask us to show you what we hold, correct it, delete it, stop using it, or send it to you in a portable file. You can withdraw any consent you gave. You can object to processing based on our legitimate interest.</p>
+  <p>Write to <span class="ph">[ privacy@domain ]</span>. We answer within 30 days and charge nothing. We may ask one question to confirm the request comes from you.</p>
+  <p>If you think we handled your data badly, you can complain — in Ukraine to the Ukrainian Parliament Commissioner for Human Rights, and in the European Union to the supervisory authority where you live.</p>
+
+  <h2 class="sec"><span class="n">10</span>This is not medical care</h2>
+  <p>Nothing on these pages is a medical device, a diagnosis, therapy, or a substitute for a specialist. The score on the Reserve page is an illustration of how the product would work, not an assessment of your health.</p>
+
+  <div class="crisis" id="crisis">
+    <h3>If you are in danger right now</h3>
+    <p>Please do not use this page. Talk to someone who can help immediately.</p>
+    <p><strong>Ukraine · Lifeline Ukraine</strong> — <span class="num">7333</span>, free, 24 hours a day, every day.<br>
+    <strong>Emergency services</strong> — <span class="num">103</span> or <span class="num">112</span>.</p>
+    <p>The Ministry of Health keeps a fuller list of free and anonymous helplines at <a href="https://moz.gov.ua/uk/garjachi-linii-psihologichnoi-dopomogi" target="_blank" rel="noopener">moz.gov.ua</a>.</p>
+  </div>
+
+  <h2 class="sec"><span class="n">11</span>Age</h2>
+  <p>These pages are for people aged 18 and over. We do not knowingly collect anything from anyone younger. If you believe we have, write to us and we will delete it.</p>
+
+  <h2 class="sec"><span class="n">12</span>Changes to this policy</h2>
+  <p>The version and date are at the top of this page. If we change something that affects you, we will email everyone who gave us an address before the change takes effect.</p>
+
+  <h2 class="sec"><span class="n">13</span>Contact</h2>
+  <p><span class="ph">[ legal entity name ]</span><br>
+  <span class="ph">[ registered address ]</span><br>
+  <span class="ph">[ privacy@domain ]</span></p>
+
+</section>
+
+<!-- ================================================== УКРАЇНСЬКА ==== -->
+<section id="uk" class="hidden">
+
+  <h1>Політика конфіденційності</h1>
+  <div class="meta">Версія 1.0 · <span class="ph">[ дата набрання чинності ]</span> · Стосується сторінок Meridian, Keeper, Reserve та Anchor</div>
+
+  <p class="lede">Ці чотири сторінки — перевірка ідеї. Ми з’ясовуємо, чи варто будувати такий продукт, і для цього нам потрібно трохи інформації від вас. Тут написано, що саме ми беремо, навіщо, хто ще це бачить і як змусити нас усе видалити.</p>
+
+  <div class="tldr">
+    <h2>Якщо коротко</h2>
+    <ul>
+      <li>Ми просимо вашу пошту, а на одній зі сторінок — три відповіді про те, як ви спите і як відновлюєтесь.</li>
+      <li>Ці відповіді залишаються в нас. <strong>Ми не передаємо їх ані Meta, ані Google.</strong></li>
+      <li>Рекламні та аналітичні cookie не вмикаються, доки ви не погодитесь.</li>
+      <li>Напишіть на <span class="ph">[ privacy@domain ]</span> — і ми видалимо про вас усе. Пояснювати причину не треба.</li>
+      <li>Це не терапія, не діагноз і не медичний виріб.</li>
+    </ul>
+  </div>
+
+  <h2 class="sec"><span class="n">1</span>Хто відповідає за ваші дані</h2>
+  <p>Володілець ваших даних — <span class="ph">[ назва юридичної особи ]</span>, <span class="ph">[ юридична адреса ]</span>, реєстраційний номер <span class="ph">[ номер ]</span>.</p>
+  <p>З будь-якого питання з цього документа пишіть на <span class="ph">[ privacy@domain ]</span>. Цю скриньку читає жива людина, відповідь буде протягом 30 днів, зазвичай значно швидше.</p>
+
+  <h2 class="sec"><span class="n">2</span>Які дані ми збираємо</h2>
+
+  <h3>Те, що ви вводите самі</h3>
+  <ul class="plain">
+    <li><strong>Адресу електронної пошти</strong> — на кожній сторінці, коли ви записуєтесь у список очікування або залишаєте заявку.</li>
+    <li>На сторінці <strong>Reserve</strong> — три відповіді про сон, відновлення й напруження, а також бал, який з них рахується.</li>
+    <li>На сторінці <strong>Anchor</strong> — ваше імʼя та контакти, якщо ви записуєтесь на ознайомчу розмову.</li>
+    <li>Усе інше, що ви самі вирішите написати у формі або надіслати нам листом.</li>
+  </ul>
+
+  <h3>Те, що збирається автоматично</h3>
+  <ul class="plain">
+    <li>IP-адресу, тип браузера та пристрою, а також сторінки, які ви відкрили.</li>
+    <li>Звідки ви прийшли, включно з мітками кампанії в посиланні (utm_source, utm_medium, utm_campaign, utm_content, utm_term).</li>
+    <li>Яку саме сторінку ви бачили, яку мову обрали і на які кнопки натискали.</li>
+    <li>Вибір мови — він зберігається у вашому ж браузері, щоб наступного разу сторінка відкрилась правильно.</li>
+  </ul>
+
+  <h3>Чого ми не збираємо ніколи</h3>
+  <p>Платіжних даних, номерів документів, точного місця перебування, ваших контактів і будь-чого з вашого пристрою понад те, що перелічено вище. На цих сторінках немає за що платити.</p>
+
+  <h2 class="sec"><span class="n">3</span>Навіщо і на якій підставі</h2>
+  <table>
+    <tr><th>Навіщо</th><th>Підстава</th></tr>
+    <tr><td>Написати вам один раз, коли відкриється набір</td><td>Ваша згода</td></tr>
+    <tr><td>Зрозуміти ваш стан, щоб побачити, чи підійшов би вам продукт</td><td>Ваша окрема, явна згода</td></tr>
+    <tr><td>Побачити, на яку з чотирьох версій люди відгукуються</td><td>Ваша згода на аналітичні cookie</td></tr>
+    <tr><td>Тримати сайт робочим і захищеним від зловживань</td><td>Наш законний інтерес</td></tr>
+    <tr><td>Відповісти вам, коли ви нам пишете</td><td>Ваша згода або дії на ваш запит</td></tr>
+  </table>
+  <p>Там, де підстава — згода, ви можете відкликати її будь-коли, і ми зупинимось. Відкликання не скасовує того, що було зроблено законно до нього.</p>
+
+  <h2 class="sec"><span class="n">4</span>Відповіді про ваш стан</h2>
+  <p>Три питання на сторінці Reserve стосуються самопочуття, а отже ваші відповіді — це <strong>особлива категорія персональних даних</strong>. Ми поводимось з ними інакше, ніж з поштою.</p>
+  <ul class="plain">
+    <li>Ми просимо <strong>окрему, явну згоду</strong> перед тим, як ви їх надішлете. Загальної згоди з цією політикою недостатньо.</li>
+    <li>Вони зберігаються в <span class="ph">[ місце зберігання ]</span> і доступні <span class="ph">[ кількість ]</span> людям з команди, більше нікому.</li>
+    <li><strong>Ми не передаємо їх ані Meta, ані Google.</strong> Рекламні й аналітичні інструменти фіксують лише сам факт відправлення форми — не відповіді й не бал.</li>
+    <li>Ми видаляємо їх на ваш запит, а в будь-якому разі — через <span class="ph">[ 6 ]</span> місяців після завершення тесту.</li>
+    <li>Вони не використовуються для діагностики й не передаються жодному фахівцю, якщо ви самі про це не попросите.</li>
+  </ul>
+
+  <h2 class="sec"><span class="n">5</span>Cookie та відстеження</h2>
+  <p>Нічого, крім строго необхідного пункту нижче, не вмикається до вашої згоди. Змінити відповідь можна будь-коли через посилання <strong>Cookie</strong> внизу кожної сторінки.</p>
+  <table>
+    <tr><th>Що</th><th>Для чого</th><th>Строк</th><th>Потрібна згода</th></tr>
+    <tr><td>Вибір мови</td><td>Памʼятає, якою мовою ви читаєте сторінку</td><td>12 місяців</td><td>Ні — без цього сайт не працює коректно</td></tr>
+    <tr><td>Google Analytics 4</td><td>Рахує візити й показує, які розділи читають</td><td>14 місяців</td><td>Так</td></tr>
+    <tr><td>Meta Pixel</td><td>Показує, яке оголошення вас привело, щоб ми перестали платити за ті, що не працюють</td><td>До 180 днів у Meta</td><td>Так</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="n">6</span>Хто ще бачить ваші дані</h2>
+  <p>Ми нічого нікому не продаємо. Ось компанії, які обробляють дані за нашим дорученням, і що саме отримує кожна:</p>
+  <table>
+    <tr><th>Хто</th><th>Що отримує</th></tr>
+    <tr><td>Formspree</td><td>Доставляє нам вашу форму. Бачить пошту, а на сторінці Reserve — і відповіді</td></tr>
+    <tr><td>Meta Platforms Ireland</td><td>Факт відкриття сторінки чи відправлення форми та мітки кампанії. Не відповіді й не бал</td></tr>
+    <tr><td>Google Ireland</td><td>Знеособлену статистику користування. Не відповіді й не бал</td></tr>
+    <tr><td><span class="ph">[ хостинг ]</span></td><td>Віддає сторінки. Бачить вашу IP-адресу в журналах сервера</td></tr>
+    <tr><td><span class="ph">[ поштовий сервіс ]</span></td><td>Надсилає той один лист, який ви попросили</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="n">7</span>Куди потрапляють дані</h2>
+  <p>Частина цих компаній зберігає дані за межами України та Європейського економічного простору, здебільшого у США. Такі передачі спираються на Стандартні договірні положення Європейської Комісії, а де це застосовно — на рамку EU–US Data Privacy Framework. Копію гарантій можна попросити в нас.</p>
+
+  <h2 class="sec"><span class="n">8</span>Скільки ми це зберігаємо</h2>
+  <table>
+    <tr><th>Що</th><th>Скільки</th></tr>
+    <tr><td>Адреса пошти</td><td>Доки не попросите видалити, або <span class="ph">[ 12 ]</span> місяців після завершення тесту</td></tr>
+    <tr><td>Відповіді про стан</td><td><span class="ph">[ 6 ]</span> місяців або одразу на запит</td></tr>
+    <tr><td>Аналітичні записи</td><td>14 місяців</td></tr>
+    <tr><td>Журнали сервера</td><td>30 днів</td></tr>
+  </table>
+
+  <h2 class="sec"><span class="n">9</span>Ваші права</h2>
+  <p>Ви можете попросити показати, що в нас є, виправити це, видалити, припинити використання або надіслати вам файлом. Ви можете відкликати будь-яку згоду. Ви можете заперечити проти обробки на підставі нашого законного інтересу.</p>
+  <p>Пишіть на <span class="ph">[ privacy@domain ]</span>. Відповідаємо протягом 30 днів, безкоштовно. Можемо поставити одне уточнювальне питання, щоб переконатися, що запит саме від вас.</p>
+  <p>Якщо вважаєте, що ми повелися з вашими даними неправильно, ви можете поскаржитись — в Україні до Уповноваженого Верховної Ради України з прав людини, а в Європейському Союзі до наглядового органу за місцем проживання.</p>
+
+  <h2 class="sec"><span class="n">10</span>Це не медична допомога</h2>
+  <p>Ніщо на цих сторінках не є медичним виробом, діагнозом, терапією чи заміною фахівцю. Бал на сторінці Reserve — ілюстрація того, як працював би продукт, а не оцінка вашого здоровʼя.</p>
+
+  <div class="crisis" id="crisis-uk">
+    <h3>Якщо вам зараз небезпечно</h3>
+    <p>Будь ласка, не покладайтесь на цю сторінку. Зверніться до тих, хто може допомогти негайно.</p>
+    <p><strong>Україна · Lifeline Ukraine</strong> — <span class="num">7333</span>, безкоштовно, цілодобово, щодня.<br>
+    <strong>Екстрені служби</strong> — <span class="num">103</span> або <span class="num">112</span>.</p>
+    <p>Повніший перелік безкоштовних і анонімних ліній підтримки веде МОЗ: <a href="https://moz.gov.ua/uk/garjachi-linii-psihologichnoi-dopomogi" target="_blank" rel="noopener">moz.gov.ua</a>.</p>
+  </div>
+
+  <h2 class="sec"><span class="n">11</span>Вік</h2>
+  <p>Ці сторінки — для людей від 18 років. Ми свідомо не збираємо нічого від молодших. Якщо вважаєте, що таке сталося, напишіть нам, і ми видалимо.</p>
+
+  <h2 class="sec"><span class="n">12</span>Зміни в політиці</h2>
+  <p>Версія і дата — вгорі сторінки. Якщо ми змінимо щось, що вас стосується, ми напишемо всім, хто залишив пошту, до того як зміни наберуть чинності.</p>
+
+  <h2 class="sec"><span class="n">13</span>Контакти</h2>
+  <p><span class="ph">[ назва юридичної особи ]</span><br>
+  <span class="ph">[ юридична адреса ]</span><br>
+  <span class="ph">[ privacy@domain ]</span></p>
+
+</section>
+
+</div></main>
+
+<footer><div class="wrap">
+  <span id="ft-en">HumanistAI concept pages · Not a medical device. Not therapy.</span>
+  <span id="ft-uk" class="hidden">Концептуальні сторінки HumanistAI · Не медичний виріб. Не терапія.</span>
+</div></footer>
+
+<script>
+(function(){
+  var btns=document.querySelectorAll('.lang button');
+  function set(l,save){
+    document.getElementById('en').classList.toggle('hidden',l!=='en');
+    document.getElementById('uk').classList.toggle('hidden',l!=='uk');
+    document.getElementById('ft-en').classList.toggle('hidden',l!=='en');
+    document.getElementById('ft-uk').classList.toggle('hidden',l!=='uk');
+    document.documentElement.lang = (l==='uk'?'uk':'en');
+    btns.forEach(function(b){b.classList.toggle('on',b.dataset.l===l)});
+    if(save){try{localStorage.setItem('lp_lang',l)}catch(e){}}
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+  function initial(){
+    var q=new URLSearchParams(location.search).get('lang');
+    if(q==='uk'||q==='en')return q;
+    try{var s=localStorage.getItem('lp_lang');if(s==='uk'||s==='en')return s;}catch(e){}
+    return (navigator.language||'en').toLowerCase().indexOf('uk')===0?'uk':'en';
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.l,true)})});
+  set(initial(),false);
+})();
+</script>
+
+</body>
+</html>
