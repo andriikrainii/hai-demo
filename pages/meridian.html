@@ -157,10 +157,10 @@ footer a{color:var(--fg2)}
 .screen.live-on .sbar{opacity:0;transition:opacity .45s ease}
 .live-wrap iframe{position:absolute;top:0;left:0.00px;width:430px;height:932px;border:0;
   transform-origin:top left;transform:scale(0.62791);pointer-events:none;background:transparent}
-.livepill{position:absolute;top:10px;left:12px;z-index:7;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:8.5px;font-weight:600;
+.livepill{position:absolute;top:-10px;left:18px;z-index:9;box-shadow:0 2px 8px rgba(0,0,0,.35);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:8.5px;font-weight:600;
   letter-spacing:.16em;padding:3px 8px;border-radius:999px;background:#C6F24E;color:#0C0D0B;
   opacity:0;transition:opacity .8s ease;pointer-events:none}
-.screen.live-on .livepill{opacity:1}
+.live-on .livepill{opacity:1}
 .livepill i{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;
   margin-right:5px;vertical-align:1px;animation:livedot 1.6s ease-in-out infinite}
 @keyframes livedot{0%,100%{opacity:1}50%{opacity:.25}}
@@ -203,7 +203,7 @@ footer a{color:var(--fg2)}
     <div class="art">
       <div class="phone">
         <div class="island"></div>
-        <div class="screen"><a class="livelink" href="../prototypes/meridian-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="live-wrap"><iframe data-src="../prototypes/meridian-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+        <span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="screen"><a class="livelink" href="../prototypes/meridian-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><div class="live-wrap"><iframe data-src="../prototypes/meridian-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
           <div class="sbar"><span>7:12</span><span class="ic">
             <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
             <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
@@ -615,7 +615,7 @@ var T = {
   if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   window.addEventListener('message',function(e){
     if(e.data && e.data.hai==='clip-ready'){
-      screen.classList.add('live-on');
+      screen.classList.add('live-on'); if(screen.parentNode)screen.parentNode.classList.add('live-on');
       if(window.track) track('clip_visible',{});
     }
   });
@@ -649,6 +649,36 @@ var T = {
 .lp-legal{font-size:inherit;opacity:.85}
 .lp-legal a{cursor:pointer}
 @media(max-width:620px){#lpCb .in{padding:15px 16px}#lpCb .btns{width:100%}#lpCb button{flex:1}}
+
+/* ===== печать и «Сохранить как PDF» ===== */
+@media print{
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff}
+  @page{size:A4;margin:12mm}
+  /* декоративные слои печатаются непрозрачными и закрывают содержимое */
+  .screen::before,.screen::after,.hero::before,.hero::after,
+  .phone::before,.phone::after,.stage::before{display:none!important}
+  /* живой прототип в печать не попадает — показываем статичный экран */
+  .live-wrap,.livepill,.livelink{display:none!important}
+  .sbar{opacity:1!important}
+  .screen{box-shadow:none!important}
+  .phone{box-shadow:none!important}
+  /* интерактивное и служебное */
+  .lang,.langbtn,.calbox,#calBox,#lpCb,.cookie,.consent,#consentBar{display:none!important}
+  /* скрытые шаги лестницы раскрываем, иначе документ обрывается на форме */
+  .step{display:block!important}
+  /* без лишнего воздуха: экранные отступы на бумаге дают пустые полосы */
+  section{padding:16px 0!important;border:none!important}
+  .hero{padding:8px 0 18px!important;min-height:0!important}
+  .stage{margin-top:14px!important;padding-bottom:18px!important}
+  .strip{margin-top:16px!important;gap:14px!important}
+  .booking{margin-top:10px!important}
+  /* режем только между блоками, не внутри них */
+  .phone,.card,.tier,.gauge,.check,.happ,.recall,.strip>div,
+  figure,tr{break-inside:avoid;page-break-inside:avoid}
+  h1,h2,h3{break-after:avoid;page-break-after:avoid}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9px;opacity:.6;word-break:break-all}
+  a[href^="#"]::after{content:""}
+}
 </style>
 <div id="lpCb" role="dialog" aria-live="polite" aria-label="Cookies">
   <div class="in">

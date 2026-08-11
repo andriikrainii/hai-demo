@@ -40,13 +40,37 @@ body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-heigh
 .langbtn.on{background:var(--ink);color:var(--paper)}
 .mast .date{font-family:var(--mono);font-size:10.5px;color:var(--ink3);letter-spacing:.08em}
 
-.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:0;border-bottom:1px solid var(--rule)}
-.hero .l{padding:52px 40px 46px 0;border-right:1px solid var(--hair)}
-.hero .r{padding:52px 0 46px 40px;display:flex;flex-direction:column;justify-content:space-between}
+.hero{display:grid;grid-template-columns:1.18fr .82fr;gap:0;border-bottom:1px solid var(--rule)}
+.hero .l{padding:38px 40px 34px 0;border-right:1px solid var(--hair)}
+.hero .r{padding:30px 0 30px 40px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start}
 h1{font-size:clamp(36px,5vw,58px);line-height:1.0;letter-spacing:-.035em;font-weight:400}
 h1 b{font-weight:600;color:var(--clay)}
-.hero .lede{font-size:16.5px;color:var(--ink2);max-width:42ch;margin-top:22px}
-.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair);margin-top:32px}
+.hero .lede{font-size:16.5px;color:var(--ink2);max-width:42ch;margin-top:18px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.cta-1{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--paper);text-decoration:none;
+  padding:15px 24px;font-size:14.5px;font-weight:500;border:1px solid var(--ink);transition:background .2s ease,color .2s ease}
+.cta-1:hover{background:var(--clay);border-color:var(--clay)}
+.cta-1 em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.cta-2{display:inline-flex;align-items:center;padding:15px 22px;font-size:14.5px;color:var(--ink);text-decoration:none;
+  border:1px solid var(--rule);background:transparent;transition:background .2s ease}
+.cta-2:hover{background:var(--card)}
+.hp{width:246px}
+.hp .screen{height:498px;padding:0}
+.happ{flex:1;display:flex;flex-direction:column;padding:8px 18px 20px;gap:14px;overflow:hidden}
+.happ .card{border:1px solid var(--rule);background:var(--paper);padding:14px}
+.happ .row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.happ .val{font-family:var(--mono);font-size:38px;line-height:1;letter-spacing:-.03em}
+.happ .val i{font-style:normal;font-size:15px;color:var(--ink3);letter-spacing:0}
+.happ .bar{display:flex;gap:2px;margin-top:12px}
+.happ .bar i{flex:1;height:16px;background:#E7E5DE}
+.happ .bar i.d{background:var(--clay)}.happ .bar i.w{background:var(--ochre)}
+.happ .scale{display:flex;justify-content:space-between;margin-top:7px;font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--ink3)}
+.happ .act{border:1px solid var(--ink);background:var(--card);padding:14px;flex:1;display:flex;flex-direction:column}
+.happ .act p{font-size:14.5px;line-height:1.4;margin-top:9px}
+.happ .gain{margin-top:auto;padding-top:12px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.happ .done{border:1px solid var(--rule);background:var(--ink);color:var(--paper);text-align:center;padding:12px;font-size:13.5px}
+.hpfoot{margin-top:16px;text-align:center;max-width:246px;line-height:1.7}
+.figs{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair);margin-top:26px}
 .figs div{padding:16px 14px 0 0}
 .figs .n{font-family:var(--mono);font-size:26px;font-weight:500;letter-spacing:-.02em}
 .figs .k{font-size:12px;color:var(--ink3);margin-top:2px;line-height:1.35}
@@ -156,7 +180,7 @@ form.mini button:disabled{background:var(--ink3);border-color:var(--ink3);cursor
 footer{padding:26px 0 52px;font-size:12px;color:var(--ink3)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--ink2)}
-@media(max-width:900px){
+@media(max-width:900px){ .hero .r{padding:0 0 34px} 
   .hero{grid-template-columns:1fr}
   .hero .l{border-right:none;padding:40px 0 32px}
   .hero .r{padding:0 0 40px}
@@ -172,10 +196,10 @@ footer a{color:var(--ink2)}
 .screen.live-on .sbar{opacity:0;transition:opacity .45s ease}
 .live-wrap iframe{position:absolute;top:0;left:-4.96px;width:430px;height:932px;border:0;
   transform-origin:top left;transform:scale(0.55794);pointer-events:none;background:transparent}
-.livepill{position:absolute;top:10px;left:12px;z-index:7;font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:8.5px;font-weight:600;
+.livepill{position:absolute;top:-10px;left:18px;z-index:9;box-shadow:0 2px 8px rgba(0,0,0,.35);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:8.5px;font-weight:600;
   letter-spacing:.16em;padding:3px 8px;border-radius:999px;background:#2E5A3E;color:#FFFFFF;
   opacity:0;transition:opacity .8s ease;pointer-events:none}
-.screen.live-on .livepill{opacity:1}
+.live-on .livepill{opacity:1}
 .livepill i{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;
   margin-right:5px;vertical-align:1px;animation:livedot 1.6s ease-in-out infinite}
 @keyframes livedot{0%,100%{opacity:1}50%{opacity:.25}}
@@ -211,6 +235,10 @@ footer a{color:var(--ink2)}
     <div class="mono" data-t="kicker">Resource · measured · daily</div>
     <h1 style="margin-top:20px" data-t="h1" data-thtml>Burnout is<br><b>arithmetic</b>,<br>not character</h1>
     <p class="lede" data-t="lede">You have a daily reserve. You spend it on work, short nights and other people's deadlines — and you almost never count what's left. Reserve counts. Then it tells you one thing that gives some of it back.</p>
+    <div class="cta-row">
+      <a class="cta-1" id="heroCta" href="#check" data-t="h_cta1">Check your reserve <em>40 sec</em></a>
+      <a class="cta-2" id="heroSee" href="#app" data-t="h_cta2">See the app</a>
+    </div>
     <div class="figs">
       <div><div class="n" data-t="f1n">2 min</div><div class="k" data-t="f1k">a day, and no more than that</div></div>
       <div><div class="n">1</div><div class="k" data-t="f2k">action instead of a list of tips</div></div>
@@ -218,21 +246,33 @@ footer a{color:var(--ink2)}
     </div>
   </div>
   <div class="r">
-    <div class="gauge">
-      <div class="hd">
-        <div>
-          <div class="mono" data-t="g_today">Your reserve today</div>
-          <div class="val" style="margin-top:6px">41<i>/100</i></div>
+    <div class="phone hp"><div class="island"></div>
+      <div class="screen">
+        <div class="sbar"><span>7:41</span><span class="ic">
+          <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
+        </span></div>
+        <div class="happ">
+          <div class="card">
+            <div class="row">
+              <span class="mono" data-t="g_today">Your reserve today</span>
+              <span class="mono" style="color:var(--clay)" data-t="g_week">−17 this week</span>
+            </div>
+            <div class="val" style="margin-top:8px">41<i>/100</i></div>
+            <div class="bar">
+              <i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="w"></i><i class="w"></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="scale"><span data-t="sc0">0 · EMPTY</span><span>50</span><span data-t="sc100">100 · FULL</span></div>
+          </div>
+          <div class="act">
+            <span class="mono" data-t="p_act_k">Today · one action</span>
+            <p data-t="p_act_t">Close the laptop at 19:00 and leave it at the office.</p>
+            <div class="gain" data-t="p_act_g">+6 to reserve by Thursday</div>
+          </div>
+          <div class="done" data-t="p_done">Done — log it</div>
         </div>
-        <div class="mono" style="color:var(--clay)" data-t="g_week">−17 this week</div>
       </div>
-      <div class="bar">
-        <i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="w"></i><i class="w"></i><i class="w"></i><i class="w"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-      </div>
-      <div class="scale-l"><span data-t="sc0">0 · EMPTY</span><span>50</span><span data-t="sc100">100 · FULL</span></div>
-      <p data-t="g_note">Below 45 you stop recovering over a weekend. It doesn't feel like anything at first — it only shows up in the numbers.</p>
     </div>
-    <div class="mono" style="margin-top:18px;line-height:1.7" data-t="g_foot" data-thtml>* The reserve model is built from your own sleep,<br>recovery and load data over nine days.</div>
+    <div class="mono hpfoot" data-t="g_foot" data-thtml>* The reserve model is built from your own sleep,<br>recovery and load data over nine days.</div>
   </div>
 </div></div>
 
@@ -258,7 +298,7 @@ footer a{color:var(--ink2)}
   <p class="sub" data-t="a_sub">Morning check, one action, weekly summary. Nothing you have to "keep up".</p>
   <div class="strip">
     <div>
-      <div class="phone"><div class="island"></div><div class="screen"><a class="livelink" href="../prototypes/reserve-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="live-wrap"><iframe data-src="../prototypes/reserve-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+      <div class="phone"><div class="island"></div><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="screen"><a class="livelink" href="../prototypes/reserve-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><div class="live-wrap"><iframe data-src="../prototypes/reserve-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
         <div class="sbar"><span>7:08</span><span class="ic">
           <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
           <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
@@ -455,6 +495,7 @@ footer a{color:var(--ink2)}
     f.addEventListener('submit',function(){ setTimeout(function(){step.classList.add('on');},60); });
   });
   var ids=['scAge','scCity','scWear','scData'];
+  [['heroCta','hero_check'],['heroSee','hero_app']].forEach(function(x){var e=document.getElementById(x[0]);if(e)e.addEventListener('click',function(){if(window.track)window.track('cta_click',{from:x[1]});});});
   document.getElementById('scSend').addEventListener('click',function(){
     var a={},n=0;
     ids.forEach(function(id){var v=document.getElementById(id).value; if(v){n++;} a[id.slice(2).toLowerCase()]=v;});
@@ -523,6 +564,9 @@ var T = {
   gate2:"Done. Where should we send the result and your week-one plan?",
   email_ph:"your email", gate_cta:"Show my result",
   ch_fine:'We send the result and a short plan for week one. One email, no newsletter. Health-adjacent data is stored privately and deleted on request. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy policy</a>.',
+  h_cta1:"Check your reserve", h_cta2:"See the app",
+  p_act_k:"Today · one action", p_act_t:"Close the laptop at 19:00 and leave it at the office.",
+  p_act_g:"+6 to reserve by Thursday", p_done:"Done — log it",
   res_k:"Indicative level",
   res_low:"You're running at a deficit. A weekend no longer restores this level — you need one systemic change, not rest \"at some point\".",
   res_mid:"There's still reserve, but you're spending it faster than you replace it. This is the moment when one change is cheap.",
@@ -590,6 +634,9 @@ var T = {
   gate2:"Готово. Куди надіслати результат і план на тиждень?",
   email_ph:"твоя пошта", gate_cta:"Показати результат",
   ch_fine:'Надсилаємо результат і короткий план на перший тиждень. Один лист, без розсилки. Дані про самопочуття зберігаються приватно й видаляються на запит. <a href="../legal/privacy.html" target="_blank" rel="noopener">Політика приватності</a>.',
+  h_cta1:"Перевірити свій запас", h_cta2:"Подивитися застосунок",
+  p_act_k:"Сьогодні · одна дія", p_act_t:"Закрити ноутбук о 19:00 і лишити його в офісі.",
+  p_act_g:"+6 до запасу до четверга", p_done:"Зроблено — відмітити",
   res_k:"Орієнтовний рівень",
   res_low:"Ти працюєш у мінус. За вихідні такий рівень уже не відновлюється — потрібна одна системна зміна, а не відпочинок «колись».",
   res_mid:"Запас ще є, але витрачається швидше, ніж поповнюється. Це той момент, коли одна зміна коштує дешево.",
@@ -722,7 +769,7 @@ var T = {
   if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   window.addEventListener('message',function(e){
     if(e.data && e.data.hai==='clip-ready'){
-      screen.classList.add('live-on');
+      screen.classList.add('live-on'); if(screen.parentNode)screen.parentNode.classList.add('live-on');
       if(window.track) track('clip_visible',{});
     }
   });
@@ -756,6 +803,36 @@ var T = {
 .lp-legal{font-size:inherit;opacity:.85}
 .lp-legal a{cursor:pointer}
 @media(max-width:620px){#lpCb .in{padding:15px 16px}#lpCb .btns{width:100%}#lpCb button{flex:1}}
+
+/* ===== печать и «Сохранить как PDF» ===== */
+@media print{
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff}
+  @page{size:A4;margin:12mm}
+  /* декоративные слои печатаются непрозрачными и закрывают содержимое */
+  .screen::before,.screen::after,.hero::before,.hero::after,
+  .phone::before,.phone::after,.stage::before{display:none!important}
+  /* живой прототип в печать не попадает — показываем статичный экран */
+  .live-wrap,.livepill,.livelink{display:none!important}
+  .sbar{opacity:1!important}
+  .screen{box-shadow:none!important}
+  .phone{box-shadow:none!important}
+  /* интерактивное и служебное */
+  .lang,.langbtn,.calbox,#calBox,#lpCb,.cookie,.consent,#consentBar{display:none!important}
+  /* скрытые шаги лестницы раскрываем, иначе документ обрывается на форме */
+  .step{display:block!important}
+  /* без лишнего воздуха: экранные отступы на бумаге дают пустые полосы */
+  section{padding:16px 0!important;border:none!important}
+  .hero{padding:8px 0 18px!important;min-height:0!important}
+  .stage{margin-top:14px!important;padding-bottom:18px!important}
+  .strip{margin-top:16px!important;gap:14px!important}
+  .booking{margin-top:10px!important}
+  /* режем только между блоками, не внутри них */
+  .phone,.card,.tier,.gauge,.check,.happ,.recall,.strip>div,
+  figure,tr{break-inside:avoid;page-break-inside:avoid}
+  h1,h2,h3{break-after:avoid;page-break-after:avoid}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9px;opacity:.6;word-break:break-all}
+  a[href^="#"]::after{content:""}
+}
 </style>
 <div id="lpCb" role="dialog" aria-live="polite" aria-label="Cookies">
   <div class="in">

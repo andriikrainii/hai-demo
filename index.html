@@ -49,7 +49,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
 <header><div class="wrap">
   <div class="mono">HumanistAI · demand test · demo build</div>
   <h1>One product, four ways of selling it.</h1>
-  <p class="lead">Each page carries a separate brand, palette and voice, and runs the same intent ladder: email, then plan choice, then a call. The point is not which page is prettiest — it is which combination of audience and angle turns traffic into intent.</p>
+  <p class="lead">Each page carries a separate brand, palette and voice, and runs the same intent ladder: an email first, then prices to look at, then a call. Pricing is there to be read, not answered — nothing further is gated behind choosing a plan. The point is not which page is prettiest, but which combination of audience and angle turns traffic into intent.</p>
 </div></header>
 
 <div class="wrap">
@@ -65,7 +65,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
       <div><span>CTA</span><b>waitlist</b></div>
     </div>
     <a class="go" href="pages/meridian.html">Open page →</a>
-    <a class="dl" href="downloads/meridian.zip" download>↓ Download <span>144 KB</span></a>
+    <a class="dl" href="downloads/meridian.zip" download>↓ Download <span>145 KB</span></a>
   </div>
 
   <div class="card" style="--acc:#B08D57">
@@ -78,7 +78,7 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
       <div><span>CTA</span><b>invitation</b></div>
     </div>
     <a class="go" href="pages/keeper.html">Open page →</a>
-    <a class="dl" href="downloads/keeper.zip" download>↓ Download <span>143 KB</span></a>
+    <a class="dl" href="downloads/keeper.zip" download>↓ Download <span>144 KB</span></a>
   </div>
 
   <div class="card" style="--acc:#B4553A">
@@ -91,13 +91,13 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
       <div><span>CTA</span><b>assessment</b></div>
     </div>
     <a class="go" href="pages/reserve.html">Open page →</a>
-    <a class="dl" href="downloads/reserve.zip" download>↓ Download <span>146 KB</span></a>
+    <a class="dl" href="downloads/reserve.zip" download>↓ Download <span>147 KB</span></a>
   </div>
 
   <div class="card" style="--acc:#8CBACB">
     <div class="mono">A-B · achiever × memory</div>
     <div class="nm">Anchor</div>
-    <div class="cl">A coach who remembers who you actually are. Quietest of the four, ends in a conversation rather than a plan.</div>
+    <div class="cl">A coach who remembers who you actually are. Quietest of the four: no pricing, no email form — a live Calendly is the only call to action.</div>
     <div class="meta">
       <div><span>ICP</span><b>achiever</b></div>
       <div><span>Angle</span><b>memory</b></div>
@@ -116,11 +116,11 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
   <div class="grid2">
     <div>
       <h3>The intent ladder</h3>
-      <p>Submitting an email reveals a pricing step; choosing a plan reveals a call step. Nothing is charged. Each rung fires its own event, so intent is measured in stages rather than as a single conversion.</p>
+      <p>Submitting an email reveals the pricing and the call step together. Nothing is charged and no rung is a prerequisite for the next. Each fires its own event, so intent is measured in stages rather than as a single conversion.</p>
     </div>
     <div>
       <h3>The second step</h3>
-      <p>After the email is submitted, four optional questions appear at the foot of the page — age, city, wearable, how often the data gets checked. Dropdowns only. No free text and no questions about state.</p>
+      <p>On the three pages that collect an email, four optional questions appear once it is submitted — age, city, wearable, how often the data gets checked. Dropdowns only. No free text and no questions about state. Anchor books a call instead and has no form.</p>
     </div>
     <div>
       <h3>Consent-gated tracking</h3>
@@ -137,9 +137,9 @@ footer{padding:34px 0 60px;font-size:13px;color:var(--fg3)}
   <div class="mono">Before going live</div>
   <h2>What the demo does not have</h2>
   <ol>
-    <li>Config keys sit at the top of every page in <code>window.LP_CONFIG</code>. <code>FORMSPREE</code>, <code>GA_ID</code>, <code>FB_PIXEL</code> and <code>CALENDLY</code> are placeholders — forms and analytics stay silent until they are filled.</li>
+    <li>Config keys sit at the top of every page in <code>window.LP_CONFIG</code>. <code>FORMSPREE</code>, <code>GA_ID</code> and <code>FB_PIXEL</code> are placeholders on all four pages, and <code>CALENDLY</code> on three — Anchor already points at a real booking link. Forms and analytics stay silent until the rest are filled.</li>
     <li>The prototypes embedded in the phone frames are the full interactive builds and sit in <code>/prototypes</code>. They are the heaviest asset in the repo.</li>
-    <li>Pages are static and self-contained apart from Google Fonts. No build step, no bundler, no framework.</li>
+    <li>Pages are static and self-contained apart from Google Fonts, plus the Calendly widget on Anchor, which loads only when its section comes into view. No build step, no bundler, no framework. Each page also carries a print stylesheet, so “Save as PDF” gives a usable document.</li>
     <li>Paths are relative: pages live in <code>/pages</code> and reach <code>../legal/</code> and <code>../prototypes/</code>. Keeping that layout is the only deployment requirement.</li>
   </ol>
   <p style="font-size:14.5px;color:var(--fg2);margin-top:18px">Each download holds one brand only — the page, the privacy policy and the prototype it embeds, in the folder layout the page expects. Unzip and open <code>pages/&lt;brand&gt;.html</code>; nothing else is required.</p>

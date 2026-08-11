@@ -10,7 +10,7 @@
 window.LP_CONFIG = {
   BRAND:"Anchor", PAGE:"A-B_anchor_memory", ICP:"achiever", ANGLE:"memory", CTA_TYPE:"intro_call",
   FORMSPREE:"https://formspree.io/f/REPLACE_ME",
-  CALENDLY:"https://calendly.com/REPLACE_ME/15min",
+  CALENDLY:"https://calendly.com/andrew-krainii/anchor-intro-meeting",
   GA_ID:"", FB_PIXEL:""
 };
 </script>
@@ -114,14 +114,23 @@ h2{font-size:clamp(26px,3.6vw,40px);line-height:1.1;letter-spacing:-.028em;font-
 .scale i.on{background:var(--amber);border-color:var(--amber)}
 .softbtn{background:var(--amber);color:#2A1B08;text-align:center;font-size:12.5px;font-weight:700;padding:12px;border-radius:999px;margin-top:auto}
 
-.booking{background:var(--cream);border:1px solid var(--line);border-radius:28px;overflow:hidden;display:grid;grid-template-columns:1.05fr .95fr;margin-top:16px}
-.booking .l{padding:46px 42px}
-.booking .r{background:var(--night);color:var(--cream);padding:42px 38px}
+.booking{background:var(--cream);border:1px solid var(--line);border-radius:28px;overflow:hidden;margin-top:16px}
+.booking .l{padding:44px 42px 40px}
+.booking .recall{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:rgba(140,186,203,.08)}
+.booking .recall .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);font-weight:700}
+.booking .recall p{font-size:14px;color:var(--ink2);margin-top:6px;line-height:1.5}
 .booking h2{font-size:clamp(24px,3vw,32px)}
-.slots{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:22px}
-.slot{border:1px solid var(--lined);border-radius:12px;padding:12px;text-align:center;font-size:13px;color:#CBD8DE}
-.slot b{display:block;font-size:11px;color:var(--sky);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;font-weight:700}
-.booking .r .note{font-size:12.5px;color:#8FA3AC;margin-top:18px;line-height:1.5}
+.calbox{display:none;border-top:1px solid var(--line);background:var(--cream)}
+.calbox.on{display:block}
+.calbox.on{display:block;animation:fade .45s ease}
+.calhd{display:flex;align-items:center;justify-content:space-between;padding:18px 42px 14px}
+.calx{background:transparent;border:none;font-size:24px;line-height:1;color:var(--ink2);cursor:pointer;padding:0 4px;font-family:inherit}
+.calx:hover{color:var(--ink)}
+#calMount{height:0;overflow:hidden}
+.calbox.on #calMount{height:1080px}
+#calMount iframe{display:block;width:100%;height:100%;border:0}
+@media(max-width:760px){ .calbox.on #calMount{height:1180px} }
+.calload{padding:40px 20px;text-align:center;font-size:14px;color:var(--ink2)}
 .orlist{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:9px}
 .orlist li{font-size:14.5px;color:var(--ink2);font-weight:300;padding-left:24px;position:relative}
 .orlist li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--leaf)}
@@ -154,10 +163,10 @@ footer a{color:#C3D2D9}
 .screen.live-on .sbar{opacity:0;transition:opacity .45s ease}
 .live-wrap iframe{position:absolute;top:0;left:0.00px;width:430px;height:932px;border:0;
   transform-origin:top left;transform:scale(0.67442);pointer-events:none;background:transparent}
-.livepill{position:absolute;top:10px;left:12px;z-index:7;font-family:"Manrope",sans-serif;font-size:8.5px;font-weight:600;
+.livepill{position:absolute;top:-10px;left:18px;z-index:9;box-shadow:0 2px 8px rgba(0,0,0,.35);font-family:"Manrope",sans-serif;font-size:8.5px;font-weight:600;
   letter-spacing:.16em;padding:3px 8px;border-radius:999px;background:#E0A458;color:#2A1B08;
   opacity:0;transition:opacity .8s ease;pointer-events:none}
-.screen.live-on .livepill{opacity:1}
+.live-on .livepill{opacity:1}
 .livepill i{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;
   margin-right:5px;vertical-align:1px;animation:livedot 1.6s ease-in-out infinite}
 @keyframes livedot{0%,100%{opacity:1}50%{opacity:.25}}
@@ -190,7 +199,7 @@ footer a{color:#C3D2D9}
   <div class="art">
     <div class="phone">
       <div class="notch"></div>
-      <div class="screen"><a class="livelink" href="../prototypes/anchor-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="live-wrap"><iframe data-src="../prototypes/anchor-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+      <span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="screen"><a class="livelink" href="../prototypes/anchor-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><div class="live-wrap"><iframe data-src="../prototypes/anchor-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
         <div class="sbar"><span>7:12</span><span class="ic">
           <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
           <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
@@ -206,7 +215,6 @@ footer a{color:#C3D2D9}
             </div>
             <div class="said" data-t="ph_said">“You've had this exact week before. Let's not run it the same way.”</div>
           </div>
-          <div class="recall"><div class="k" data-t="ph_remember">I remember</div><p data-t="ph_rememberv">In March you said morning training is the only thing that survives a hard week.</p></div>
           <div class="ctrls"><div data-t="ph_pause">Pause</div><div data-t="ph_text">Text</div><div class="end" data-t="ph_end">End</div></div>
         </div>
       </div>
@@ -309,6 +317,7 @@ footer a{color:#C3D2D9}
       </div></div>
       <div class="capl" data-t="cap3">Action</div>
     </div>
+    </div>
   </div>
 </div></section>
 
@@ -323,96 +332,19 @@ footer a{color:#C3D2D9}
         <li data-t="bk_l2">We'll ask where exactly you slip</li>
         <li data-t="bk_l3">We'll tell you honestly if you don't need this</li>
       </ul>
-      <a class="btn-a" href="#" id="bookBtn" style="margin-top:26px" data-t="bk_cta">Pick a time</a>
       <div class="fine" data-t="bk_fine">Free, no sales pitch. The call commits you to nothing.</div>
-
-      <div style="margin-top:30px;border-top:1px solid var(--line);padding-top:24px">
-        <div style="font-weight:700;font-size:15px" data-t="bk_alt">Not ready to talk yet?</div>
-        <form class="mini" id="leadForm">
-          <input type="email" id="email" required placeholder="your email" data-tp="email_ph" aria-label="Email">
-          <button type="submit" data-t="bk_alt_cta">Keep me posted</button>
-        </form>
-        <div class="fine" data-t="bk_alt_fine" data-thtml>One email when we open the group. Health-adjacent data is stored privately and deleted on request. <a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy policy</a>.</div>
-        <div class="step" id="stepThanks">
-          <div class="thanks">
-            <div style="font-weight:700;font-size:15.5px" data-t="th_h">Got it.</div>
-            <p data-t="th_p">If you'd rather not wait for the email, we can talk for fifteen minutes this week.</p>
-            <a href="#" id="bookBtn2" data-t="bk_cta">Pick a time</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="r">
-      <div class="eyebrow" style="color:var(--sky)" data-t="sl_k">Next available</div>
-      <div style="font-size:19px;font-weight:700;margin-top:10px;color:var(--cream)" data-t="sl_h">This week</div>
-      <div class="slots">
-        <div class="slot"><b data-t="sl_wed">Wed</b>10:00</div>
-        <div class="slot"><b data-t="sl_wed">Wed</b>18:30</div>
-        <div class="slot"><b data-t="sl_thu">Thu</b>09:30</div>
-        <div class="slot"><b data-t="sl_thu">Thu</b>19:00</div>
-        <div class="slot"><b data-t="sl_fri">Fri</b>11:00</div>
-        <div class="slot"><b data-t="sl_fri">Fri</b>17:00</div>
-      </div>
-      <div class="note" data-t="sl_note">Exact slots are in the calendar. Online, fifteen minutes, camera optional.</div>
       <div class="recall" style="margin-top:22px"><div class="k" data-t="sl_next">What happens next</div><p data-t="sl_nextv">After the call you either get access to the first group, or we tell you honestly that now isn't the time.</p></div>
+    </div>
+
+    <div class="calbox on" id="calBox" aria-live="polite">
+      <div class="calhd"><span class="eyebrow" data-t="cal_k">Pick a slot</span></div>
+      <div id="calMount"></div>
+      <noscript><a href="https://calendly.com/andrew-krainii/anchor-intro-meeting" target="_blank" rel="noopener">calendly.com/andrew-krainii</a></noscript>
     </div>
   </div>
 </div></section>
 
 
-<!-- ===== second step: quick screener (revealed after lead submit) ===== -->
-<style>
-#stepScreen{padding:0 28px 56px}
-#stepScreen .sc-in{max-width:560px;margin:0 auto;background:rgba(127,127,127,.08);border:1px solid rgba(127,127,127,.26);border-radius:12px;padding:26px 24px}
-#stepScreen h3{font-size:20px;margin:0 0 8px;font-weight:600}
-#stepScreen .sc-sub{font-size:13.5px;opacity:.72;margin:0 0 18px;line-height:1.5}
-#stepScreen label{display:block;font-size:13px;opacity:.85;margin:14px 0 6px}
-#stepScreen select{width:100%;padding:11px 12px;font-size:14.5px;font-family:inherit;color:inherit;background:rgba(127,127,127,.10);border:1px solid rgba(127,127,127,.30);border-radius:8px}
-#stepScreen button{margin-top:20px;width:100%;padding:13px 20px;font-size:14.5px;font-weight:600;font-family:inherit;cursor:pointer;color:inherit;background:transparent;border:1.5px solid currentColor;border-radius:8px}
-#stepScreen button[disabled]{opacity:.4;cursor:default}
-#stepScreen .sc-ok{display:none;font-size:14.5px;text-align:center;padding:8px 0}
-</style>
-<div class="step" id="stepScreen"><div class="sc-in">
-  <h3 data-t="sc_h">Four quick questions</h3>
-  <p class="sc-sub" data-t="sc_sub">Optional. It helps us decide who to talk to first — your place on the list is already saved.</p>
-  <div id="scForm">
-    <label data-t="sc_q1">Your age</label>
-    <select id="scAge"><option value="" data-t="sc_ph">— select —</option><option>18-26</option><option>27-35</option><option>36-45</option><option>46+</option></select>
-    <label data-t="sc_q2">Where you live</label>
-    <select id="scCity"><option value="" data-t="sc_ph">— select —</option><option value="kyiv" data-t="sc_c1">Kyiv</option><option value="ua_other" data-t="sc_c2">Another city in Ukraine</option><option value="outside" data-t="sc_c3">Outside Ukraine</option></select>
-    <label data-t="sc_q3">Do you wear a fitness tracker or smart watch?</label>
-    <select id="scWear"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_w1">No</option><option value="lt3m" data-t="sc_w2">Yes, less than 3 months</option><option value="ge3m" data-t="sc_w3">Yes, 3 months or more</option></select>
-    <label data-t="sc_q4">Do you check the data regularly?</label>
-    <select id="scData"><option value="" data-t="sc_ph">— select —</option><option value="no" data-t="sc_d1">No</option><option value="some" data-t="sc_d2">Sometimes</option><option value="daily" data-t="sc_d3">Yes, most days</option></select>
-    <button id="scSend" type="button" data-t="sc_send">Send</button>
-  </div>
-  <div class="sc-ok" id="scOk" data-t="sc_done">Thank you — that's everything we needed.</div>
-</div></div>
-<script>
-(function(){
-  var step=document.getElementById('stepScreen'); if(!step)return;
-  document.querySelectorAll('form').forEach(function(f){
-    f.addEventListener('submit',function(){ setTimeout(function(){step.classList.add('on');},60); });
-  });
-  var ids=['scAge','scCity','scWear','scData'];
-  document.getElementById('scSend').addEventListener('click',function(){
-    var a={},n=0;
-    ids.forEach(function(id){var v=document.getElementById(id).value; if(v){n++;} a[id.slice(2).toLowerCase()]=v;});
-    if(!n)return;
-    if(window.track)window.track('screen_submit',{answered:n});
-    var C=window.LP_CONFIG||{};
-    if(C.FORMSPREE&&C.FORMSPREE.indexOf('REPLACE')<0){
-      var em=''; var i=document.querySelector('input[type=email]'); 
-      document.querySelectorAll('input[type=email]').forEach(function(x){if(x.value)em=x.value;});
-      fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},
-        body:JSON.stringify({_subject:'screener',email:em,page:C.PAGE,brand:C.BRAND,
-          age:a.age,city:a.city,wearable:a.wear,reads_data:a.data})}).catch(function(){});
-    }
-    document.getElementById('scForm').style.display='none';
-    document.getElementById('scOk').style.display='block';
-  });
-})();
-</script>
 
 <footer><div class="wrap">
   <div data-t="foot1">Anchor · a HumanistAI concept · early access</div>
@@ -456,6 +388,7 @@ var T = {
   th_h:"Got it.", th_p:"If you'd rather not wait for the email, we can talk for fifteen minutes this week.",
   sl_k:"Next available", sl_h:"This week", sl_wed:"Wed", sl_thu:"Thu", sl_fri:"Fri",
   sl_note:"Exact slots are in the calendar. Online, fifteen minutes, camera optional.",
+  cal_k:"Pick a slot",
   sl_next:"What happens next", sl_nextv:"After the call you either get access to the first group, or we tell you honestly that now isn't the time.",
   foot1:"Anchor · a HumanistAI concept · early access",
   foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a> · Not a medical device. Not therapy.',
@@ -508,6 +441,7 @@ var T = {
   th_h:"Записали.", th_p:"Якщо не хочеш чекати листа — можна поговорити 15 хвилин уже цього тижня.",
   sl_k:"Найближчі слоти", sl_h:"Цього тижня", sl_wed:"Ср", sl_thu:"Чт", sl_fri:"Пт",
   sl_note:"Точні слоти — у календарі. Онлайн, 15 хвилин, камера за бажанням.",
+  cal_k:"Оберіть час",
   sl_next:"Що буде далі", sl_nextv:"Після розмови ти або отримуєш доступ до першої групи, або ми чесно кажемо, що зараз не час.",
   foot1:"Anchor · концепт HumanistAI · ранній доступ",
   foot2:'<a href="../legal/privacy.html" target="_blank" rel="noopener">Приватність і дані</a> · Не медичний виріб. Не терапія.',
@@ -573,20 +507,63 @@ var T = {
   setLang(pickLang(),false);
 
   track('page_view');
-  function openCal(){
-    var u=C.CALENDLY,sep=u.indexOf('?')<0?'?':'&',x=Object.keys(utm).map(function(k){return k+'='+encodeURIComponent(utm[k])}).join('&');
-    if(email)x+='&email='+encodeURIComponent(email);
-    window.open(u+sep+x,'_blank');
+  /* Calendly грузится только по клику: до этого стороннего скрипта на странице нет */
+  var calLoaded=false, calLoading=false;
+  function calUrl(pre){
+    var u=C.CALENDLY, sep=u.indexOf('?')<0?'?':'&';
+    var q=['hide_gdpr_banner=1'];
+    for(var k in utm){ if(utm[k]) q.push(k+'='+encodeURIComponent(utm[k])); }
+    if(pre){ q.push('month='+pre.iso.slice(0,7)); q.push('date='+pre.iso); }
+    return u+sep+q.join('&');
   }
-  ['bookBtn','bookBtn2'].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener('click',function(e){e.preventDefault();track('call_click',{from:id});openCal();});});
+  function mount(pre){
+    var el=document.getElementById('calMount'); if(!el) return;
+    el.innerHTML='';
+    window.Calendly.initInlineWidget({
+      url: calUrl(pre), parentElement: el,
+      styles: { height: (window.innerWidth<760 ? 1180 : 1080) + 'px' },
+      prefill: email?{email:email}:{},
+      utm: {utmSource:utm.utm_source||'', utmMedium:utm.utm_medium||'',
+            utmCampaign:utm.utm_campaign||'', utmContent:utm.utm_content||'', utmTerm:utm.utm_term||''}
+    });
+  }
+  function openCal(pre){
+    var box=document.getElementById('calBox'); if(!box){ window.open(calUrl(pre),'_blank'); return; }
+    box.classList.add('on');
+    if(calLoaded){ mount(pre); return; }
+    if(calLoading) return;
+    calLoading=true;
+    document.getElementById('calMount').innerHTML='<div class="calload">…</div>';
+    var css=document.createElement('link'); css.rel='stylesheet';
+    css.href='https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(css);
+    var sc=document.createElement('script'); sc.async=true;
+    sc.src='https://assets.calendly.com/assets/external/widget.js';
+    sc.onload=function(){ calLoaded=true; calLoading=false; mount(pre); };
+    sc.onerror=function(){ calLoading=false; window.open(calUrl(pre),'_blank'); };
+    document.body.appendChild(sc);
+  }
+  /* календарь монтируется, когда блок появляется в поле зрения */
+  (function(){
+    var box=document.getElementById('calBox'); if(!box) return;
+    var fired=false;
+    function go(){ if(fired)return; fired=true; openCal(); }
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ io.disconnect(); go(); } });
+      },{rootMargin:'400px'});
+      io.observe(box);
+    } else { go(); }
+  })();
+  /* Calendly сообщает о завершённой записи родительской странице */
+  window.addEventListener('message',function(e){
+    if(e.data && typeof e.data.event==='string' && e.data.event.indexOf('calendly.')===0){
+      if(e.data.event==='calendly.event_scheduled') track('call_booked',{booked:1});
+    }
+  });
+  /* кнопки «Pick a time» больше нет: календарь виден всегда */
   document.getElementById('heroCall').addEventListener('click',function(){track('cta_click',{from:'hero'});});
   document.getElementById('heroScroll').addEventListener('click',function(){track('cta_click',{from:'hero_secondary'});document.getElementById('how').scrollIntoView({behavior:'smooth'});});
-  document.getElementById('leadForm').addEventListener('submit',function(e){
-    e.preventDefault(); email=document.getElementById('email').value;
-    track('lead_submit',{submitted:1});
-    if(C.FORMSPREE.indexOf('REPLACE')<0){fetch(C.FORMSPREE,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(Object.assign({email:email,page:C.PAGE,brand:C.BRAND,cta:C.CTA_TYPE,lang:LANG},utm))}).catch(function(){});}
-    var t=document.getElementById('stepThanks');t.classList.add('on');t.scrollIntoView({behavior:'smooth'});
-  });
 })();
 </script>
 
@@ -599,7 +576,7 @@ var T = {
   if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   window.addEventListener('message',function(e){
     if(e.data && e.data.hai==='clip-ready'){
-      screen.classList.add('live-on');
+      screen.classList.add('live-on'); if(screen.parentNode)screen.parentNode.classList.add('live-on');
       if(window.track) track('clip_visible',{});
     }
   });
@@ -633,6 +610,36 @@ var T = {
 .lp-legal{font-size:inherit;opacity:.85}
 .lp-legal a{cursor:pointer}
 @media(max-width:620px){#lpCb .in{padding:15px 16px}#lpCb .btns{width:100%}#lpCb button{flex:1}}
+
+/* ===== печать и «Сохранить как PDF» ===== */
+@media print{
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff}
+  @page{size:A4;margin:12mm}
+  /* декоративные слои печатаются непрозрачными и закрывают содержимое */
+  .screen::before,.screen::after,.hero::before,.hero::after,
+  .phone::before,.phone::after,.stage::before{display:none!important}
+  /* живой прототип в печать не попадает — показываем статичный экран */
+  .live-wrap,.livepill,.livelink{display:none!important}
+  .sbar{opacity:1!important}
+  .screen{box-shadow:none!important}
+  .phone{box-shadow:none!important}
+  /* интерактивное и служебное */
+  .lang,.langbtn,.calbox,#calBox,#lpCb,.cookie,.consent,#consentBar{display:none!important}
+  /* скрытые шаги лестницы раскрываем, иначе документ обрывается на форме */
+  .step{display:block!important}
+  /* без лишнего воздуха: экранные отступы на бумаге дают пустые полосы */
+  section{padding:16px 0!important;border:none!important}
+  .hero{padding:8px 0 18px!important;min-height:0!important}
+  .stage{margin-top:14px!important;padding-bottom:18px!important}
+  .strip{margin-top:16px!important;gap:14px!important}
+  .booking{margin-top:10px!important}
+  /* режем только между блоками, не внутри них */
+  .phone,.card,.tier,.gauge,.check,.happ,.recall,.strip>div,
+  figure,tr{break-inside:avoid;page-break-inside:avoid}
+  h1,h2,h3{break-after:avoid;page-break-after:avoid}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9px;opacity:.6;word-break:break-all}
+  a[href^="#"]::after{content:""}
+}
 </style>
 <div id="lpCb" role="dialog" aria-live="polite" aria-label="Cookies">
   <div class="in">

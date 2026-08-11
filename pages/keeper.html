@@ -29,21 +29,25 @@ body{background:var(--ivory);color:var(--ink);font-family:var(--sans);line-heigh
 .wide{max-width:1040px}
 .label{font-size:10.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:600}
 
-header.mast{text-align:center;padding:20px 0 0;position:relative}
+header.mast{text-align:center;padding:14px 0 0;position:relative}
 .lang{position:absolute;right:26px;top:18px;display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden}
 .langbtn{background:transparent;border:none;color:var(--ink3);font-size:10.5px;letter-spacing:.14em;padding:6px 10px;cursor:pointer;font-family:var(--sans);font-weight:600}
 .langbtn.on{background:var(--plum);color:#F4EEF4}
-.mark{display:inline-flex;flex-direction:column;align-items:center;gap:9px;margin-top:14px}
+.mark{display:inline-flex;flex-direction:column;align-items:center;gap:7px;margin-top:10px}
 .mark .nm{font-family:var(--serif);font-size:23px;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
-.rule{width:52px;height:1px;background:var(--line);margin:22px auto 0}
+.rule{width:52px;height:1px;background:var(--line);margin:14px auto 0}
 
-.hero{text-align:center;padding:46px 0 0}
+.hero{text-align:center;padding:26px 0 0}
 .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(40px,7vw,68px);line-height:1.04;letter-spacing:-.012em}
 .hero h1 i{color:var(--plum)}
-.hero .deck{font-size:17px;font-weight:300;color:var(--ink2);max-width:44ch;margin:24px auto 0}
-.hero .invite{margin-top:26px;font-size:13px;color:var(--ink3);letter-spacing:.04em}
+.hero .deck{font-size:17px;font-weight:300;color:var(--ink2);max-width:44ch;margin:16px auto 0}
+.hero .herocta{display:inline-block;margin-top:22px;padding:14px 30px;border-radius:999px;background:var(--plum);color:var(--ivory);
+  text-decoration:none;font-size:14.5px;font-weight:500;letter-spacing:.01em;transition:transform .2s ease,box-shadow .2s ease;
+  box-shadow:0 8px 22px -10px rgba(76,46,80,.7)}
+.herocta:hover{transform:translateY(-1px);box-shadow:0 12px 26px -10px rgba(76,46,80,.8)}
+.invite{margin-top:14px;font-size:13px;color:var(--ink3);letter-spacing:.04em}
 
-.stage{margin-top:52px;background:linear-gradient(180deg,transparent 0 88px,var(--plum) 88px 100%);padding-bottom:66px}
+.stage{margin-top:30px;background:linear-gradient(180deg,transparent 0 88px,var(--plum) 88px 100%);padding-bottom:66px}
 .stage .inner{display:flex;justify-content:center}
 .phone{position:relative;width:296px;border-radius:46px;background:linear-gradient(148deg,#F3EDE2 0 6%,#C4BAAC 22%,#8E8579 52%,#DCD3C4 78%,#A79E92);padding:9px;box-shadow:0 46px 90px -34px rgba(27,24,32,.5)}
 .phone .screen{border-radius:38px;overflow:hidden;background:var(--ivory);height:602px;display:flex;flex-direction:column;position:relative}
@@ -74,7 +78,7 @@ header.mast{text-align:center;padding:20px 0 0;position:relative}
 .composer span{font-size:11.5px;color:var(--ink3);flex:1}
 .composer .mic{width:26px;height:26px;border-radius:50%;background:var(--plum);flex:none}
 
-section{padding:74px 0}
+section{padding:52px 0}
 .letter{font-family:var(--serif);font-size:clamp(21px,2.7vw,27px);line-height:1.5;font-weight:300;text-align:center;color:var(--ink)}
 .letter em{color:var(--plum);font-style:italic}
 .sig{margin-top:26px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3)}
@@ -128,10 +132,10 @@ footer a{color:var(--ink2)}
 .screen.live-on .sbar{opacity:0;transition:opacity .45s ease}
 .live-wrap iframe{position:absolute;top:0;left:0.00px;width:430px;height:932px;border:0;
   transform-origin:top left;transform:scale(0.64651);pointer-events:none;background:transparent}
-.livepill{position:absolute;top:10px;left:12px;z-index:7;font-family:"Karla",sans-serif;font-size:8.5px;font-weight:600;
+.livepill{position:absolute;top:-10px;left:18px;z-index:9;box-shadow:0 2px 8px rgba(0,0,0,.35);font-family:"Karla",sans-serif;font-size:8.5px;font-weight:600;
   letter-spacing:.16em;padding:3px 8px;border-radius:999px;background:#4C2E50;color:#F5EFF3;
   opacity:0;transition:opacity .8s ease;pointer-events:none}
-.screen.live-on .livepill{opacity:1}
+.live-on .livepill{opacity:1}
 .livepill i{display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;
   margin-right:5px;vertical-align:1px;animation:livedot 1.6s ease-in-out infinite}
 @keyframes livedot{0%,100%{opacity:1}50%{opacity:.25}}
@@ -159,8 +163,9 @@ footer a{color:var(--ink2)}
 <div class="wrap">
   <div class="hero">
     <div class="label" data-t="tag">By invitation · autumn cohort</div>
-    <h1 style="margin-top:18px" data-t="h1" data-thtml>A coach who <i>actually</i> remembers you.</h1>
+    <h1 style="margin-top:12px" data-t="h1" data-thtml>A coach who <i>actually</i> remembers you.</h1>
     <p class="deck" data-t="deck">Most coaching forgets you between sessions. Keeper reads your sleep, recovery and mood, holds on to every pattern you've ever shown it, and gives you one action a day — in a voice that already knows your context.</p>
+    <div><a class="herocta" id="heroCta" href="#apply" data-t="inv_cta">Request an invitation</a></div>
     <div class="invite" data-t="invite">Private, not therapy · 40 places in the first cohort</div>
   </div>
 </div>
@@ -168,7 +173,7 @@ footer a{color:var(--ink2)}
 <div class="stage"><div class="inner">
   <div class="phone">
     <div class="notch"></div>
-    <div class="screen"><a class="livelink" href="../prototypes/keeper-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="live-wrap"><iframe data-src="../prototypes/keeper-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
+    <span class="livepill"><i></i><span data-t="livepill">LIVE</span></span><div class="screen"><a class="livelink" href="../prototypes/keeper-prototype.html" target="_blank" rel="noopener" aria-label="Open the live prototype"></a><div class="live-wrap"><iframe data-src="../prototypes/keeper-prototype.html?clip=1" title="Live prototype demo" scrolling="no" tabindex="-1" aria-hidden="true"></iframe></div>
       <div class="sbar"><span>7:14</span><span class="ic">
         <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor" aria-hidden="true"><rect y="7.6" width="3" height="3.4" rx="1"/><rect x="4.6" y="5.4" width="3" height="5.6" rx="1"/><rect x="9.2" y="2.9" width="3" height="8.1" rx="1"/><rect x="13.8" width="3" height="11" rx="1" opacity=".32"/></svg>
         <svg width="16" height="11" viewBox="0 0 16 11" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6.3 8.2a2.6 2.6 0 0 1 3.4 0"/><path d="M4.1 5.6a5.6 5.6 0 0 1 7.8 0"/><path d="M1.9 3a8.8 8.8 0 0 1 12.2 0"/></svg>
@@ -350,6 +355,7 @@ footer a{color:var(--ink2)}
     f.addEventListener('submit',function(){ setTimeout(function(){step.classList.add('on');},60); });
   });
   var ids=['scAge','scCity','scWear','scData'];
+  var _hc=document.getElementById('heroCta');if(_hc)_hc.addEventListener('click',function(){if(window.track)window.track('cta_click',{from:'hero'});});
   document.getElementById('scSend').addEventListener('click',function(){
     var a={},n=0;
     ids.forEach(function(id){var v=document.getElementById(id).value; if(v){n++;} a[id.slice(2).toLowerCase()]=v;});
@@ -554,7 +560,7 @@ var T = {
   if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   window.addEventListener('message',function(e){
     if(e.data && e.data.hai==='clip-ready'){
-      screen.classList.add('live-on');
+      screen.classList.add('live-on'); if(screen.parentNode)screen.parentNode.classList.add('live-on');
       if(window.track) track('clip_visible',{});
     }
   });
@@ -588,6 +594,36 @@ var T = {
 .lp-legal{font-size:inherit;opacity:.85}
 .lp-legal a{cursor:pointer}
 @media(max-width:620px){#lpCb .in{padding:15px 16px}#lpCb .btns{width:100%}#lpCb button{flex:1}}
+
+/* ===== печать и «Сохранить как PDF» ===== */
+@media print{
+  html,body{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#fff}
+  @page{size:A4;margin:12mm}
+  /* декоративные слои печатаются непрозрачными и закрывают содержимое */
+  .screen::before,.screen::after,.hero::before,.hero::after,
+  .phone::before,.phone::after,.stage::before{display:none!important}
+  /* живой прототип в печать не попадает — показываем статичный экран */
+  .live-wrap,.livepill,.livelink{display:none!important}
+  .sbar{opacity:1!important}
+  .screen{box-shadow:none!important}
+  .phone{box-shadow:none!important}
+  /* интерактивное и служебное */
+  .lang,.langbtn,.calbox,#calBox,#lpCb,.cookie,.consent,#consentBar{display:none!important}
+  /* скрытые шаги лестницы раскрываем, иначе документ обрывается на форме */
+  .step{display:block!important}
+  /* без лишнего воздуха: экранные отступы на бумаге дают пустые полосы */
+  section{padding:16px 0!important;border:none!important}
+  .hero{padding:8px 0 18px!important;min-height:0!important}
+  .stage{margin-top:14px!important;padding-bottom:18px!important}
+  .strip{margin-top:16px!important;gap:14px!important}
+  .booking{margin-top:10px!important}
+  /* режем только между блоками, не внутри них */
+  .phone,.card,.tier,.gauge,.check,.happ,.recall,.strip>div,
+  figure,tr{break-inside:avoid;page-break-inside:avoid}
+  h1,h2,h3{break-after:avoid;page-break-after:avoid}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:9px;opacity:.6;word-break:break-all}
+  a[href^="#"]::after{content:""}
+}
 </style>
 <div id="lpCb" role="dialog" aria-live="polite" aria-label="Cookies">
   <div class="in">
